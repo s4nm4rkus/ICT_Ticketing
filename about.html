@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/styles.css" />
+    <title>About Us - ICT Department</title>
+</head>
+<body>
+
+    <div class="Top">
+        <header>
+            <div class="logo">
+                <img src="./Images/logo.jpg" alt="Lorem Ipsum Logo">
+                <h1>SDO Tayabas</h1>
+            </div>
+            <nav>
+                <a href="ICTRequestForm.html">Home</a>
+                <a href="forms.html">Forms</a>
+                <a href="about.html"class="active">About Us</a>
+            </nav>
+            <button class="admin-btn" onclick="location.href='login.html'">Admin</button>
+        </header>
+
+        <div class="edu-banner">
+            <div class="banner-logos">
+                <img src="images/deped.png" alt="DepEd Logo" class="deped-logo">
+                <img src="./Images/pilipinas.png" alt="Philippines Logo" class="ph-logo">
+                <img src="./Images/logo.png" alt="Tayabas City Logo" class="tayabas-logo">
+            </div>
+            <div class="banner-text">
+                <h2>REPUBLIC OF THE PHILIPPINES</h2>
+                <h1>DEPARTMENT OF EDUCATION</h1>
+                <h3>SCHOOLS DIVISION OFFICE OF TAYABAS CITY</h3>
+            </div>
+            <div class="date-display">
+                <p>Philippine Standard Time:</p>
+                <p id="current-date-time"></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="main-content">
+            <h1 class="page-title">About Us</h1>
+            <p class="p1">Welcome to the ICT Department. We are responsible for handling technical support, system management, and IT-related services for the organization.</p>
+            </br>
+            
+            <div class="ict-head-section">
+                <div class="profile-card-container" onclick="openModal('./Images/3.jpg')">
+                    <div class="profile-image-wrapper">
+                        <img src="./Images/3.jpg" alt="Mark Bryan F. Valencia" class="profile-image">
+                    </div>
+                    <div class="profile-card">
+                        <h3>Mark Bryan F. Valencia</h3>
+                        <p>Information Technology Officer I</p>
+                    </div>
+                </div>
+            
+                <div class="profile-card-container" onclick="openModal('./Images/2.jpg')">
+                    <div class="profile-image-wrapper">
+                        <img src="./Images/2.jpg" alt="Celedonio 'Don' B. Balderas, Jr." class="profile-image">
+                    </div>
+                    <div class="profile-card">
+                        <h3>Celedonio "Don" B. Balderas, Jr.</h3>
+                        <p>Schools Division Superintendent</p>
+                    </div>
+                </div>
+            
+                <div class="profile-card-container" onclick="openModal('./Images/1.jpg')">
+                    <div class="profile-image-wrapper">
+                        <img src="./Images/1.jpg" alt="Herbert Perez" class="profile-image">
+                    </div>
+                    <div class="profile-card">
+                        <h3>Herbert D. Perez</h3>
+                        <p>Assistant Schools Division Superintendent</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="imageModal" class="modal">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <img class="modal-content" id="modalImage">
+            </div>
+            
+        </div>
+    <div class="about-section">
+    <h2>About the ICT Ticketing Form Website</h2>
+    <p>
+        The ICT Ticketing Form Website is an online platform designed to streamline requests for 
+        technical assistance and document-related services within the City Schools Division of Tayabas, 
+        Region IV-A CALABARZON. This system enables faculty, staff, and other personnel to conveniently 
+        submit their ICT-related concerns and track their requests efficiently.
+    </p>
+
+    <h3>Purpose</h3>
+    <p>
+        This website serves as a centralized hub for processing various ICT-related requests, including:
+    </p>
+    <ul>
+        <li><b>Technical Assistance</b> – Repair, network management, software installation, configuration, and internet connectivity issues.</li>
+        <li><b>Document Services</b> – Requesting retrieval, editing, or cancellation of official documents.</li>
+        <li><b>Email Support</b> – Creating or resetting official email accounts.</li>
+        <li><b>Help Desk Inquiries</b> – Submitting general IT concerns for evaluation and resolution.</li>
+    </ul>
+
+    <h3>How It Works</h3>
+    <ol>
+        <li><b>Submit a Request</b> – Fill out the appropriate form based on your need.</li>
+        <li><b>ICT Review & Processing</b> – The ICT team will evaluate and address your request.</li>
+        <li><b>Updates & Completion</b> – You will receive status updates and final resolutions.</li>
+    </ol>
+
+    <p>
+        By utilizing this website, we aim to enhance service efficiency, improve response time, and 
+        provide seamless support for all ICT-related needs.
+    </p>
+
+    <p>
+        For more information, visit our official website: 
+        <a href="https://www.sdotayabascity.ph">https://www.sdotayabascity.ph</a> 
+        or contact us at <a href="mailto:tayabas.city@deped.gov.ph">tayabas.city@deped.gov.ph</a>.
+    </p>
+</div>
+</div>
+
+    <div class="gov-logos">
+        <div class="logo-container">
+            <img src="./Images/transparency.png" alt="Transparency Seal">
+        </div>
+        
+        <div class="logo-container">
+            <img src="./Images/deped.png" alt="DepEd Matatag Logo">
+        </div>
+        
+        <div class="logo-container">
+            <img src="./Images/pilipinas.png" alt="Bagong Pilipinas Logo">
+        </div>
+        
+        <div class="logo-container">
+            <img src="./Images/freedom.png" alt="Freedom of Information Logo">
+        </div>
+    </div>
+
+
+    <script src="js/modal.js"></script>
+    <script src="js/calendar.js"></script>
+    <script src="js/transition.js"></script>
+
+    <footer class="footer">
+        <p>Copyright © 2025 Ticketing. All Rights Reserved</p>
+        <div class="developer-credits">
+            <p>Developed by: Angela Faith M. Salazar and Arien R. Peredo</p>
+        </div>
+    </footer>
+</body>
+</html>

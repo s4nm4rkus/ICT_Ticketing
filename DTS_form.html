@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/form.css" />
+    <title>DTS Request Form</title>
+</head>
+<body>
+    <div class="admin-container">
+        <div class="admin-header">
+            <div class="admin-logo">
+                <img src="./Images/logo.jpg" alt="Logo" class="admin-logo-img">
+                <span class="admin-logo-text">SDO Tayabas City</span>
+            </div>
+            <a href="DTS_list.php" class="admin-back-btn">Back</a>
+        </div>
+        
+        <h1 class="admin-title">DTS Request Form</h1>
+        
+        <div class="form-container">
+            <div class="department-header">
+                <div class="department-logos-01">
+                    <img src="./Images/kagawaran.png" alt="Logo 1" class="department-logo">
+                </div>
+                <div class="department-title">Republic of the Philippines</div>
+                <div class="department-subtitle">Department of Education</div>
+                <div class="department-title-01">REGION IV- A CALABARZON</div>
+                <div class="department-title-01">CITY SCHOOLS DIVISION OF THE CITY OF TAYABAS</div>
+            </div>
+
+            <div class="form-title">DTS Request Form</div>
+
+            <div class="form-row">
+                <div class="form-field">
+                    <div class="form-label">DTS Number:</div>
+                    <label class="form-input" id="dts_number" name="dts_number"></label>
+                </div>
+                <div class="form-field">
+                    <div class="form-label">Date:</div>
+                    <label class="form-input" id="date" name="date"></label>
+                </div>
+            </div>
+        
+            <div class="form-field">
+                <div class="form-label">Requester Name (First Name, M.I., Last Name):</div>
+                <label class="form-input" id="name_requester" name="name_requester"></label>
+            </div>
+        
+            <div class="form-row">
+                <div class="form-field">
+                    <div class="form-label">Mobile Number:</div>
+                    <label class="form-input" id="mobile_number" name="mobile_number"></label>
+                </div>
+                <div class="form-field">
+                    <div class="form-label">School:</div>
+                    <label class="form-input" id="school" name="school"></label>
+                </div>
+            </div>
+
+            
+            <p><strong>Type of Request:</strong></p>
+
+            <div class="dts-form-container">
+                <div class="box">
+                    <div class="form-group">
+                        <input type="checkbox" id="retrieve">
+                        <label for="retrieve"><strong>Retrieve:</strong></label>
+                    </div>
+                    <div class="form-group">
+                        <label>To (Unit Name):</label>
+                        <label id="unitName" class="dts-label"></label>
+                    </div>
+                    <div class="form-group">
+                        <label>Reason:</label>
+                    </div>
+                    <label id="reason" class="dts-label textarea-field"></label>
+                </div>
+            
+                <div class="box">
+                    <div class="form-group">
+                        <input type="checkbox" id="edit-title">
+                        <label for="edit-title"><strong>Edit Document Title:</strong></label>
+                    </div>
+                    <div class="form-group">
+                        <label>New title:</label>
+                    </div>
+                    <label id="newTitle" class="dts-label textarea-field"></label>
+                    <div class="form-group">
+                        <label>Reason:</label>
+                    </div>
+                    <label id="editReason" class="dts-label textarea-field"></label>
+                </div>
+            </div>
+            
+            <div class="full-width">
+                <input type="checkbox" id="cancel-transaction">
+                <label for="cancel-transaction"><strong>Cancel Transaction:</strong></label>
+                <label id="cancelReason" class="dts-label"></label>
+            </div>
+            
+            <div class="full-width">
+                <input type="checkbox" id="reset-password">
+                <label for="reset-password"><strong>Reset Password:</strong></label>
+                <label id="emailAddress" class="dts-label"></label>
+            </div>
+            
+            <div class="add-document-box">
+                <div class="form-group">
+                    <input type="checkbox" id="add-document">
+                    <label for="add-document"><strong>Add Document:</strong></label>
+                </div>
+                <div class="form-group">
+                    <label>Type of Document:</label>
+                    <label id="documentType" class="dts-label"></label>
+                </div>
+                <div class="form-group">
+                    <label>Days of Process:</label>
+                    <label id="processDays" class="dts-label small-input"></label>
+                </div>
+            </div>
+            
+            <div class="full-width">
+                <input type="checkbox" id="new-user">
+                <label for="new-user"><strong>New User Email Address:</strong></label>
+                <label id="newUserEmail" class="dts-label"></label>
+            </div>
+            
+        
+            <br><br>
+            <div class="signature-line"></div>
+            <p style="text-align: center;"><strong>Requester’s Signature</strong></p>
+        
+
+            <div class="ict-label">To be filled by the ICT Unit</div>
+
+            <table class="ict-table">
+                <tr>
+                    <td colspan="2"><strong>Received by:</strong></td>
+                </tr>
+                <tr>
+                    <td style="width: 50%;"><strong>Action Taken</strong></td>
+                        
+                    <td><strong>Remarks/Recommendation</strong></td>
+                </tr>
+                <tr>
+                    <td style="height: 100px;">
+                        <textarea class="form-input" style="width: 360px; height: 80px;"></textarea>
+                        </td>
+                    <td><textarea class="form-input" style="width: 360px; height: 80px;"></textarea></td>
+                </tr>
+            </table>
+
+            <div class="footer-container">
+                <div class="top-border"></div>
+                <div class="footer-01">
+                    <div class="footer-left">
+                        <img src="./Images/deped.png" alt="DepEd Logo" class="footer-logo">
+                        <img src="./Images/pilipinas.png" alt="Bagong Pilipinas Logo" class="footer-logo">
+                        <img src="./Images/logo.png" alt="Tayabas City Logo" class="footer-logo">
+                    </div>
+                    <div class="footer-info">
+                        Address: Brgy. Potol, Tayabas City<br>
+                        Telephone No.: (042) 785-9615<br>
+                        Email Address: tayabas.city@deped.gov.ph<br>
+                        Website: https://www.sdotayabascity.ph
+                    </div>
+                    <table class="footer-table">
+                        <tr>
+                            <td>Doc. Ref. Code</td>
+                            <td>SDO-OSDS-F020</td>
+                            <td>Rev</td>
+                            <td>00</td>
+                        </tr>
+                        <tr>
+                            <td>Effectivity</td>
+                            <td>01.08.24</td>
+                            <td>Page</td>
+                            <td>1 of 1</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+    </div>
+
+    <a href="#" class="print-btn" onclick="printForm()">Print Form</a>
+</div>
+
+<footer class="footer">
+    <p>Copyright © 2025 Ticketing. All Rights Reserved</p>
+    <div class="developer-credits">
+        <p>Developed by: Angela Faith M. Salazar and Arien R. Peredo</p>
+    </div>
+</footer>
+<script src="js/DTS_form.js"></script>
+</body>
+</html>

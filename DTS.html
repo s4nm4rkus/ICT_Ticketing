@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/ict.css" />
+    <title>DTS Request Form</title>
+    <style>
+    </style>
+</head>
+<div class="page-container">
+    <div class="ict-header">ICT</div>
+    
+    <div class="container">
+        <header>
+            <div class="logo">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' fill='%2397d700'%3E%3Ccircle cx='50' cy='50' r='45'/%3E%3C/svg%3E" alt="Logo">
+                <span>SDO Tayabas</span>
+            </div>
+        </header>
+        
+        <div class="form-container">
+            <a href="forms.html" class="back-btn">Back</a>
+            
+            <h1 class="form-title">DTS Request Form</h1>
+            
+            <div>
+                <form id="myForm">
+                    <div class="form-group">
+                        <label for="date">Date</label>
+                        <input type="date" id="date" name="date" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="dtsNumber">DTS Number</label>
+                        <input type="text" id="dtsNumber" name="dtsNumber" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="requesterName">Requester Name</label>
+                        <input type="text" id="requesterName" name="requesterName" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="mobileNumber">Mobile Number</label>
+                        <input type="text" id="mobileNumber" name="mobileNumber" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="school">School</label>
+                        <input type="text" id="school" name="school" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Type of Request</label>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <label for="retrieve">
+                                <input type="radio" id="retrieve" name="requestType" value="retrieve" checked>Retrieve
+                                </label>
+                            </div>
+                            <div class="radio-option">
+                                <label for="editDocument">
+                                <input type="radio" id="editDocument" name="requestType" value="editDocument">Edit Document Title
+                                </label>
+                            </div>
+                            <div class="radio-option">
+                                <label for="cancelTransaction">
+                                <input type="radio" id="cancelTransaction" name="requestType" value="cancelTransaction">Cancel Transaction
+                                </label>
+                            </div>
+                            <div class="radio-option">
+                                <label for="resetPassword">
+                                <input type="radio" id="resetPassword" name="requestType" value="resetPassword">Reset Password
+                                </label>
+                            </div>
+                            <div class="radio-option">
+                                <label for="addDocument">
+                                <input type="radio" id="addDocument" name="requestType" value="addDocument">Add Document
+                                </label>
+                            </div>
+                            <div class="radio-option">
+                                <label for="newUserEmail">
+                                <input type="radio" id="newUserEmail" name="requestType" value="newUserEmail">New user Email Address
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="retrieveFields" class="conditional-fields">
+                        <div class="form-group">
+                            <label for="unitName">To (Unit Name)</label>
+                            <select id="unitName" name="unitName">
+                                <option value="" disabled selected>-- Select Department --</option> 
+                                <option value="Accounting">Accounting</option>
+                                <option value="Administrative Office">Administrative Office</option>
+                                <option value="Budget">Budget</option>
+                                <option value="Cash">Cash</option>
+                                <option value="CID">CID</option>
+                                <option value="EFS">EFS</option>
+                                <option value="Health">Health</option>
+                                <option value="Legal">Legal</option>
+                                <option value="Library Hub">Library Hub</option>
+                                <option value="LRMD">LRMD</option>
+                                <option value="Office of the ASDS">Office of the ASDS</option>
+                                <option value="Office of the SDS">Office of the SDS</option>
+                                <option value="Personnel">Personnel</option>
+                                <option value="Planning">Planning</option>
+                                <option value="Private School">Private School</option>
+                                <option value="Procurement">Procurement</option>
+                                <option value="Property and Supply">Property and Supply</option>
+                                <option value="Records">Records</option>
+                                <option value="Research">Research</option>
+                                <option value="SGOD">SGOD</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="reason">Reason</label>
+                            <input type="text" id="reason" name="reason">
+                        </div>
+                    </div>
+                    
+                    <div id="editDocumentFields" class="conditional-fields">
+                        <div class="form-group">
+                            <label for="newTitle">New Title</label>
+                            <input type="text" id="newTitle" name="newTitle">
+                        </div>
+                        <div class="form-group">
+                            <label for="editReason">Reason</label>
+                            <input type="text" id="editReason" name="editReason">
+                        </div>
+                    </div>
+                    
+                    <div id="cancelTransactionFields" class="conditional-fields">
+                        <div class="form-group">
+                            <label for="cancelReason">Reason</label>
+                            <input type="text" id="cancelReason" name="cancelReason">
+                        </div>
+                    </div>
+                    
+                    <div id="resetPasswordFields" class="conditional-fields">
+                        <div class="form-group">
+                            <label for="emailAddress">Email Address</label>
+                            <input type="email" id="emailAddress" name="emailAddress">
+                        </div>
+                    </div>
+                    
+                    <div id="addDocumentFields" class="conditional-fields">
+                        <div class="form-group">
+                            <label for="documentType">Type of document</label>
+                            <input type="text" id="documentType" name="documentType">
+                        </div>
+                        <div class="form-group">
+                            <label for="processDays">Days of process</label>
+                            <input type="number" id="processDays" name="processDays">
+                        </div>
+                    </div>
+                    
+                    <div id="newUserEmailFields" class="conditional-fields">
+                        <div class="form-group">
+                            <label for="newEmail">New user email address</label>
+                            <input type="email" id="newEmail" name="newEmail">
+                        </div>
+                    </div>
+                    
+                    <div class="form-buttons">
+                        <button type="button"  class="cancel-btn" onclick="location.href='forms.html'">Cancel</button>
+                        <button type="submit" class="submit-btn">Submit</button>
+                    </div>
+                </form>
+                <div id="notification" style="display:none; padding: 10px; background: #4CAF50; color: white; text-align: center; margin-top: 10px;">
+                    Your application has been submitted successfully!
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/dts-form.js"></script>
+</body>
+</html>

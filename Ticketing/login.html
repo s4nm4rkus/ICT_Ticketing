@@ -1,0 +1,69 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/login.css" />
+    <title>DepEd Division of Tayabas City - Admin Login</title>
+</head>
+<body>
+    <a href="./ICTRequestForm.html" class="admin-btn" onclick="goBack()"><strong>X</strong></a>
+    <div class="container">
+        <div class="left-panel">
+            <div class="content">
+                <h1 class="vision-title">DepEd Vision</h1>
+                <p class="vision-text">
+                    We dream of Filipinos
+                    who passionately love their country
+                    and whose values and competencies
+                    enable them to realize their full potential
+                    and contribute meaningfully to building the nation.
+                </br>
+                    As a learner-centered public institution,
+                    the Department of Education
+                    continuously improves itself to better serve its stakeholders
+                </p>
+                
+                <h1 class="mission-title">DepEd Mission</h1>
+                <p class="mission-text">
+                    To protect and promote the right of every Filipino to
+                    quality, equitable, culture-based, and complete basic
+                    education where
+                    Students learn in a child-friendly, gender-sensitive,
+                    safe, and motivating environment.
+                    Teachers facilitate learning and constantly nurture
+                    every learner.
+                    Administrators and staff, as stewards of the institution,
+                    ensure an enabling and supportive environment for
+                    effective learning to happen. Family, community, and
+                    other stakeholders are actively engaged and share
+                    responsibility for developing life-long learners.
+                </p>
+            </div>
+        </div>
+
+        <div class="right-panel">
+            <img src="./Images/logo.png" alt="Division of Tayabas City Logo" class="logo">
+            
+            <div class="login-container">
+                <h1 class="login-title">Admin Login</h1>
+                <p class="welcome-text">WELCOME!</p>
+                
+                <form action="login.php" method="POST">
+                    <input type="text" class="input-field" placeholder="Username" required id="username" name="username">
+                    
+                    <div class="password-wrapper">
+                        <input type="password" class="input-field" placeholder="Password" required id="password" name="password">
+                        <button type="button" class="toggle-password">
+                            <img id="eye-icon" src="./Images/hidden.png" alt="Toggle Password">
+                        </button>
+                    </div>
+                    
+                    <button type="submit" class="login-btn">Log In</button>
+                </form>
+                
+            </div>
+        </div>
+    </div>
+    <script src="js/login.js"></script>
+</body>
+</html>

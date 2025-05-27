@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/form.css" />
+    <title>ICT Technical Assistance Form</title>
+    <style>
+    </style>
+</head>
+<body>
+    <div class="admin-container">
+        <div class="admin-header">
+            <div class="admin-logo">
+                <img src="./Images/logo.jpg" alt="Logo" class="admin-logo-img">
+                <span class="admin-logo-text">SDO Tayabas City</span>
+            </div>
+            <a href="ict_list.php" class="admin-back-btn">Back</a>
+        </div>
+
+        
+        <h1 class="admin-title">ICT Technical Assistance Form</h1>
+        
+        <div class="form-container">
+            <div class="department-header">
+                <div class="department-logos-011">
+                    <img src="./Images/kagawaran.png" alt="Logo 1" class="department-logo-011">
+                    <img src="./Images/logo.png" alt="Logo 2" class="department-logo-011">
+                </div>
+                <div class="department-title">Republic of the Philippines</div>
+                <div class="department-subtitle">Department of Education</div>
+                <div class="department-title-01">REGION IV- A CALABARZON</div>
+                <div class="department-title-01">CITY SCHOOLS DIVISION OF THE CITY OF TAYABAS</div>
+            </div>
+            
+            <div class="form-title">ICT Technical Assistance Form</div>
+            <div class="form-row">
+                <div class="form-field">
+                    <div class="form-label">Requester's Name:</div>
+                    <span class="form-input" id="requester_name">Requester's Name</span>
+                </div>
+                <div class="form-field">
+                    <div class="form-label">Date Reported:</div>
+                    <span class="form-input" id="date_reported">Date Reported</span>
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-field">
+                    <div class="form-label">Position:</div>
+                    <span class="form-input" id="position">Position</span>
+                </div>
+                <div class="form-field">
+                    <div class="form-label">Dep't/Unit/Section:</div>
+                    <span class="form-input" id="department">Dep't/Unit/Section</span>
+                </div>
+            </div>
+            
+            <div class="form-field">
+                <div class="form-label">Technical Assistance:</div>
+            </div>
+            
+            <div class="checkbox-container">
+                <div class="checkbox-field">
+                    <input type="checkbox" id="repair" name="assistance_type" value="Repair">
+                    <label for="repair">Repair</label>
+                </div>
+                <div class="checkbox-field">
+                    <input type="checkbox" id="network" name="assistance_type" value="Network Management">
+                    <label for="network">Network Management</label>
+                </div>
+                <div class="checkbox-field">
+                    <input type="checkbox" id="installation" name="assistance_type" value="Installation">
+                    <label for="installation">Installation</label>
+                </div>
+                <div class="checkbox-field">
+                    <input type="checkbox" id="setup" name="assistance_type" value="Set-up">
+                    <label for="setup">Set-Up</label>
+                </div>
+                <div class="checkbox-field">
+                    <input type="checkbox" id="internet" name="assistance_type" value="Internet Connectivity">
+                    <label for="internet">Internet Connectivity</label>
+                </div>
+                <div class="checkbox-field">
+                    <input type="checkbox" id="configuration" name="assistance_type" value="Configuration">
+                    <label for="configuration">Configuration</label>
+                </div>
+                <div class="checkbox-field">
+                    <input type="checkbox" id="others_checkbox" name="assistance_type" value="Others">
+                    <label for="others_checkbox">Others</label>
+                    <div class="other_assistance-label">Specify (if Others):</div>
+                    <span class="other_assistance-input" id="other_assistance">o1</span>
+                </div>
+            </div>
+            <div class="description-field">
+                <div class="description-label">Details/Description:</div>
+                <span class="description-input" id="description">D1</span>
+            </div>
+            
+            
+            
+            
+            <div class="signature-line"></div>
+            <div class="signature-label">Requester's Signature Over Printed Name</div>
+            
+            <div class="ict-section">
+                <div class="ict-label">To be filled by the ICT Unit</div>
+                
+                <table class="ict-table">
+                    <tr>
+                        <td>Received by:<input type="text" class="form-input" style="width: 80px;"></td>
+                        <td>Check by:<br><strong>MARK BRYAN F. VALENCIA</strong><br><small>Information Technology Officer I</small></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 50%;"><strong>Action Taken</strong></td>
+                        
+                        <td><strong>Remarks/Recommendation</strong></td>
+                    </tr>
+                    <tr>
+                        <td style="height: 100px;">
+                            <textarea class="form-input" style="width: 300px; height: 100px;"></textarea>
+                            </td>
+                        <td><textarea class="form-input" style="width: 300px; height: 100px;"></textarea></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Date & Time Started: <input type="text" class="form-input" style="width: 120px;">
+                            <div class="status-container">
+                                <div>Status:</div>
+                                <div class="status-field">
+                                    <input type="checkbox" id="pending" name="status" value="pending">
+                                    <label for="pending">Pending</label>
+                                </div>
+                                <div class="status-field">
+                                    <input type="checkbox" id="completed" name="status" value="completed">
+                                    <label for="completed">Completed</label>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            Date & Time Completed: <input type="text" class="form-input" style="width: 120px;"><br>
+                            ICS Number #: <input type="text" class="form-input" style="width: 120px;">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            
+            <div class="superintendent">
+                <div class="superintendent-name">CELEDONIO B. BALDERAS, JR</div>
+                <div>Schools Division Superintendent</div>
+            </div>
+            
+            <div class="footer-container">
+                <div class="top-border"></div>
+                <div class="footer-01">
+                    <div class="footer-left">
+                        <img src="./Images/deped.png" alt="DepEd Logo" class="footer-logo">
+                        <img src="./Images/pilipinas.png" alt="Bagong Pilipinas Logo" class="footer-logo">
+                        <img src="./Images/logo.png" alt="Tayabas City Logo" class="footer-logo">
+                    </div>
+                    <div class="footer-info">
+                        Address: Brgy. Potol, Tayabas City<br>
+                        Telephone No.: (042) 785-9615<br>
+                        Email Address: tayabas.city@deped.gov.ph<br>
+                        Website: https://www.sdotayabascity.ph
+                    </div>
+                    <table class="footer-table">
+                        <tr>
+                            <td>Doc. Ref. Code</td>
+                            <td>SDO-OSDS-F020</td>
+                            <td>Rev</td>
+                            <td>00</td>
+                        </tr>
+                        <tr>
+                            <td>Effectivity</td>
+                            <td>01.08.24</td>
+                            <td>Page</td>
+                            <td>1 of 1</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+        <a href="#" class="print-btn" onclick="printForm()">Print Form</a>
+    </div>
+</div>
+
+    <footer class="footer">
+        <p>Copyright © 2025 Ticketing. All Rights Reserved</p>
+        <div class="developer-credits">
+            <p>Developed by: Angela Faith M. Salazar and Arien R. Peredo</p>
+        </div>
+    </footer>
+    <script src="js/ict_form.js"></script>
+</body>
+</html>

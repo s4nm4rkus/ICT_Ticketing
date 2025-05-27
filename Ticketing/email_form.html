@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="css/form.css" />
+        <title>Email Request Form</title>
+        <style>
+        </style>
+    </head>
+    <body>
+        <div class="admin-container">
+            <div class="admin-header">
+                <div class="admin-logo">
+                    <img src="./Images/logo.jpg" alt="Logo" class="admin-logo-img">
+                    <span class="admin-logo-text">SDO Tayabas City</span>
+                </div>
+                <a href="email_list.php" class="admin-back-btn">Back</a>
+            </div>
+            
+            <h1 class="admin-title">Email Request Form</h1>
+            
+            <div class="form-container">
+                <div class="department-header">
+                    <div class="department-logos-01">
+                        <img src="./Images/kagawaran.png" alt="Logo 1" class="department-logo">
+                    </div>
+                    <div class="department-title">Republic of the Philippines</div>
+                    <div class="department-subtitle">Department of Education</div>
+                    <div class="department-title-01">REGION IV- A CALABARZON</div>
+                    <div class="department-title-01">CITY SCHOOLS DIVISION OF THE CITY OF TAYABAS</div>
+                </div>
+                
+                <div class="form-title">ICT Technical Assistance Form</div>
+                
+                <div class="admin-form-header">
+                    <div></div>
+                    <div class="form-field">
+                        <div class="form-label">Date:</div>
+                        <label class="form-input" id="date_reported" name="date_reported">
+                    </div>
+                </div>
+                
+                <div class="admin-request-types">
+                    <h4>Type of Request:</h4>
+                    <div class="admin-radio-options">
+                        <div class="admin-radio-group">
+                            <input type="radio" id="new-email" name="request-type" value="new-email" <?php echo ($requestType == 'new-email') ? 'checked' : ''; ?>
+                            <label for="new-email">New Email:</label>
+                        </div>
+                        
+                        <div class="admin-radio-group">
+                            <input type="radio" id="reset-email" name="request-type" value="reset-email" <?php echo ($requestType == 'reset-email') ? 'checked' : ''; ?>
+                            <label for="reset-email">Reset Email:</label>
+                        </div>
+                        
+                        <div class="admin-radio-group">
+                            <input type="radio" id="Activation of Office 365" name="request-type" value="Activation of Office 365" <?php echo ($requestType == 'Activation of Office 365') ? 'checked' : ''; ?>
+                            <label for="Activation of Office 365">Activation of Office 365:</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-field">
+                        <div class="form-label">Full Name:</div>
+                        <label class="form-input" id="full_name" name="full_name">Full Name</label>
+                    </div>
+                    <div class="form-field">
+                        <div class="form-label">Personal Email:</div>
+                        <label class="form-input" id="personal_email" name="personal_email">Personal Email</label>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-field">
+                        <div class="form-label">Cellphone No.:</div>
+                        <label class="form-input" id="cellphone" name="cellphone">Cellphone No.</label>
+                    </div>
+                    <div class="form-field">
+                        <div class="form-label">School Name:</div>
+                        <label class="form-input" id="school" name="school">School Name</label>
+                    </div>
+                </div>
+                
+                <div class="admin-form-note">
+                    <p>Attached file.</p>
+                </div>
+                
+                <div class="admin-letterhead-line"></div>
+                <div class="admin-letterhead-line"></div>
+                
+                
+                <div class="footer-container">
+                    <div class="top-border"></div>
+                    <div class="footer-01">
+                        <div class="footer-left">
+                            <img src="./Images/deped.png" alt="DepEd Logo" class="footer-logo">
+                            <img src="./Images/pilipinas.png" alt="Bagong Pilipinas Logo" class="footer-logo">
+                            <img src="./Images/logo.png" alt="Tayabas City Logo" class="footer-logo">
+                        </div>
+                        <div class="footer-info">
+                            Address: Brgy. Potol, Tayabas City<br>
+                            Telephone No.: (042) 785-9615<br>
+                            Email Address: tayabas.city@deped.gov.ph<br>
+                            Website: https://www.sdotayabascity.ph
+                        </div>
+                        <table class="footer-table">
+                            <tr>
+                                <td>Doc. Ref. Code</td>
+                                <td>SDO-OSDS-F020</td>
+                                <td>Rev</td>
+                                <td>00</td>
+                            </tr>
+                            <tr>
+                                <td>Effectivity</td>
+                                <td>01.08.24</td>
+                                <td>Page</td>
+                                <td>1 of 1</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        
+            <a href="#" class="print-btn">Print</a>
+    </div>
+
+    <footer class="footer">
+        <p>Copyright © 2025 Ticketing. All Rights Reserved</p>
+        <div class="developer-credits">
+            <p>Developed by: Angela Faith M. Salazar and Arien R. Peredo</p>
+        </div>
+    </footer>
+    <script src="js/email_form.js"></script>
+</body>
+</html>

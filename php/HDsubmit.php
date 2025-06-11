@@ -1,8 +1,8 @@
 <?php
 $servername = "localhost";
-$username = "root"; 
-$password = ""; 
-$dbname = "ticket"; 
+$username = "u164243783_ticket"; 
+$password = "^^_ICTHOSTING2025_mysqluserpassword"; 
+$dbname = "u164243783_ticket"; 
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 

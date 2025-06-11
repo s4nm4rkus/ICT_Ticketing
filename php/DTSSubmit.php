@@ -1,8 +1,10 @@
 <?php
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
 $servername = "localhost";
-$username = "root"; 
-$password = ""; 
-$dbname = "ticket"; 
+$username = "u164243783_ticket"; 
+$password = "^^_ICTHOSTING2025_mysqluserpassword"; 
+$dbname = "u164243783_ticket"; 
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -27,7 +29,7 @@ $documentType = isset($_POST['documentType']) ? $_POST['documentType'] : NULL;
 $processDays = isset($_POST['processDays']) ? $_POST['processDays'] : NULL;
 $newEmail = isset($_POST['newEmail']) ? $_POST['newEmail'] : NULL;
 
-$sql = "INSERT INTO DTSRequest (date, dtsNumber, requesterName, mobileNumber, school, requestType, unitName, reason, newTitle, editReason, cancelReason, emailAddress, documentType, processDays, newEmail, submitted_at) 
+$sql = "INSERT INTO dtsrequest (date, dtsNumber, requesterName, mobileNumber, school, requestType, unitName, reason, newTitle, editReason, cancelReason, emailAddress, documentType, processDays, newEmail, submitted_at) 
         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())";
 
 $stmt = $conn->prepare($sql);

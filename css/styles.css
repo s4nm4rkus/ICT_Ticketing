@@ -57,7 +57,7 @@ header {
   padding: 10px 20px;
   border-bottom: 1px solid #eaeaea;
   z-index: 1000;
-  box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.432);
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .logo {
@@ -135,7 +135,7 @@ nav a.active {
   border-radius: 5px;
   cursor: pointer;
   font-weight: bold;
-  margin-right: 5%;
+  margin-right: 100px;
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
@@ -386,6 +386,29 @@ nav a.active {
 }
 
 .learn-more-btn:active {
+  transform: scale(0.95);
+}
+
+.read-more-btn {
+  background-color: #2291ff;
+  color: #ffff;
+  border: none;
+  padding: 5px 25px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 17px;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.read-more-btn:hover {
+  background-color: #2291ff;
+  transform: scale(1.05);
+}
+
+.read-more-btn:active {
   transform: scale(0.95);
 }
 
@@ -911,6 +934,60 @@ nav a.active {
   }
 }
 
+.about-us-container {
+  width: 100%;
+  position: relative;
+  height: auto; /* Set desired height */
+  padding: 50px 100px 50px 100px;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  overflow: hidden;
+}
+
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7); /* Dark overlay */
+  z-index: 1;
+}
+
+.about-us-container h2 {
+  position: relative;
+  z-index: 2;
+  font-size: 1.8rem;
+  font-weight: 400;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  padding: 0 0 10px 0;
+  border-bottom: solid 3px #f85461;
+  text-align: center;
+  width: 170px;
+  justify-self: center;
+}
+
+.subhead-about-us {
+  position: relative;
+  z-index: 2;
+  font-size: 1rem;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+
 .subheading {
   font-size: 16px;
   color: #777;
@@ -992,6 +1069,30 @@ nav a.active {
   flex-wrap: wrap;
 }
 
+.ict-head-section-home {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 50px;
+  flex-wrap: wrap;
+}
+
+.profile-card-container-home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
+  background: rgba(255, 255, 255, 0.2);
+  border: solid 0.5px #f85461;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+  margin-bottom: 0px;
+}
+
 .profile-card-container {
   display: flex;
   flex-direction: column;
@@ -1005,6 +1106,10 @@ nav a.active {
   cursor: pointer;
   transition: transform 0.3s ease-in-out;
   margin-bottom: 50px;
+}
+
+.profile-card-container-home:hover {
+  transform: scale(1.05);
 }
 
 .profile-card-container:hover {
@@ -1028,12 +1133,27 @@ nav a.active {
 
 .profile-card h3 {
   font-size: 16px;
-  margin: 10px;
+  margin: 10px 10px;
   font-weight: bold;
   font-family: serif;
   text-align: center;
 }
 
+.profile-card-home h3 {
+  font-size: 16px;
+  margin: 10px 10px;
+  font-weight: bold;
+  font-family: serif;
+  text-align: center;
+}
+
+.profile-card-home p {
+  font-size: 14px;
+  color: #ffffff;
+  margin: 5px 0 0 0;
+  font-family: serif;
+  text-align: center;
+}
 .profile-card p {
   font-size: 14px;
   color: #666;
@@ -1078,6 +1198,26 @@ nav a.active {
   color: white;
   cursor: pointer;
 }
+.about-section-home {
+  max-width: 100%;
+  margin: 0 auto;
+  line-height: 1.8;
+  text-align: justify;
+  padding-bottom: 50px;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.about-section-home h2 {
+  border-bottom: solid 3px #2291ff;
+  width: 475px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.about-section-home p {
+  margin-bottom: 20px;
+}
 
 .about-section {
   max-width: 1000px;
@@ -1091,7 +1231,7 @@ nav a.active {
 }
 
 .about-section p {
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 .about-section ul {

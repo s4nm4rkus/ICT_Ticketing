@@ -1,131 +1,281 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="css/styles.css" />
-    <link rel="stylesheet" href="fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="fontawesome/css/all.min.css" />
     <title>Home - ICT Department</title>
-</head>
-<body>
-
+  </head>
+  <body>
     <div class="Top">
-        <header>
-            <div class="logo">
-                <img src="./Images/logo.jpg" alt="Lorem Ipsum Logo">
-                <h1>SDO Tayabas</h1>
-            </div>
-            <nav>
-                <a href="ICTRequestForm.html" class="active">Home</a>
-                <a href="forms.html">Forms</a>
-                <a href="about.html">About Us</a>
-            </nav>
-            <button class="admin-btn" onclick="location.href='login.html'">Admin</button>
-        </header>
-
-        <div class="edu-banner">
-            <div class="banner-logos">
-                <img src="./Images/depedlogo.png" alt="DepEd Logo" class="deped-logo" style="width: 140px; height: auto; margin-right: 20px;">
-                <img src="./Images/newpilipinaslogo.png" alt="Philippines Logo" class="ph-logo"  style="width: 100px; height: auto; ">
-                <img src="./Images/logo.png" alt="Tayabas City Logo" class="tayabas-logo">
-            </div>
-            <div class="banner-text">
-                <h2>REPUBLIC OF THE PHILIPPINES</h2>
-                <h1>DEPARTMENT OF EDUCATION</h1>
-                <h3>SCHOOLS DIVISION OFFICE OF TAYABAS CITY</h3>
-            </div>
-            <div class="date-display">
-                <p>Philippine Standard Time:</p>
-                <p id="current-date-time"></p>
-            </div>
+      <header>
+        <div class="logo">
+          <img src="./Images/logo.jpg" alt="Lorem Ipsum Logo" />
+          <h1>SDO Tayabas</h1>
         </div>
+        <nav>
+          <a href="ICTRequestForm.html" class="active">Home</a>
+          <a href="forms.html">Forms</a>
+          <a href="about.html">About Us</a>
+        </nav>
+        <button class="admin-btn" onclick="location.href='login.html'">
+          Admin
+        </button>
+      </header>
+
+      <div class="edu-banner">
+        <div class="banner-logos">
+          <img
+            src="./Images/depedlogo.png"
+            alt="DepEd Logo"
+            class="deped-logo"
+            style="width: 140px; height: auto; margin-right: 20px"
+          />
+          <img
+            src="./Images/newpilipinaslogo.png"
+            alt="Philippines Logo"
+            class="ph-logo"
+            style="width: 100px; height: auto"
+          />
+          <img
+            src="./Images/logo.png"
+            alt="Tayabas City Logo"
+            class="tayabas-logo"
+          />
+        </div>
+        <div class="banner-text">
+          <h2>REPUBLIC OF THE PHILIPPINES</h2>
+          <h1>DEPARTMENT OF EDUCATION</h1>
+          <h3>SCHOOLS DIVISION OFFICE OF TAYABAS CITY</h3>
+        </div>
+        <div class="date-display">
+          <p>Philippine Standard Time:</p>
+          <p id="current-date-time"></p>
+        </div>
+      </div>
     </div>
 
     <div class="container">
-       
-        <section class="hero-section">
-            <div class="hero-content">
-                <h1 class="hero-title">TICKETING FORM</h1>
-                <h2 class="hero-subtitle">Schools Division of Tayabas</h2>
-                <p class="hero-desc">We do provides an effective and powerful way to fasten your ticket</p>
-                <a href="forms.html" class="go-to-forms-btn">Go to Forms <i class="fas fa-arrow-right" style="margin-left: 4px;"></i></a>
-            </div>
-             <div class="hero-image">
-                <img src="Images/ictpersonel.svg" alt="Ticketing System Illustration">
-            </div>
-           
-        </section>
+      <section class="hero-section">
+        <div class="hero-content">
+          <h1 class="hero-title">TICKETING FORM</h1>
+          <h2 class="hero-subtitle">Schools Division of Tayabas</h2>
+          <p class="hero-desc">
+            We do provides an effective and powerful way to fasten your ticket
+          </p>
+          <a href="forms.html" class="go-to-forms-btn"
+            >Go to forms
+            <i class="fas fa-arrow-right" style="margin-left: 4px"></i
+          ></a>
+        </div>
+        <div class="hero-image">
+          <img
+            src="Images/ictpersonel.svg"
+            alt="Ticketing System Illustration"
+          />
+        </div>
+      </section>
     </div>
     <div class="vision-mission-container">
-        <section class="vision-mission-section">
-            <div class="column  vision-column">
-                <div class="icon-container icon-vision-container">
-                    <!-- <img src="Images/vision.png" alt="Vision Icon"> -->
-                     <i class="fas fa-eye" style="font-size: 4rem; color: #fff;"></i>
-                </div>
-                <h2>Vision</h2>
-                <p>We dream of Filipinos who passionately love their country and whose values and competencies enable them to realize their full potential and contribute meaningfully to building the nation.</p>
-                <p>As a learner-centered public institution, the Department of Education continuously improves itself to better serve its stakeholders</p>
-            </div>
-            
-            <div class="column values-column">
-                <div class="icon-container icon-value-container">
-                    <!-- <img src="Images/core.png" alt="Core Value Icon"> -->
-                    <i class="fas fa-gem" style="font-size: 4rem; color: #fff;"></i>
-                </div>
-                <h2>Core Value</h2>
-                <ul class="core-values">
-                    <li>Maka-Diyos</li>
-                    <li>Maka-tao</li>
-                    <li>Makakalikasan</li>
-                    <li>Makabansa</li>
-                </ul>
-            </div>
-            
-            <div class="column mission-column">
-                <div class="icon-container icon-mission-container">
-                    <!-- <img src="Images/mission.png" alt="Mission Icon"> -->
-                    <i class="fas fa-bullseye" style="font-size: 4rem; color: #fff;"></i>
-                </div>
-                <h2>Mission</h2>
-                <p>To protect and promote the right of every Filipino to quality, equitable, culture-based, and complete basic education where Students learn in a child-friendly, gender-sensitive, safe, and motivating environment.</p><p>Teachers facilitate learning and constantly nurture every learner.</p>
-                <p>Administrators and staff, as stewards of the institution, ensure an enabling and supportive environment for effective learning to happen.</p>
-                <p>Family, community, and other stakeholders are actively engaged and share responsibility for developing life-long learners.</p>
-            </div>
-        </section>
+      <section class="vision-mission-section">
+        <div class="column vision-column">
+          <div class="icon-container icon-vision-container">
+            <!-- <img src="Images/vision.png" alt="Vision Icon"> -->
+            <i class="fas fa-eye" style="font-size: 4rem; color: #fff"></i>
+          </div>
+          <h2>Vision</h2>
+          <p>
+            We dream of Filipinos who passionately love their country and whose
+            values and competencies enable them to realize their full potential
+            and contribute meaningfully to building the nation.
+          </p>
+          <p>
+            As a learner-centered public institution, the Department of
+            Education continuously improves itself to better serve its
+            stakeholders
+          </p>
+        </div>
 
-        <a href="about.html">
-            <button class="learn-more-btn">Learn More <i class="fas fa-arrow-right" style="margin-left: 4px;"></i></button>
-        </a>
+        <div class="column values-column">
+          <div class="icon-container icon-value-container">
+            <!-- <img src="Images/core.png" alt="Core Value Icon"> -->
+            <i class="fas fa-gem" style="font-size: 4rem; color: #fff"></i>
+          </div>
+          <h2>Core Value</h2>
+          <ul class="core-values">
+            <li>Maka-Diyos</li>
+            <li>Maka-tao</li>
+            <li>Makakalikasan</li>
+            <li>Makabansa</li>
+          </ul>
+        </div>
+
+        <div class="column mission-column">
+          <div class="icon-container icon-mission-container">
+            <!-- <img src="Images/mission.png" alt="Mission Icon"> -->
+            <i class="fas fa-bullseye" style="font-size: 4rem; color: #fff"></i>
+          </div>
+          <h2>Mission</h2>
+          <p>
+            To protect and promote the right of every Filipino to quality,
+            equitable, culture-based, and complete basic education where
+            Students learn in a child-friendly, gender-sensitive, safe, and
+            motivating environment.
+          </p>
+          <p>
+            Teachers facilitate learning and constantly nurture every learner.
+          </p>
+          <p>
+            Administrators and staff, as stewards of the institution, ensure an
+            enabling and supportive environment for effective learning to
+            happen.
+          </p>
+          <p>
+            Family, community, and other stakeholders are actively engaged and
+            share responsibility for developing life-long learners.
+          </p>
+        </div>
+      </section>
+
+      <a href="about.html">
+        <button class="learn-more-btn">
+          Learn more <i class="fas fa-arrow-right" style="margin-left: 4px"></i>
+        </button>
+      </a>
     </div>
+
+    <div class="about-us-container">
+      <img
+        src="./Images/coversdo.jpg"
+        alt="SDO Tayabas Cover"
+        class="background-image"
+      />
+      <div class="overlay"></div>
+      <h2>About Us</h2>
+      <p class="subhead-about-us">
+        Welcome to the ICT Department. We are responsible for handling technical
+        support,
+      </p>
+      <p class="subhead-about-us">
+        system management, and IT-related services for the organization.
+      </p>
+      <div class="ict-head-section-home">
+        <div
+          class="profile-card-container-home"
+          style="z-index: 2"
+          onclick="openModal('./Images/3.jpg')"
+        >
+          <div class="profile-image-wrapper">
+            <img
+              src="./Images/3.jpg"
+              alt="Mark Bryan F. Valencia"
+              class="profile-image"
+            />
+          </div>
+          <div class="profile-card-home">
+            <h3 style="color: #ffffff">Mark Bryan F. Valencia</h3>
+            <p>Information Technology Officer I</p>
+          </div>
+        </div>
+
+        <div
+          class="profile-card-container-home"
+          style="z-index: 2"
+          onclick="openModal('./Images/2.jpg')"
+        >
+          <div class="profile-image-wrapper">
+            <img
+              src="./Images/2.jpg"
+              alt="Celedonio 'Don' B. Balderas, Jr."
+              class="profile-image"
+            />
+          </div>
+          <div class="profile-card-home">
+            <h3 style="color: #ffffff">Celedonio "Don" B. Balderas, Jr.</h3>
+            <p>Schools Division Superintendent</p>
+          </div>
+        </div>
+
+        <div
+          class="profile-card-container-home"
+          style="z-index: 2"
+          onclick="openModal('./Images/1.jpg')"
+        >
+          <div class="profile-image-wrapper">
+            <img
+              src="./Images/1.jpg"
+              alt="Herbert Perez"
+              class="profile-image"
+            />
+          </div>
+          <div class="profile-card-home">
+            <h3 style="color: #ffffff">Herbert D. Perez</h3>
+            <p>Assistant Schools Division Superintendent</p>
+          </div>
+        </div>
+      </div>
+
+      <div id="imageModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImage" />
+      </div>
+    </div>
+
+    <div class="about-section-home">
+      <h2>About the ICT Ticketing Form Website</h2>
+      <p>
+        The ICT Ticketing Form Website is an online platform designed to
+        streamline requests for technical assistance and document-related
+        services within the City Schools Division of Tayabas, Region IV-A
+        CALABARZON. This system enables faculty, staff, and other personnel to
+        conveniently submit their ICT-related concerns and track their requests
+        efficiently.
+      </p>
+      <a href="about.html">
+        <button class="read-more-btn">
+          Read more <i class="fas fa-arrow-right" style="margin-left: 4px"></i>
+        </button>
+      </a>
     </div>
 
     <div class="gov-logos">
-        <div class="logo-container">
-            <img src="./Images/transparency.png" alt="Transparency Seal" style="width: 110px; height: auto;">
-        </div>
-        
-        <div class="logo-container">
-            <img src="./Images/depedlogo_noborder.png" alt="DepEd Matatag Logo" style="width: 140px; height: auto;">
-        </div>
-        
-        <div class="logo-container">
-            <img src="./Images/newpilipinaslogo_noborder.png" alt="Bagong Pilipinas Logo">
-        </div>
-        
-        <div class="logo-container">
-            <img src="./Images/freedom.png" alt="Freedom of Information Logo">
-        </div>
+      <div class="logo-container">
+        <img
+          src="./Images/transparency.png"
+          alt="Transparency Seal"
+          style="width: 110px; height: auto"
+        />
+      </div>
+
+      <div class="logo-container">
+        <img
+          src="./Images/depedlogo_noborder.png"
+          alt="DepEd Matatag Logo"
+          style="width: 140px; height: auto"
+        />
+      </div>
+
+      <div class="logo-container">
+        <img
+          src="./Images/newpilipinaslogo_noborder.png"
+          alt="Bagong Pilipinas Logo"
+        />
+      </div>
+
+      <div class="logo-container">
+        <img src="./Images/freedom.png" alt="Freedom of Information Logo" />
+      </div>
     </div>
 
     <footer class="footer">
-        <p>Copyright © 2025 Ticketing. All Rights Reserved</p>
-        <div class="developer-credits">
-            <p>Developed by: Angela Faith M. Salazar and Arien R. Peredo</p>
-        </div>
+      <p>Copyright © 2025 Ticketing. All Rights Reserved</p>
+      <div class="developer-credits">
+        <p>Developed by: Angela Faith M. Salazar and Arien R. Peredo</p>
+      </div>
     </footer>
 
-<script src="js/calendar.js"></script>
-<script src="js/transition.js"></script>
-</body>
+    <script src="js/calendar.js"></script>
+    <script src="js/transition.js"></script>
+  </body>
 </html>

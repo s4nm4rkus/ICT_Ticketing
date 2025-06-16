@@ -391,6 +391,7 @@ nav a.active {
 
 .read-more-btn {
   background-color: #2291ff;
+  margin-bottom: 50px;
   color: #ffff;
   border: none;
   padding: 5px 25px;
@@ -1203,7 +1204,6 @@ nav a.active {
   margin: 0 auto;
   line-height: 1.8;
   text-align: justify;
-  padding-bottom: 50px;
   padding-left: 10%;
   padding-right: 10%;
 }
@@ -1216,12 +1216,12 @@ nav a.active {
 }
 
 .about-section-home p {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .about-section {
-  max-width: 1000px;
-  margin: 0 auto;
+  max-width: 100%;
+  padding: 0px 10% 00px 10%;
   line-height: 1.8;
   text-align: justify;
 }
@@ -1231,7 +1231,7 @@ nav a.active {
 }
 
 .about-section p {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .about-section ul {
@@ -1374,4 +1374,84 @@ a button {
 
 a button:hover {
   background-color: darkgreen;
+}
+
+.purpose-container {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  justify-content: space-between;
+  border-radius: 16px;
+  margin-bottom: 20px;
+}
+.card-purpose {
+  text-align: center;
+  width: 400px;
+  height: 300px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  border-bottom: solid 2px #2291ff;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card-purpose:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(22, 64, 255, 0.15);
+}
+.card-purpose h2 {
+  font-size: 1.2rem;
+  color: black;
+  margin-bottom: 1rem;
+}
+.card-purpose p {
+  font-size: 0.9rem;
+  color: #4a4a4a;
+  line-height: 1.6;
+}
+
+.card-purpose i {
+  font-size: 3rem;
+  color: #b3b3b3;
+  box-shadow: inset 0 10px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 50px;
+  padding: 10px 25px 10px 25px;
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+.step-1 {
+  /* background-color: #004385; */
+  background: linear-gradient(to right, #009bd3, #00bbff, #4fd0ff);
+  width: 300px;
+  height: 300px;
+  position: relative;
+  left: 0;
+  margin-left: -13%;
+  display: flex;
+  border-bottom-right-radius: 12px;
+  border-top-right-radius: 12px;
+}
+.step-2 {
+  background: linear-gradient(to left, #9747ff, #b379ff, #d7b8ff);
+  width: 300px;
+  height: 300px;
+  position: relative;
+  justify-self: end;
+  margin-right: -13%;
+  right: 0;
+  display: flex;
+  border-bottom-left-radius: 12px;
+  border-top-left-radius: 12px;
+}
+.step-3 {
+  background: linear-gradient(to left, #04df71, #29ff94, #4fffa7);
+  width: 300px;
+  height: 300px;
+  position: relative;
+  left: 0;
+  margin-left: -13%;
+  display: flex;
+  border-bottom-right-radius: 12px;
+  border-top-right-radius: 12px;
 }

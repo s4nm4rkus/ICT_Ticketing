@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/styles.css" />
+    <link rel="stylesheet" href="fontawesome/css/all.min.css" />
+    
+
     <title>About Us - ICT Department</title>
 </head>
 <body>
@@ -40,89 +43,154 @@
         </div>
     </div>
 
-    <div class="container">
-        <div class="main-content">
-            <h1 class="page-title">About Us</h1>
-            <p class="p1">Welcome to the ICT Department. We are responsible for handling technical support, system management, and IT-related services for the organization.</p>
-            </br>
-            
-            <div class="ict-head-section">
-                <div class="profile-card-container" onclick="openModal('./Images/3.jpg')">
-                    <div class="profile-image-wrapper">
-                        <img src="./Images/3.jpg" alt="Mark Bryan F. Valencia" class="profile-image">
-                    </div>
-                    <div class="profile-card">
-                        <h3>Mark Bryan F. Valencia</h3>
-                        <p>Information Technology Officer I</p>
-                    </div>
-                </div>
-            
-                <div class="profile-card-container" onclick="openModal('./Images/2.jpg')">
-                    <div class="profile-image-wrapper">
-                        <img src="./Images/2.jpg" alt="Celedonio 'Don' B. Balderas, Jr." class="profile-image">
-                    </div>
-                    <div class="profile-card">
-                        <h3>Celedonio "Don" B. Balderas, Jr.</h3>
-                        <p>Schools Division Superintendent</p>
-                    </div>
-                </div>
-            
-                <div class="profile-card-container" onclick="openModal('./Images/1.jpg')">
-                    <div class="profile-image-wrapper">
-                        <img src="./Images/1.jpg" alt="Herbert Perez" class="profile-image">
-                    </div>
-                    <div class="profile-card">
-                        <h3>Herbert D. Perez</h3>
-                        <p>Assistant Schools Division Superintendent</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div id="imageModal" class="modal">
-                <span class="close" onclick="closeModal()">&times;</span>
-                <img class="modal-content" id="modalImage">
-            </div>
-            
+    <div class="about-us-container">
+      <img
+        src="./Images/coversdo.jpg"
+        alt="SDO Tayabas Cover"
+        class="background-image"
+      />
+      <div class="overlay"></div>
+      <h2>About Us</h2>
+      <p class="subhead-about-us">
+        Welcome to the ICT Department. We are responsible for handling technical
+        support,
+      </p>
+      <p class="subhead-about-us">
+        system management, and IT-related services for the organization.
+      </p>
+      <div class="ict-head-section-home">
+        <div
+          class="profile-card-container-home"
+          style="z-index: 2"
+          onclick="openModal('./Images/3.jpg')"
+        >
+          <div class="profile-image-wrapper">
+            <img
+              src="./Images/3.jpg"
+              alt="Mark Bryan F. Valencia"
+              class="profile-image"
+            />
+          </div>
+          <div class="profile-card-home">
+            <h3 style="color: #ffffff">Mark Bryan F. Valencia</h3>
+            <p>Information Technology Officer I</p>
+          </div>
         </div>
-    <div class="about-section">
-    <h2>About the ICT Ticketing Form Website</h2>
-    <p>
-        The ICT Ticketing Form Website is an online platform designed to streamline requests for 
-        technical assistance and document-related services within the City Schools Division of Tayabas, 
-        Region IV-A CALABARZON. This system enables faculty, staff, and other personnel to conveniently 
-        submit their ICT-related concerns and track their requests efficiently.
-    </p>
 
-    <h3>Purpose</h3>
-    <p>
-        This website serves as a centralized hub for processing various ICT-related requests, including:
-    </p>
-    <ul>
-        <li><b>Technical Assistance</b> – Repair, network management, software installation, configuration, and internet connectivity issues.</li>
-        <li><b>Document Services</b> – Requesting retrieval, editing, or cancellation of official documents.</li>
-        <li><b>Email Support</b> – Creating or resetting official email accounts.</li>
-        <li><b>Help Desk Inquiries</b> – Submitting general IT concerns for evaluation and resolution.</li>
-    </ul>
+        <div
+          class="profile-card-container-home"
+          style="z-index: 2"
+          onclick="openModal('./Images/2.jpg')"
+        >
+          <div class="profile-image-wrapper">
+            <img
+              src="./Images/2.jpg"
+              alt="Celedonio 'Don' B. Balderas, Jr."
+              class="profile-image"
+            />
+          </div>
+          <div class="profile-card-home">
+            <h3 style="color: #ffffff">Celedonio "Don" B. Balderas, Jr.</h3>
+            <p>Schools Division Superintendent</p>
+          </div>
+        </div>
 
-    <h3>How It Works</h3>
-    <ol>
-        <li><b>Submit a Request</b> – Fill out the appropriate form based on your need.</li>
-        <li><b>ICT Review & Processing</b> – The ICT team will evaluate and address your request.</li>
-        <li><b>Updates & Completion</b> – You will receive status updates and final resolutions.</li>
-    </ol>
+        <div
+          class="profile-card-container-home"
+          style="z-index: 2"
+          onclick="openModal('./Images/1.jpg')"
+        >
+          <div class="profile-image-wrapper">
+            <img
+              src="./Images/1.jpg"
+              alt="Herbert Perez"
+              class="profile-image"
+            />
+          </div>
+          <div class="profile-card-home">
+            <h3 style="color: #ffffff">Herbert D. Perez</h3>
+            <p>Assistant Schools Division Superintendent</p>
+          </div>
+        </div>
+      </div>
 
-    <p>
-        By utilizing this website, we aim to enhance service efficiency, improve response time, and 
-        provide seamless support for all ICT-related needs.
-    </p>
+      <div id="imageModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImage" />
+      </div>
+    </div>
 
-    <p>
-        For more information, visit our official website: 
-        <a href="https://www.sdotayabascity.ph">https://www.sdotayabascity.ph</a> 
-        or contact us at <a href="mailto:tayabas.city@deped.gov.ph">tayabas.city@deped.gov.ph</a>.
-    </p>
-</div>
-</div>
+    <div class="about-section-home">
+      <h2>About the ICT Ticketing Form Website</h2>
+      <p>
+        The ICT Ticketing Form Website is an online platform designed to
+        streamline requests for technical assistance and document-related
+        services within the City Schools Division of Tayabas, Region IV-A
+        CALABARZON. This system enables faculty, staff, and other personnel to
+        conveniently submit their ICT-related concerns and track their requests
+        efficiently.
+      </p>
+      
+    </div>
+       <div class="about-section">
+            <h3>Purpose</h3>
+            <p style="margin-bottom: 15px;">
+                This website serves as a centralized hub for processing various ICT-related requests, including:
+            </p>
+            <div class="purpose-container">
+                <div class="card-purpose">
+                <i class="fas fa-tools"></i> 
+                <h2>Technical Assistance</h2>
+                <p> Repair, network management, software installation, configuration, and internet connectivity issues.</p>
+                </div>
+                <div class="card-purpose">
+                <i class="fas fa-file-alt" style="font-size: 2.9rem; padding-left: 30px; padding-right: 30px;"></i>
+                <h2>Document Services</h2>
+                <p>Requesting retrieval, editing, or cancellation of official documents.</p>
+                </div>
+                <div class="card-purpose">
+                <i class="fas fa-envelope-open-text"></i>
+                <h2>Email Support</h2>
+                <p>Creating or resetting official email accounts.</p>
+                </div>
+                <div class="card-purpose">
+                <i class="fas fa-headset"></i>
+                <h2>Help Desk Inquiries</h2>
+                <p>LSubmitting general IT concerns for evaluation and resolution.</p>
+                </div>
+            </div>
+    
+        </div>
+        <div class="about-section"> 
+            <h3 style="margin-bottom: 20px;">How It Works</h3>
+                <div class="step-1">
+                    <img src="./Images/step1.jpg" alt="Step 1-Submit" style="width: 250px; height: auto; left: 200px; 
+                    position: absolute; margin-top: 24px; border-radius: 12px;  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);">
+                   <p style="position: absolute; width: 580px; left: 480px; overflow: visible; margin-top: 30px; font-size: 1.5rem;"><b>1. Submit a Request</b> – Fill out the appropriate form based on your need.</p>
+                </div>
+                <div class="step-2">
+                    <img src="./Images/step2.jpg" alt="Step 2-Submit" style="width: 250px; height: auto; right: 200px; 
+                    position: absolute; margin-top: 24px; border-radius: 12px;  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);">
+                   <p style="position: absolute; width: 580px; right: 480px; overflow: visible; text-align: right; margin-top: 30px; font-size: 1.5rem;"><b>2. ICT Review & Processing</b> –The ICT team will evaluate and address your request.</p>
+                </div>
+                <div class="step-3">
+                    <img src="./Images/approve.jpg" alt="Step 3-Submit" style="width: 250px; height: auto; left: 200px; 
+                    position: absolute; margin-top: 24px; border-radius: 12px;  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);">
+                   <p style="position: absolute; width: 580px; left: 480px; overflow: visible; margin-top: 30px; font-size: 1.5rem;"><b>3. Updates & Completion</b> – You will receive status updates and final resolutions.</p>
+                </div>
+
+                <p style="text-align: center; font-size: 18px; margin-top: 25px;">
+                    By utilizing this website, we aim to enhance service efficiency, improve response time, and 
+                    provide seamless support for all ICT-related needs.
+                </p>
+
+               <p style="text-align: center; font-size: 18px; margin-bottom: 50px;">
+                    For more information, visit our official website: 
+                    <a href="https://www.sdotayabascity.ph">https://www.sdotayabascity.ph</a> 
+                    or contact us at <a href="mailto:tayabas.city@deped.gov.ph">tayabas.city@deped.gov.ph</a>.
+                </p>
+        </div>
+    </div>
 
     <div class="gov-logos">
         <div class="logo-container">

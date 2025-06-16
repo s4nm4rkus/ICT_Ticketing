@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="css/styles.css" />
+    <link rel="stylesheet" href="fontawesome/css/all.min.css" />
+
     <title>Forms - ICT Department</title>
   </head>
   <body>
@@ -56,23 +58,44 @@
     </div>
     <div class="container">
       <div class="main-content">
-        <h1 class="page-title">ICT Forms</h1>
-        <div class="cards-section">
-          <div class="card" onclick="location.href='technical_assistance.html'">
-            <img src="./Images/ICT.jpg" alt="ICT Assistance Form" />
-            <h3>ICT Technical Assistance Form</h3>
+        <h2
+          class="page-title"
+          style="
+            padding-bottom: 10px;
+            margin-bottom: 80px;
+            width: 180px;
+            justify-self: center;
+            border-bottom: solid 3px #f85461;
+            font-size: 1.8rem;
+            font-weight: 400;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+          "
+        >
+          ICT Forms
+        </h2>
+        <div class="cards-section" style="gap: 30px">
+          <div
+            class="card-forms"
+            onclick="location.href='technical_assistance.html'"
+          >
+            <i class="fas fa-tools"></i>
+            <h2 style="margin-top: 25px">ICT Technical Assistance Form</h2>
           </div>
-          <div class="card" onclick="location.href='DTS.html'">
-            <img src="./Images/DTS.jpg" alt="DTS Request Form" />
-            <h3>DTS Request Form</h3>
+          <div class="card-forms" onclick="location.href='DTS.html'">
+            <i
+              class="fas fa-file-alt"
+              style="font-size: 2.9rem; padding-left: 30px; padding-right: 30px"
+            ></i>
+            <h2 style="margin-top: 25px">DTS Request Form</h2>
           </div>
-          <div class="card" onclick="location.href='email.html'">
-            <img src="./Images/email.jpg" alt="Email Request Form" />
-            <h3>Email Request Form</h3>
+          <div class="card-forms" onclick="location.href='email.html'">
+            <i class="fas fa-envelope-open-text"></i>
+            <h2 style="margin-top: 25px">Email Request Form</h2>
           </div>
-          <div class="card" onclick="location.href='Helpdesk.html'">
-            <img src="./Images/help.jpg" alt="Help Desk Form" />
-            <h3>Help Desk Form</h3>
+          <div class="card-forms" onclick="location.href='Helpdesk.html'">
+            <i class="fas fa-headset"></i>
+            <h2 style="margin-top: 25px">Help Desk Form</h2>
           </div>
         </div>
       </div>

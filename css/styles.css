@@ -1455,3 +1455,39 @@ a button:hover {
   border-bottom-right-radius: 12px;
   border-top-right-radius: 12px;
 }
+
+.card-forms {
+  text-align: center;
+  width: 400px;
+  height: 300px;
+  padding: 40px;
+  background-color: white;
+  border-radius: 8px;
+  border-bottom: solid 2px #2291ff;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card-forms:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(22, 64, 255, 0.15);
+}
+.card-forms h2 {
+  font-size: 1.2rem;
+  color: black;
+  margin-bottom: 1rem;
+}
+.card-forms p {
+  font-size: 0.9rem;
+  color: #4a4a4a;
+  line-height: 1.6;
+}
+
+.card-forms i {
+  font-size: 3rem;
+  color: #b3b3b3;
+  box-shadow: inset 0 10px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 50px;
+  padding: 10px 25px 10px 25px;
+  margin-bottom: 10px;
+  line-height: 1.6;
+}

@@ -3,7 +3,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 // header('Content-Type: application/json');
-$conn = new mysqli('localhost', 'u164243783_ticket', '^^_ICTHOSTING2025_mysqluserpassword', 'u164243783_ticket');
+$conn = new mysqli('localhost', 'root', '', 'ticket');
 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);

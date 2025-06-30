@@ -1,5 +1,5 @@
 <?php
-$conn = new mysqli('localhost', 'u164243783_ticket', '^^_ICTHOSTING2025_mysqluserpassword', 'u164243783_ticket');
+$conn = new mysqli('localhost', 'root', '', 'ticket');
 
 if ($conn->connect_error) {
     die(json_encode(['success' => false, 'error' => "Connection failed: " . $conn->connect_error]));

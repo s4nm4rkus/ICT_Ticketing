@@ -1,6 +1,6 @@
 <?php
 // --- Database Connection ---
-$conn = new mysqli('localhost', 'u164243783_ticket', '^^_ICTHOSTING2025_mysqluserpassword', 'u164243783_ticket');
+$conn = new mysqli('localhost', 'root', '', 'ticket');
 
 // Check connection
 if ($conn->connect_error) {

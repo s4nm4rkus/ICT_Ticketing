@@ -2,9 +2,9 @@
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 $servername = "localhost";
-$username = "u164243783_ticket"; 
-$password = "^^_ICTHOSTING2025_mysqluserpassword"; 
-$dbname = "u164243783_ticket"; 
+$username = "root"; 
+$password = ""; 
+$dbname = "ticket"; 
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -36,7 +36,8 @@ $stmt = $conn->prepare($sql);
 $stmt->bind_param("sssssssssssssis", $date, $dtsNumber, $requesterName, $mobileNumber, $school, $requestType, $unitName, $reason, $newTitle, $editReason, $cancelReason, $emailAddress, $documentType, $processDays, $newEmail);
 
 if ($stmt->execute()) {
-    echo "<script>alert('Form submitted successfully!'); window.location.href='technical_assistance.html';</script>";
+    echo "success";
+
 } else {
     echo "Error: " . $stmt->error;
 }

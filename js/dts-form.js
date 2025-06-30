@@ -1,55 +1,79 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const radioButtons = document.querySelectorAll('input[name="requestType"]');
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("myForm");
+  const radioButtons = document.querySelectorAll('input[name="requestType"]');
 
-    document.getElementById('retrieveFields').style.display = 'block';
+  // Default: show retrieveFields
+  document.getElementById("retrieveFields").style.display = "block";
 
-    radioButtons.forEach(function (radio) {
-        radio.addEventListener('change', function () {
-            const conditionalFields = document.querySelectorAll('.conditional-fields');
-            conditionalFields.forEach(field => field.style.display = 'none');
+  // Toggle conditional fields on radio button change
+  radioButtons.forEach(function (radio) {
+    radio.addEventListener("change", function () {
+      document.querySelectorAll(".conditional-fields").forEach((field) => {
+        field.style.display = "none";
+      });
 
-            const selectedValue = this.value;
-            const selectedField = document.getElementById(selectedValue + 'Fields');
-            if (selectedField) {
-                selectedField.style.display = 'block';
-            }
-        });
+      const selectedField = document.getElementById(this.value + "Fields");
+      if (selectedField) {
+        selectedField.style.display = "block";
+      }
     });
+  });
 
-    document.getElementById('myForm').addEventListener('submit', function (e) {
-        e.preventDefault();
+  // Submit form
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
 
-        let formData = new FormData(this);
+    const formData = new FormData(form);
 
-        fetch("php/DTSSubmit.php", {
-            method: "POST",
-            body: formData
-        })
-        .then(response => response.text())
-        .then(data => {
-            console.log(data); 
+    fetch("php/DTSSubmit.php", {
+      method: "POST",
+      body: formData,
+    })
+      .then((response) => response.text())
+      .then((data) => {
+        const trimmed = data.trim();
+        console.log("Response:", trimmed);
 
-            document.getElementById("notification").style.display = "block";
+        if (trimmed === "success") {
+          // Reset form and conditional fields BEFORE redirect
+          form.reset();
+          document.querySelectorAll(".conditional-fields").forEach((field) => {
+            field.style.display = "none";
+          });
+          document.getElementById("retrieveFields").style.display = "block";
+          document.getElementById("retrieve").checked = true;
 
-            setTimeout(() => {
-                document.getElementById("notification").style.display = "none";
-            }, 2000);
+          // Optional: show success notification
+          document.getElementById("notification").style.display = "block";
+          setTimeout(() => {
+            document.getElementById("notification").style.display = "none";
+          }, 2000);
 
-            document.getElementById("myForm").reset();
-
-            document.querySelectorAll('.conditional-fields').forEach(field => field.style.display = 'none');
-            document.getElementById('retrieveFields').style.display = 'block';
-            document.getElementById('retrieve').checked = true;
-        })
-        .catch(error => console.error("Error:", error));
-    });
-
-    document.querySelector('.cancel-btn').addEventListener('click', function () {
-        if (confirm('Are you sure you want to cancel?')) {
-            document.getElementById('myForm').reset();
-            document.querySelectorAll('.conditional-fields').forEach(field => field.style.display = 'none');
-            document.getElementById('retrieveFields').style.display = 'block';
-            document.getElementById('retrieve').checked = true;
+          // Alert and redirect
+          alert(
+            "Your request has been submitted and you will now be redirected to the Client Satisfaction Measurement (CSM) form."
+          );
+          window.location.href =
+            "https://forms.office.com/pages/responsepage.aspx?id=fgur1uNloUiDiyou2QxUpg56LmRXJX1Dtawq0RFTnpRUQjlCTEFOOFdRRFFHMjJHRTI0U0lVWE4zOC4u&route=shorturl";
+        } else {
+          alert("Something went wrong. Please try again.");
         }
-    });
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        alert("A network error occurred. Please try again.");
+      });
+  });
+
+  // Cancel button behavior
+  document.querySelector(".cancel-btn").addEventListener("click", function () {
+    if (confirm("Are you sure you want to cancel?")) {
+      form.reset();
+      document.querySelectorAll(".conditional-fields").forEach((field) => {
+        field.style.display = "none";
+      });
+      document.getElementById("retrieveFields").style.display = "block";
+      document.getElementById("retrieve").checked = true;
+    }
+  });
 });

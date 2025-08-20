@@ -1,0 +1,8 @@
+# Ignore environment files
+.env
+
+# Ignore sensitive config
+config.php
+
+# Ignore vendor (you can reinstall with composer install)
+vendor/

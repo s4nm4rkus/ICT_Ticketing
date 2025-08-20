@@ -43,10 +43,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         ";
 
         $mail->send();
-        echo "✅ Message sent successfully!";
-    } catch (Exception $e) {
-        echo "❌ Message could not be sent. Error: {$mail->ErrorInfo}";
-    }
+        echo "<script>
+        alert('✅ Email has been sent successfully!');
+        window.location.href = 'ICTRequestForm.html'; // redirect back
+    </script>";
+
+} catch (Exception $e) {
+    // ❌ Error response with JS alert
+    echo "<script>
+        alert('❌ Message could not be sent. Error: " . addslashes($mail->ErrorInfo) . "');
+        window.history.back();
+    </script>";
+}
 } else {
     echo "Invalid request.";
 }

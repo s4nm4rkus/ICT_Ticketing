@@ -160,9 +160,9 @@ if (
     </div>
     <footer class="footer">
         <p>Copyright © <?php echo date("Y"); ?> Ticketing. All Rights Reserved</p>
-        <div class="developer-credits">
+         <!-- <div class="developer-credits">
             <p>Developed by: Angela Faith M. Salazar and Arien R. Peredo</p>
-        </div>
+        </div> -->
     </footer>
 
 <script src="js/confirmation.js"></script>

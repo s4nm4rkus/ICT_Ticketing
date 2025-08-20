@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="css/styles.css" />
+    <link rel="stylesheet" type="text/css" href="css/message_us.css" />
+    <link rel="stylesheet" href="fontawesome/css/all.min.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="Top">
+      <header>
+        <div class="logo">
+          <img src="./Images/logo.jpg" alt="Lorem Ipsum Logo" />
+          <h1>SDO Tayabas</h1>
+        </div>
+        <nav>
+          <a href="ICTRequestForm.html">Home</a>
+          <a href="forms.html">Forms</a>
+          <a href="about.html">About Us</a>
+          <a href="message_us.html" class="active message-btn">Message</a>
+        </nav>
+        <button class="admin-btn" onclick="location.href='login.html'">
+          Admin
+        </button>
+      </header>
+
+      <div class="edu-banner">
+        <div class="banner-logos">
+          <img
+            src="./Images/depedlogo.png"
+            alt="DepEd Logo"
+            class="deped-logo"
+            style="width: 140px; height: auto; margin-right: 20px"
+          />
+          <img
+            src="./Images/newpilipinaslogo.png"
+            alt="Philippines Logo"
+            class="ph-logo"
+            style="width: 100px; height: auto"
+          />
+          <img
+            src="./Images/logo.png"
+            alt="Tayabas City Logo"
+            class="tayabas-logo"
+          />
+        </div>
+        <div class="banner-text">
+          <h2>REPUBLIC OF THE PHILIPPINES</h2>
+          <h1>DEPARTMENT OF EDUCATION</h1>
+          <h3>SCHOOLS DIVISION OFFICE OF TAYABAS CITY</h3>
+        </div>
+        <div class="date-display">
+          <p>Philippine Standard Time:</p>
+          <p id="current-date-time"></p>
+        </div>
+      </div>
+    </div>
+    <div class="container-message">
+      <div class="left-message-container">
+        <h2>Send us a message</h2>
+        <form action="send_message.php" method="post">
+          <label for="name">Your Name:</label><br />
+          <input type="text" name="name" required /><br /><br />
+
+          <label for="email">Your Email:</label><br />
+          <input type="email" name="email" required /><br /><br />
+
+          <label for="subject">Subject:</label><br />
+          <input type="text" name="subject" required /><br /><br />
+
+          <label for="message">Message:</label><br />
+          <textarea name="message" rows="5" required></textarea><br /><br />
+
+          <button type="submit">
+            Send message<i class="fas fa-paper-plane"></i>
+          </button>
+        </form>
+      </div>
+      <div class="right-message-container">
+        <img
+          src="Images/message-us.png"
+          alt="Ticketing System Illustration"
+          style="width: 60rem; margin-left: -23rem"
+        />
+      </div>
+    </div>
+    <footer class="footer">
+      <p>Copyright © 2025 Ticketing. All Rights Reserved</p>
+      <!-- <div class="developer-credits">
+        <p>Developed by: Angela Faith M. Salazar and Arien R. Peredo</p>
+      </div> -->
+    </footer>
+
+    <script src="js/calendar.js"></script>
+    <script src="js/transition.js"></script>
+  </body>
+</html>

@@ -1,0 +1,75 @@
+.container-message {
+  width: 100%;
+  margin: 0 auto;
+  margin-bottom: 0px;
+  padding: 70px 0px;
+  display: flex;
+  justify-content: center;
+  color: white;
+}
+
+.right-message-container {
+  width: 400px;
+  max-width: 400px;
+  height: auto;
+  overflow-x: visible;
+  padding: 50px;
+  z-index: 1;
+}
+.left-message-container h2 {
+  margin-bottom: 80px;
+  padding-bottom: 10px;
+  width: 230px;
+  border-bottom: solid 2px #ffffff;
+}
+
+.left-message-container label {
+  font-size: 14px;
+  font-weight: lighter;
+}
+
+.left-message-container {
+  width: 550px;
+  height: 600px;
+  max-height: 600px;
+  align-content: baseline;
+  overflow-x: visible;
+  background-color: #769fcd;
+  padding: 50px 50px 50px 50px;
+}
+.left-message-container input,
+textarea {
+  width: 80%;
+  border-radius: 4px;
+  border: none;
+  padding: 5px;
+}
+
+.left-message-container input {
+  height: 30px;
+  width: 80%;
+  border-radius: 4px;
+  border: None;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+.left-message-container button {
+  height: 35px;
+  width: auto;
+  font-size: 16px;
+  border-radius: 50px;
+  border: none;
+  color: #769fcd;
+  padding: 0 15px;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.left-message-container button:hover {
+  background-color: #ffffffb7;
+
+  transition: background-color 0.3s ease-in-out;
+}

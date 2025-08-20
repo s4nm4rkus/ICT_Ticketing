@@ -166,9 +166,9 @@ if (
 
     <footer class="footer">
         <p>Copyright © 2025 Ticketing. All Rights Reserved</p>
-        <div class="developer-credits">
+         <!-- <div class="developer-credits">
             <p>Developed by: Angela Faith M. Salazar and Arien R. Peredo</p>
-        </div>
+        </div> -->
     </footer>
     <script src="js/GenerateReport.js"></script>
 </body>

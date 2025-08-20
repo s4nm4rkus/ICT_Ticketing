@@ -18,16 +18,17 @@ document.addEventListener("DOMContentLoaded", function () {
           // Reset the form first
           form.reset();
 
-          // Show alert before redirection
-          alert(
-            "Your request has been submitted. You will now be redirected to the Client Satisfaction Measurement (CSM) form."
-          );
+          // Show notification
+          const notif = document.getElementById("notification");
+          notif.innerText =
+            "Your request has been submitted. Redirecting you to the CSM form...";
+          notif.style.display = "block";
 
-          // Redirect after a short delay
+          // Redirect after 2 seconds (without alert OK button)
           setTimeout(() => {
             window.location.href =
               "https://forms.office.com/pages/responsepage.aspx?id=fgur1uNloUiDiyou2QxUpg56LmRXJX1Dtawq0RFTnpRUQjlCTEFOOFdRRFFHMjJHRTI0U0lVWE4zOC4u&route=shorturl";
-          }, 100);
+          }, 200);
         } else {
           alert(
             "Error submitting the form. Please try again.\n\nServer response: " +

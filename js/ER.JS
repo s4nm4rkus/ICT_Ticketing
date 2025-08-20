@@ -15,11 +15,11 @@ document.addEventListener("DOMContentLoaded", function () {
         const trimmed = data.trim();
 
         if (trimmed === "success") {
-          alert(
-            "Your request has been submitted. You will now be redirected to the Client Satisfaction Measurement (CSM) form."
-          );
-
-          // Reset form fields before redirect
+          // Show notification
+          const notif = document.getElementById("notification");
+          notif.innerText =
+            "Your request has been submitted. Redirecting you to the CSM form...";
+          notif.style.display = "block";
           form.reset();
 
           // Optional: hide appointment text input if toggled by other logic
@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
           setTimeout(() => {
             window.location.href =
               "https://forms.office.com/pages/responsepage.aspx?id=fgur1uNloUiDiyou2QxUpg56LmRXJX1Dtawq0RFTnpRUQjlCTEFOOFdRRFFHMjJHRTI0U0lVWE4zOC4u&route=shorturl";
-          }, 300); // slight delay for smooth UX
+          }, 200);
         } else if (trimmed === "error_file_upload") {
           alert("Error uploading file. Please try again.");
         } else {

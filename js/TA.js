@@ -31,18 +31,17 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("myForm").reset();
             othersText.disabled = true;
 
-            document.getElementById("notification").style.display = "block";
+            // Show notification
+            const notif = document.getElementById("notification");
+            notif.innerText =
+              "Your request has been submitted. Redirecting you to the CSM form...";
+            notif.style.display = "block";
+
+            // Redirect after 2 seconds (without alert OK button)
             setTimeout(() => {
-              document.getElementById("notification").style.display = "none";
-            }, 2000);
-
-            // Show alert and then redirect
-            alert(
-              "Your request has been submitted. You will now be redirected to the Client Satisfaction Measurement (CSM) form."
-            );
-
-            window.location.href =
-              "https://forms.office.com/pages/responsepage.aspx?id=fgur1uNloUiDiyou2QxUpg56LmRXJX1Dtawq0RFTnpRUQjlCTEFOOFdRRFFHMjJHRTI0U0lVWE4zOC4u&route=shorturl";
+              window.location.href =
+                "https://forms.office.com/pages/responsepage.aspx?id=fgur1uNloUiDiyou2QxUpg56LmRXJX1Dtawq0RFTnpRUQjlCTEFOOFdRRFFHMjJHRTI0U0lVWE4zOC4u&route=shorturl";
+            }, 200);
           } else {
             alert("Something went wrong. Please try again.");
           }

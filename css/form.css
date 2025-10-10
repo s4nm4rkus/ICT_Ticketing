@@ -829,3 +829,6 @@ th {
 .reset-btn:hover {
   background-color: #5a6268;
 }
+.name-input-container {
+  display: flex;
+}

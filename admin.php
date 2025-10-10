@@ -88,6 +88,7 @@ if (
                     <div class="stat-number" id="help-count">-</div>
                     <div>Submission</div>
                 </div>
+                
             </div>
 
             <script>

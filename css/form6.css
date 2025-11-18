@@ -350,6 +350,24 @@ input[type="number"] {
 .formgroup_a {
   margin-right: 5px;
 }
+.d-container {
+  display: flex;
+}
+.d-container-checkbox {
+  width: 50%;
+  margin-bottom: 0;
+}
+.d-container-right {
+  width: 50%;
+  margin-left: 2rem;
+  margin-bottom: 0;
+}
+.e-sign-container {
+  width: 100%;
+}
+.d-container-right hr {
+  width: 50%;
+}
 
 @media (max-width: 992px) {
   .formgroup_b {
@@ -386,6 +404,26 @@ input[type="number"] {
   .flex-input-wrapper input {
     width: 100% !important;
     min-width: auto !important;
+  }
+
+  .d-container {
+    width: 100%;
+    min-width: auto;
+    display: block;
+  }
+  .d-container-right {
+    width: 100%;
+    margin-left: 0;
+    margin-bottom: 3rem;
+  }
+
+  .d-container-checkbox {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  .d-container-right hr {
+    width: 60%;
   }
 }
 
@@ -433,5 +471,19 @@ input[type="number"] {
   .flex-input-wrapper input {
     width: 100% !important;
     min-width: auto !important;
+  }
+
+  .d-container {
+    width: 100%;
+    min-width: auto;
+    display: block;
+  }
+  .d-container-right {
+    width: 100%;
+    margin-left: 0;
+    margin-bottom: 3rem;
+  }
+  .d-container-right hr {
+    width: 100%;
   }
 }

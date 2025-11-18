@@ -171,14 +171,12 @@ document.addEventListener("DOMContentLoaded", function () {
         method: "POST",
         body: formData,
       })
-        .then((response) => response.text())
+        .then((response) => response.json())
         .then((data) => {
-          const trimmed = data.trim();
-
-          if (trimmed === "success") {
+          if (data.status === "success") {
             document.getElementById("myForm").reset();
             othersText.disabled = true;
-            togglePartB(); // ✅ reset Part B state
+            togglePartB();
 
             const notif = document.getElementById("notification");
             notif.innerText =
@@ -191,7 +189,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }, 2000);
           } else {
             alert("Something went wrong. Please try again.");
-            console.error("Server response:", trimmed);
+            console.error("Server response:", data);
           }
         })
         .catch((error) => {

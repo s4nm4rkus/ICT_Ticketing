@@ -40,7 +40,7 @@ if (
                 <img src="./Images/left-chevron.png" alt="Left Arrow">
             </a>
             <span class="title">Help Desk List</span>
-            <a href="ict_list.php" class="arrow-button arrow-right">
+            <a href="form6_list.php" class="arrow-button arrow-right">
                 <img src="./Images/right-chevron.png" alt="Right Arrow">
             </a>
         </div>

@@ -19,6 +19,8 @@ if (
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/admin.css" />
+    <link rel="stylesheet" href="fontawesome/css/all.min.css" />
+
     <title>ICT Forms</title>
 </head>
 
@@ -135,7 +137,20 @@ if (
                 <div class="admin-card-title">Help Desk Form</div>
             </div>
         </a>
+           
     </div>
+     <hr class="hr-forms" />
+        <a href="form6_list.php" style="text-decoration: none;">
+         <div class="cards-section-2" style="gap: 30px; margin-bottom: 2rem">
+             <div class="card-forms-form6" onclick="location.href='form_6.html'">
+                <i class="fas fa-file-signature"></i>
+                <h2 style="text-align: left; margin-left: 20px">
+                CS Form No. 6 - Leave Form Revised 2020
+                <!-- <span><p>(Form 6)</p></span> -->
+                </h2>
+             </div>
+         </div>
+        </a>
 </div>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>

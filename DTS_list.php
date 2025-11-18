@@ -36,11 +36,11 @@ if (
     <div class="list-container">
         <div class="banner ict-banner">
             <div class="banner-overlay"></div>
-            <a href="ict_list.php" class="arrow-button arrow-left">
+            <a href="form6_list.php" class="arrow-button arrow-left">
                 <img src="./Images/left-chevron.png" alt="Left Arrow">
             </a>
             <span class="title">DTS Request List</span>
-            <a href="email_list.php" class="arrow-button arrow-right">
+            <a href="ict_list.php" class="arrow-button arrow-right">
                 <img src="./Images/right-chevron.png" alt="Right Arrow">
             </a>
         </div>

@@ -36,7 +36,7 @@ if (
     <div class="list-container">
         <div class="banner ict-banner">
             <div class="banner-overlay"></div>
-            <a href="DTS_list.php" class="arrow-button arrow-left">
+            <a href="ict_list.php" class="arrow-button arrow-left">
                 <img src="./Images/left-chevron.png" alt="Left Arrow">
             </a>
             <span class="title">Email Request List</span>

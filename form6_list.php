@@ -18,7 +18,7 @@ if (
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/list.css" />
-    <title>ICT Technical Assistance List</title>
+    <title>Form 6 - Application for Leave</title>
 </head>
 <body>
     <div class="container">
@@ -36,11 +36,11 @@ if (
     <div class="list-container">
         <div class="banner ict-banner">
             <div class="banner-overlay"></div>
-            <a href="DTS_list.php" class="arrow-button arrow-left">
+            <a href="help_list.php" class="arrow-button arrow-left">
                 <img src="./Images/left-chevron.png" alt="Left Arrow">
             </a>
-            <span>ICT Technical Assistance List</span>
-            <a href="email_list.php" class="arrow-button arrow-right">
+            <span class="title">Form 6 - Application for Leave List</span>
+            <a href="DTS_list.php" class="arrow-button arrow-right">
                 <img src="./Images/right-chevron.png" alt="Right Arrow">
             </a>
         </div>
@@ -53,8 +53,11 @@ if (
                         <tr>
                             <th>ID</th>
                             <th>Name</th>
-                            <th>Assistance</th>
+                            <th>Email Address</th>
+                            <th>Type of Leave</th>
+                            <th>Inclusive Days</th>
                             <th>Date Reported</th>
+                            <th>Remarks</th>
                         </tr>
                     </thead>
                     <tbody class="recent-tickets">
@@ -62,7 +65,7 @@ if (
                 </table>
             </div>
         </div>
-        
+
         <div class="section">
             <div class="section-title">Approved</div>
             <div class="section-content">
@@ -72,8 +75,11 @@ if (
                         <tr>
                             <th>ID</th>
                             <th>Name</th>
-                            <th>Assistance</th>
+                            <th>Email Address</th>
+                            <th>Type of Leave</th>
+                            <th>Inclusive Days</th>
                             <th>Date Reported</th>
+                            <th>Remarks</th>
                         </tr>
                     </thead>
                     <tbody class="history-tickets">
@@ -106,7 +112,6 @@ if (
             <p>Developed by: Angela Faith M. Salazar and Arien R. Peredo</p>
         </div> -->
     </footer>
-    <script src="js/ict_list.js"></script>
-
+    <script src="js/form6_list.js"></script>
 </body>
 </html>

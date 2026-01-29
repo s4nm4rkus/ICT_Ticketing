@@ -1,0 +1,1851 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link rel="stylesheet" type="text/css" href="css/form.css" /> -->
+    <link rel="stylesheet" type="text/css" href="css/form6-printing.css" />
+
+    <title>Form 6</title>
+  </head>
+  <body>
+    <!-- :LOADER OVERLAY -->
+    <div id="loader-overlay">
+      <div class="boxes-loader">
+        <div class="box">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <div class="box">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <div class="box">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <div class="box">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+    <!-- SUCCESS FORWARD OVERLAY -->
+    <div id="confirm-overlay">
+      <div class="card">
+        <div class="card-content">
+          <dotlottie-wc
+            src="https://lottie.host/b1c2eba1-f438-41ea-9701-12f03367f278/64tzSH4RUs.lottie"
+            style="width: 150px; height: 150px"
+            autoplay
+            loop
+          ></dotlottie-wc>
+
+          <p class="card-heading">Forward Successful!</p>
+          <p class="card-description">
+            The request has been forwarded to the next process!
+          </p>
+        </div>
+        <div class="card-button-wrapper">
+          <button class="card-button primary">Done</button>
+        </div>
+        <button class="exit-button">
+          <svg height="20px" viewBox="0 0 384 512">
+            <path
+              d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
+            ></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div id="info-overlay">
+      <div class="card">
+        <div class="card-content">
+          <dotlottie-wc
+            src="https://lottie.host/b1c2eba1-f438-41ea-9701-12f03367f278/64tzSH4RUs.lottie"
+            style="width: 150px; height: 150px"
+            autoplay
+            loop
+          ></dotlottie-wc>
+
+          <p class="card-heading">Forward Successful!</p>
+          <p class="card-description">
+            The request has been forwarded to the next process!
+          </p>
+        </div>
+        <div class="card-button-wrapper">
+          <button class="card-button primary">Done</button>
+        </div>
+        <button class="exit-button">
+          <svg height="20px" viewBox="0 0 384 512">
+            <path
+              d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
+            ></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!--MAIN CONTAINER -->
+    <div class="admin-container">
+      <div class="admin-header">
+        <div class="admin-logo">
+          <img src="./Images/logo.jpg" alt="Logo" class="admin-logo-img" />
+          <span class="admin-logo-text">SDO Tayabas City</span>
+        </div>
+        <a href="form6_list.php" class="admin-back-btn">Back</a>
+      </div>
+
+      <h1 class="admin-title">
+        CS Form No. 6<br />
+        Application for Leave
+      </h1>
+
+      <div class="form-container" style="padding-top: 10px">
+        <div class="form6-tag">
+          <em>
+            <p>Civil Service Form No. 6</p>
+            <p>Revised 2020</p>
+          </em>
+        </div>
+        <div class="department-header">
+          <div class="department-logos-01">
+            <img src="./Images/logo.png" alt="Logo 1" class="department-logo" />
+          </div>
+          <div class="department-title">
+            <em class="header-title">
+              <p>Republic of the Philippines</p>
+              <p>(City Schools Division of the City of Tayabas)</p>
+              <p>(Brgy. Potol, Tayabas City)</p>
+            </em>
+            <h2 style="margin-bottom: 5px; text-transform: uppercase">
+              Application for Leave
+            </h2>
+          </div>
+          <div class="stamp">
+            <p>Stamp of Date Receipt</p>
+          </div>
+        </div>
+
+        <div
+          class="main-container"
+          style="border: 1px solid; margin-left: 0.51in; margin-right: 0.51in"
+        >
+          <div
+            class="flex-input-wrapper"
+            style="display: flex; border: 1px solid; padding: 4px"
+          >
+            <div
+              class="form-group printing-form-group"
+              style="margin-bottom: 0; flex: 1"
+            >
+              <label
+                for="department"
+                style="
+                  align-self: center;
+                  width: 10rem;
+                  text-transform: uppercase;
+                "
+                >1. Office/Department</label
+              >
+              <input
+                id="department"
+                name="department"
+                style="
+                  border-bottom: 1px solid;
+                  border-top: 0;
+                  border-left: 0;
+                  border-right: 0;
+                  border-radius: 0%;
+                  padding: 1%;
+                "
+                required
+              />
+            </div>
+            <div class="form-group" style="margin-bottom: 0; flex: 1">
+              <label
+                class="label"
+                style="
+                  align-self: center;
+                  width: 10rem;
+                  text-transform: uppercase;
+                "
+                >2. Name
+                <span style="font-size: 9px; text-transform: none"
+                  >(Last Name)</span
+                ></label
+              >
+              <input
+                type="text"
+                id="last_name"
+                name="last_name"
+                placeholder="Last Name"
+                style="
+                  border-bottom: 1px solid;
+                  border-top: 0;
+                  border-left: 0;
+                  border-right: 0;
+                  border-radius: 0%;
+                  min-width: 150px !important;
+                  padding: 1%;
+                "
+                required
+              />
+            </div>
+            <div class="form-group" style="margin-bottom: 0; flex: 1">
+              <label class="label" style="font-size: 9px; text-transform: none"
+                >(First Name)</label
+              >
+              <input
+                type="text"
+                id="first_name"
+                name="first_name"
+                style="
+                  border-bottom: 1px solid;
+                  border-top: 0;
+                  border-left: 0;
+                  border-right: 0;
+                  border-radius: 0%;
+                  min-width: 150px !important;
+                  padding: 1.5%;
+                "
+                placeholder="First Name"
+                required
+              />
+            </div>
+            <div class="form-group" style="margin-bottom: 0; flex: 1">
+              <label class="label" style="font-size: 9px; text-transform: none"
+                >(Middle Name)</label
+              >
+              <input
+                type="text"
+                id="middle_name"
+                name="middle_name"
+                placeholder="Middle Name"
+                style="
+                  min-width: 150px !important;
+
+                  border-bottom: 1px solid;
+                  border-top: 0;
+                  border-left: 0;
+                  border-right: 0;
+                  border-radius: 0%;
+                  padding: 1.5%;
+                "
+                required
+              />
+            </div>
+          </div>
+
+          <div
+            class="flex-input-wrapper"
+            style="
+              justify-content: space-between;
+              border-bottom: 1px solid;
+              border-left: 1px solid;
+              border-right: 1px solid;
+              display: flex;
+              flex-wrap: wrap;
+              gap: 1px !important;
+              padding: 4px;
+            "
+          >
+            <div
+              class="form-group"
+              style="display: flex; flex: 1; margin-bottom: 0"
+            >
+              <label
+                class="label"
+                for="date_of_filing"
+                style="
+                  align-self: center;
+                  width: 10rem;
+                  text-transform: uppercase;
+                "
+                >3. Date of Filing</label
+              >
+              <input
+                type="date"
+                id="date_of_filing"
+                name="date_of_filing"
+                style="
+                  border-bottom: 1px solid;
+                  border-top: 0;
+                  border-left: 0;
+                  border-right: 0;
+                  border-radius: 0%;
+                  padding: 0%;
+                "
+                placeholder="month/day/year"
+                required
+              />
+            </div>
+            <div
+              class="form-group"
+              style="display: flex; margin-bottom: 0; flex: 1"
+            >
+              <label
+                class="label"
+                for="position"
+                style="align-self: center; text-transform: uppercase"
+                >4.Position</label
+              >
+              <input
+                type="text"
+                id="position"
+                name="position"
+                style="
+                  border-bottom: 1px solid;
+                  border-top: 0;
+                  border-left: 0;
+                  border-right: 0;
+                  border-radius: 0%;
+                  margin-left: 2px;
+                  padding: 0%;
+                "
+                placeholder=""
+                required
+              />
+            </div>
+            <div
+              class="form-group"
+              style="display: flex; margin-bottom: 0; flex: 1"
+            >
+              <label
+                class="label"
+                for="salary"
+                style="
+                  align-self: center;
+                  text-transform: uppercase;
+                  width: 5rem;
+                "
+                >5.Salary</label
+              >
+              <input
+                type="text"
+                id="salary"
+                name="salary"
+                style="
+                  border-bottom: 1px solid;
+                  border-top: 0;
+                  border-left: 0;
+                  border-right: 0;
+                  border-radius: 0%;
+                  padding: 0%;
+                "
+                placeholder=""
+                required
+              />
+            </div>
+          </div>
+
+          <!-- <div class="form-group">
+              <label for="date">Date Reported</label>
+              <input type="date" id="date" name="date" required />
+            </div> -->
+          <div
+            style="
+              text-align: center;
+              border-top: 2px solid;
+              border-bottom: 2px solid;
+              border-left: 1px solid;
+              border-right: 1px solid;
+            "
+          >
+            <p
+              style="
+                text-transform: uppercase;
+                line-height: 0;
+                padding: 0%;
+                font-size: 12px;
+                font-weight: 1000;
+              "
+            >
+              6. Details of Application
+            </p>
+          </div>
+          <div class="types_of_leave">
+            <div
+              class="form-group formgroup_a"
+              style="
+                padding: 5px;
+                border-top: 1px solid;
+                margin-bottom: 0;
+                border-bottom: 1px solid;
+                border-left: 1px solid;
+                border-right: 1px solid;
+              "
+            >
+              <label style="margin-bottom: 0"
+                >6. A. TYPE OF LEAVE BE AVAILED OF
+              </label>
+              <div class="checkbox-group" style="margin-top: 5px">
+                <div class="checkbox-option">
+                  <label for="vacation_leave">
+                    <input
+                      type="checkbox"
+                      id="vacation_leave"
+                      name="selectedOptions[]"
+                      value="Vacation Leave"
+                      style="margin-right: 2px; margin-top: 0"
+                    />
+                    Vacation Leave
+                    <span style="font-size: 9px; font-weight: lighter">
+                      (Sec. 51, Rule XVI, Omnibus Rules Implementing E.O. No.
+                      292)</span
+                    >
+                  </label>
+                </div>
+
+                <div class="checkbox-option">
+                  <label for="mandatory_forced_leave">
+                    <input
+                      type="checkbox"
+                      id="mandatory_forced_leave"
+                      name="selectedOptions[]"
+                      value="Mandatory / Forced Leave"
+                      style="margin-right: 2px; margin-top: 0"
+                    />
+
+                    Mandatory/Forced Leave
+                    <span style="font-size: 9px; font-weight: lighter"
+                      >(Sec. 25, Rule XVI, Omnibus Rules Implementing E.O. No.
+                      292)</span
+                    >
+                  </label>
+                </div>
+
+                <div class="checkbox-option">
+                  <label for="sick-leave">
+                    <input
+                      type="checkbox"
+                      id="sick-leave"
+                      name="selectedOptions[]"
+                      value="Sick Leave"
+                      style="margin-right: 2px; margin-top: 0"
+                    />
+                    Sick Leave
+                    <span style="font-size: 9px; font-weight: lighter">
+                      (Sec. 43, Rule XVI, Omnibus Rules Implementing E.O. No.
+                      292)
+                    </span>
+                  </label>
+                </div>
+
+                <div class="checkbox-option">
+                  <label for="maternity_leave">
+                    <input
+                      type="checkbox"
+                      id="maternity_leave"
+                      name="selectedOptions[]"
+                      value="Maternity Leave"
+                      style="margin-right: 2px; margin-top: 0"
+                    />
+                    Maternity Leave
+                    <span style="font-size: 9px; font-weight: lighter">
+                      (R.A. No. 11210 / IRR issued by CSC, DOLE and SSS)
+                    </span>
+                  </label>
+                </div>
+                <div class="checkbox-option">
+                  <label for="paternity_leave">
+                    <input
+                      type="checkbox"
+                      id="paternity_leave"
+                      name="selectedOptions[]"
+                      value="Paternity Leave"
+                      style="margin-right: 2px"
+                    />
+                    Paternity Leave
+                    <span style="font-size: 9px; font-weight: lighter">
+                      (R.A. No. 8187 / CSC MC No. 71, s. 1998, as amended)
+                    </span>
+                  </label>
+                </div>
+
+                <div class="checkbox-option">
+                  <label for="special_privilege_leave">
+                    <input
+                      type="checkbox"
+                      id="special_privilege_leave"
+                      name="selectedOptions[]"
+                      value="Special Privilege Leave"
+                      style="margin-right: 2px; margin-top: 0"
+                    />
+                    Special Privilege Leave
+                    <span style="font-size: 9px; font-weight: lighter">
+                      (Sec. 21, Rule XVI, Omnibus Rules Implementing E.O. No.
+                      292)</span
+                    >
+                  </label>
+                </div>
+
+                <div class="checkbox-option">
+                  <label for="solo_parent_leave">
+                    <input
+                      type="checkbox"
+                      id="solo_parent_leave"
+                      name="selectedOptions[]"
+                      value="Solo Parent Leave"
+                      style="margin-right: 2px; margin-top: 0"
+                    />
+                    Solo Parent Leave
+                    <span style="font-size: 9px; font-weight: lighter">
+                      (RA No. 8972 / CSC MC No. 8, s. 2004)</span
+                    >
+                  </label>
+                </div>
+
+                <div class="checkbox-option">
+                  <label for="study_leave">
+                    <input
+                      type="checkbox"
+                      id="study_leave"
+                      name="selectedOptions[]"
+                      value="Study Leave"
+                      style="margin-right: 2px; margin-top: 0"
+                    />
+                    Study Leave
+                    <span style="font-size: 9px; font-weight: lighter">
+                      (Sec. 68, Rule XVI, Omnibus Rules Implementing E.O. No.
+                      292)
+                    </span>
+                  </label>
+                </div>
+
+                <div class="checkbox-option">
+                  <label for="10day_VAWC_leave">
+                    <input
+                      type="checkbox"
+                      id="10day_VAWC_leave"
+                      name="selectedOptions[]"
+                      value="10-Day VAWC Leave"
+                      style="margin-right: 2px; margin-top: 0"
+                    />
+                    10-Day VAWC Leave
+                    <span style="font-size: 9px; font-weight: lighter">
+                      (RA No. 9262 / CSC MC No. 15, s. 2005)</span
+                    >
+                  </label>
+                </div>
+
+                <div class="checkbox-option">
+                  <label for="rehabilitation_privilege">
+                    <input
+                      type="checkbox"
+                      id="rehabilitation_privilege"
+                      name="selectedOptions[]"
+                      value="Rehabilitation Privilege"
+                      style="margin-right: 2px; margin-top: 0"
+                    />
+                    Rehabilitation Privilege
+                    <span style="font-size: 9px; font-weight: lighter">
+                      (Sec. 55, Rule XVI, Omnibus Rules Implementing E.O. No.
+                      292)</span
+                    >
+                  </label>
+                </div>
+
+                <div class="checkbox-option">
+                  <label for="special_leave_benefits_for_women">
+                    <input
+                      type="checkbox"
+                      id="special_leave_benefits_for_women"
+                      name="selectedOptions[]"
+                      value="Special Leave Benefits for Women"
+                      style="margin-right: 2px; margin-top: 0"
+                    />
+                    Special Leave Benefits for Women
+                    <span style="font-size: 9px; font-weight: lighter">
+                      (RA No. 9710 / CSC MC No. 25, s. 2010)
+                    </span>
+                  </label>
+                </div>
+
+                <div class="checkbox-option">
+                  <label for="special_emergency">
+                    <input
+                      type="checkbox"
+                      id="special_emergency"
+                      name="selectedOptions[]"
+                      value="Special Emergency"
+                      style="margin-right: 2px; margin-top: 0"
+                    />
+                    Special Emergency
+                    <span style="font-size: 9px; font-weight: lighter">
+                      (Calamity) Leave (CSC MC No. 2, s. 2012, as amended)</span
+                    >
+                  </label>
+                </div>
+
+                <div class="checkbox-option">
+                  <label for="adoption_leave">
+                    <input
+                      type="checkbox"
+                      id="adoption_leave"
+                      name="selectedOptions[]"
+                      value="Adoption Leave"
+                      style="margin-right: 2px; margin-top: 0"
+                    />
+                    Adoption Leave
+                    <span style="font-size: 9px; font-weight: lighter">
+                      (R.A. No. 8552)</span
+                    >
+                  </label>
+                </div>
+
+                <div class="checkbox-option">
+                  <label for="others">
+                    <input
+                      type="checkbox"
+                      id="others"
+                      name="selectedOptions[]"
+                      value="Others"
+                      style="margin-right: 2px; margin-top: 0"
+                    />
+                    Others:
+                    <input
+                      class="others_text_wrapper"
+                      type="text"
+                      id="others_text"
+                      name="others_text"
+                      style="
+                        border-bottom: 1px solid;
+                        border-left: 0;
+                        border-top: 0;
+                        border-right: 0;
+                        border-radius: 0%;
+                        padding: 1%;
+                      "
+                      disabled
+                    />
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="form-group formgroup_b"
+              style="
+                padding: 5px;
+                border-top: 1px solid;
+                border-bottom: 1px solid;
+                border-left: 1px solid;
+                border-right: 1px solid;
+              "
+            >
+              <label>B. DETAILS OF LEAVE</label>
+              <div class="checkbox-group">
+                <label style="margin-top: -1rem"
+                  ><em> In case of Vacation/Special Privilege Leave:</em></label
+                >
+                <div class="checkbox-option b-check-options">
+                  <label for="Within the Philippines">
+                    <input
+                      type="checkbox"
+                      id="within_ph"
+                      name="specificationOptions[]"
+                      value="Within the Philippines"
+                      style="margin-right: 2px; margin-top: 0"
+                    />
+                    Within the Philippines
+                  </label>
+                  <input
+                    class="input_text"
+                    type="text"
+                    id="within_ph_text"
+                    name="within_ph_text"
+                    style="
+                      border-bottom: 1px solid;
+                      border-top: 0;
+                      border-left: 0;
+                      border-right: 0;
+                      border-radius: 0%;
+                      padding: 1%;
+                    "
+                    disabled
+                  />
+                </div>
+
+                <div
+                  class="checkbox-option b-check-options"
+                  style="align-content: center"
+                >
+                  <label for="Abroad">
+                    <input
+                      type="checkbox"
+                      id="abroad"
+                      name="specificationOptions[]"
+                      value="Abroad"
+                      style="margin-right: 2px; margin-top: 0"
+                    />
+                    Abroad (Specify)
+                  </label>
+                  <input
+                    class="input_text"
+                    type="text"
+                    id="abroad_text"
+                    name="abroad_text"
+                    style="
+                      border-bottom: 1px solid;
+                      border-top: 0;
+                      border-left: 0;
+                      border-right: 0;
+                      border-radius: 0%;
+                      padding: 1%;
+                    "
+                    disabled
+                  />
+                </div>
+                <label><em>In case of Sick Leave:</em></label>
+                <div class="checkbox-option b-check-options">
+                  <label for="In Hospital">
+                    <input
+                      type="checkbox"
+                      id="in_hospital"
+                      name="specificationOptions[]"
+                      value="In Hospital"
+                      style="
+                        border-bottom: 1px solid;
+                        border-top: 0;
+                        border-left: 0;
+                        border-right: 0;
+                        border-radius: 0%;
+                        padding: 2%;
+                        margin-right: 2px;
+                        margin-top: 0;
+                      "
+                    />
+                    In Hospital (Specify Illness)
+                  </label>
+                  <input
+                    class="input_text"
+                    type="text"
+                    id="in_hospital_text"
+                    name="in_hospital_text"
+                    style="
+                      border-bottom: 1px solid;
+                      border-top: 0;
+                      border-left: 0;
+                      border-right: 0;
+                      border-radius: 0%;
+                      padding: 1%;
+                    "
+                    disabled
+                  />
+                </div>
+
+                <div class="checkbox-option b-check-options">
+                  <label for="Out Patient">
+                    <input
+                      type="checkbox"
+                      id="out_patient"
+                      name="specificationOptions[]"
+                      value="Out Patient"
+                      style="
+                        border-bottom: 1px solid;
+                        border-top: 0;
+                        border-left: 0;
+                        border-right: 0;
+                        border-radius: 0%;
+                        padding: 2%;
+                        margin-right: 2px;
+                        margin-top: 0;
+                      "
+                    />
+                    Out Patient (Specify Illness)
+                  </label>
+                  <input
+                    class="input_text"
+                    type="text"
+                    id="out_patient_text"
+                    name="out_patient_text"
+                    style="
+                      border-bottom: 1px solid;
+                      border-top: 0;
+                      border-left: 0;
+                      border-right: 0;
+                      border-radius: 0%;
+                      padding: 1%;
+                    "
+                    disabled
+                  />
+                </div>
+
+                <label
+                  ><em> In case of Special Leave Benefits for Women:</em></label
+                >
+                <div class="checkbox-option b-check-options">
+                  <label for="SpecialLeave-BW">
+                    (Specify Illness)
+                    <input
+                      class="input_text"
+                      type="text"
+                      id="special_leave_BW_spec"
+                      name="special_leave_BW_spec"
+                      style="
+                        border-bottom: 1px solid;
+                        border-top: 0;
+                        border-left: 0;
+                        border-right: 0;
+                        border-radius: 0%;
+                        padding: 1%;
+                      "
+                      disabled
+                    />
+                  </label>
+                </div>
+                <label><em>In case of Study Leave:</em></label>
+                <div class="checkbox-option b-check-options">
+                  <label for="Completion of Master's Degree">
+                    <input
+                      type="checkbox"
+                      id="completion_of_masters_degree"
+                      name="completion_of_masters_degree"
+                      value="Completion of Master's Degree"
+                      style="margin-right: 2px; margin-top: 0"
+                    />
+                    Completion of Master's Degree
+                  </label>
+                </div>
+                <div class="checkbox-option b-check-options">
+                  <label for="BAR/Board Examination Review">
+                    <input
+                      type="checkbox"
+                      id="BAR_Board_exam"
+                      name="BAR_Board_exam"
+                      value="BAR/Board Examination Review"
+                      style="margin-right: 2px; margin-top: 0"
+                    />
+                    BAR/Board Examination Review
+                  </label>
+                </div>
+
+                <label><em>Other purpose:</em></label>
+                <div class="checkbox-option b-check-options">
+                  <label for="Monetization of Leave Credits">
+                    <input
+                      type="checkbox"
+                      id="monetization_of_leave_credits"
+                      name="otherPurpose[]"
+                      value="Monetization of Leave Credits"
+                      style="margin-right: 2px; margin-top: 0"
+                    />
+                    Monetization of Leave Credits
+                  </label>
+                </div>
+                <div class="checkbox-option b-check-options">
+                  <label for="Terminal Leave">
+                    <input
+                      type="checkbox"
+                      id="terminal_leave"
+                      name="otherPurpose[]"
+                      value="Terminal Leave"
+                      style="margin-right: 2px; margin-top: 0"
+                    />
+                    Terminal Leave
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="display: flex">
+            <div
+              class="form-group"
+              style="
+                width: 55%;
+                border: 1px solid;
+                padding: 5px;
+                margin-bottom: 0;
+              "
+            >
+              <label>6. C. NUMBER OF WORKING DAYS APPLIED FOR</label>
+              <div class="checkbox-option" style="margin-bottom: 0">
+                <input
+                  type="text"
+                  id="number_of_days_applied"
+                  name="number_of_days_applied"
+                  style="
+                    width: 300px;
+                    margin-bottom: 10px;
+                    border-bottom: 1px solid;
+                    border-left: 0;
+                    border-top: 0;
+                    border-right: 0;
+                    border-radius: 0%;
+                    padding: 1%;
+                  "
+                />
+                <label>INCLUSIVE DAYS</label>
+                <div class="checkbox-option" style="margin-bottom: 0">
+                  <input
+                    type="text"
+                    id="inclusive_days"
+                    name="inclusive_days"
+                    style="
+                      width: 300px;
+                      border-bottom: 1px solid;
+                      border-left: 0;
+                      border-top: 0;
+                      border-right: 0;
+                      border-radius: 0%;
+                      padding: 1%;
+                    "
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="form-group d-container-right"
+              style="border: 1px solid; padding: 5px"
+            >
+              <label>6. D. COMMUTATION</label>
+              <div class="checkbox-option">
+                <label>
+                  <input
+                    type="checkbox"
+                    id="not_required"
+                    name="communication[]"
+                    value="Not Required"
+                    style="margin-right: 2px; margin-top: 0"
+                  />
+                  Not Required</label
+                >
+
+                <div class="checkbox-option">
+                  <label>
+                    <input
+                      type="checkbox"
+                      id="required"
+                      name="communication[]"
+                      value="Required"
+                      style="margin-right: 2px"
+                    />
+
+                    Required</label
+                  >
+                </div>
+              </div>
+              <div class="e-sign-container" style="margin-top: -3rem">
+                <div class="e-sign-input">
+                  <div
+                    style="
+                      width: 200px;
+                      height: 100px;
+                      display: flex;
+                      justify-content: center; /* center horizontally */
+                      align-items: center; /* center vertically */
+                      align-self: center;
+                      justify-self: center;
+                      overflow: hidden;
+                      margin-top: 0rem;
+                      border: none;
+                      z-index: 2;
+                    "
+                  >
+                    <img
+                      id="signature_image"
+                      src=""
+                      alt="Employee Signature"
+                      style="
+                        max-width: 100%;
+                        max-height: 100%;
+                        object-fit: contain;
+                      "
+                    />
+                  </div>
+                  <label style="text-align: center; margin-top: -1rem"
+                    >(Signature of Applicant)</label
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="
+              text-align: center;
+              border-top: 2px solid;
+              border-bottom: 2px solid;
+              border-left: 1px solid;
+              border-right: 1px solid;
+            "
+          >
+            <p
+              style="
+                text-transform: uppercase;
+                line-height: 0;
+                padding: 0%;
+                font-size: 12px;
+                font-weight: 1000;
+              "
+            >
+              7. Details of Action on Application
+            </p>
+          </div>
+
+          <div style="display: flex">
+            <div
+              class="form-group"
+              style="
+                width: 55%;
+                border: 1px solid;
+                padding: 4px;
+                margin-bottom: 0;
+              "
+            >
+              <form
+                id="leave_form"
+                method="POST"
+                action="php/F6submit_personnel_update_leave.php"
+                type="submit"
+              >
+                <input
+                  type="hidden"
+                  id="form_id"
+                  name="form6_applicationforleave"
+                />
+
+                <label>7. A. CERTIFICATION OF LEAVE CREDITS</label>
+                <div
+                  class="checkbox-option"
+                  style="
+                    display: flex;
+                    justify-content: center;
+                    margin-bottom: 3px;
+                  "
+                >
+                  <label style="align-self: center">As of </label>
+
+                  <input
+                    type="text"
+                    id="as_of"
+                    name="as_of"
+                    style="
+                      width: 300px;
+                      border-bottom: 1px solid;
+                      border-left: 0;
+                      border-top: 0;
+                      border-right: 0;
+                      border-radius: 0%;
+                      padding: 2px 5px;
+                    "
+                  />
+                </div>
+                <table
+                  style="
+                    width: 80%;
+                    font-size: 11px;
+                    align-self: center;
+                    justify-self: center;
+                    text-align: center;
+                    padding: 0;
+                  "
+                >
+                  <tr>
+                    <th style="border: 1px solid; width: 40%"></th>
+                    <th style="border: 1px solid">Vacation Leave</th>
+                    <th style="border: 1px solid">Sick Leave</th>
+                  </tr>
+                  <tr>
+                    <td style="border: 1px solid"><em>Total Earned</em></td>
+                    <td class="total-earned-col-1" style="border: 1px solid">
+                      <input
+                        type="text"
+                        id="vacation_leave_total_earned"
+                        name="vacation_leave_total_earned"
+                        style="
+                          width: 100%;
+                          border-bottom: 0;
+                          border-left: 0;
+                          border-top: 0;
+                          border-right: 0;
+                          border-radius: 0%;
+                          padding: 0%;
+                          text-align: center;
+                        "
+                      />
+                    </td>
+                    <td class="total-earned-col-2" style="border: 1px solid">
+                      <input
+                        type="text"
+                        id="sick_leave_total_earned"
+                        name="sick_leave_total_earned"
+                        style="
+                          width: 100%;
+                          border-bottom: 0;
+                          border-left: 0;
+                          border-top: 0;
+                          border-right: 0;
+                          border-radius: 0%;
+                          padding: 0%;
+                          text-align: center;
+                        "
+                      />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="border: 1px solid">
+                      <em>Less this application</em>
+                    </td>
+                    <td class="less-col-1" style="border: 1px solid">
+                      <input
+                        type="text"
+                        id="vacation_leave_less_this_application"
+                        name="vacation_leave_less_this_application"
+                        style="
+                          width: 100%;
+                          border-bottom: 0;
+                          border-left: 0;
+                          border-top: 0;
+                          border-right: 0;
+                          border-radius: 0%;
+                          padding: 0%;
+                          text-align: center;
+                        "
+                      />
+                    </td>
+                    <td class="less-col-2" style="border: 1px solid">
+                      <input
+                        type="text"
+                        id="sick_leave_less_this_application"
+                        name="sick_leave_less_this_application"
+                        style="
+                          width: 100%;
+                          border-bottom: 0;
+                          border-left: 0;
+                          border-top: 0;
+                          border-right: 0;
+                          border-radius: 0%;
+                          padding: 0%;
+                          text-align: center;
+                        "
+                      />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="border: 1px solid"><em>Balance</em></td>
+                    <td class="balance-col-1" style="border: 1px solid">
+                      <input
+                        type="text"
+                        id="vacation_leave_balance"
+                        name="vacation_leave_balance"
+                        style="
+                          width: 100%;
+                          border-bottom: 0;
+                          border-left: 0;
+                          border-top: 0;
+                          border-right: 0;
+                          border-radius: 0%;
+                          padding: 0%;
+                          text-align: center;
+                        "
+                      />
+                    </td>
+                    <td class="balance-col-2" style="border: 1px solid">
+                      <input
+                        type="text"
+                        id="sick_leave_balance"
+                        name="sick_leave_balance"
+                        style="
+                          width: 100%;
+                          border-bottom: 0;
+                          border-left: 0;
+                          border-top: 0;
+                          border-right: 0;
+                          border-radius: 0%;
+                          padding: 0%;
+                          text-align: center;
+                        "
+                      />
+                    </td>
+                  </tr>
+                </table>
+                <button
+                  class="personnel-update"
+                  style="
+                    display: none;
+                    position: relative;
+                    left: 53.5%;
+                    margin-top: 5px;
+                    border-radius: 4px;
+                    border: none;
+                    padding: 6px 10px;
+                    cursor: pointer;
+                    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.25);
+                  "
+                  type="button"
+                >
+                  Update Leave Balances
+                </button>
+              </form>
+              <form
+                id="leave_form_admin_update"
+                method="POST"
+                action="php/F6submit_admin_update_leave.php"
+                type="submit"
+              >
+                <input type="hidden" id="form_id" name="parent_id" />
+                <div
+                  class="e-sign-container"
+                  style="
+                    display: block;
+                    margin-top: 10px;
+                    align-self: center;
+                    justify-self: center;
+                    text-align: center;
+                  "
+                >
+                  <div
+                    id="admin_esign_wrapper"
+                    class="admin_esign_wrapper"
+                    style="
+                      display: none;
+                      width: 200px;
+                      height: 70px;
+                      justify-content: center;
+                      align-items: center;
+                      margin-top: -3rem;
+                      border: none;
+                      z-index: 2;
+                    "
+                  >
+                    <img
+                      id="admin_signature_image"
+                      src="php/uploads/e_signatures/authorized personnels/admin_sampleSign.png"
+                      alt="Admin Unit Signature"
+                      style="
+                        max-width: 100%;
+                        max-height: 100%;
+                        object-fit: contain;
+                        position: relative;
+                        top: 20px;
+                      "
+                    />
+                  </div>
+
+                  <div class="e-sign-input">
+                    <p
+                      style="
+                        text-transform: uppercase;
+                        font-size: 12px;
+                        font-weight: 600;
+                        margin: 0;
+                        padding: 0;
+                      "
+                    >
+                      Conrado C. Gabarda
+                    </p>
+                    <p style="font-size: 11px; margin: 0; padding: 0">
+                      Administrative Officer V.
+                    </p>
+
+                    <hr
+                      style="margin: 2px 0; justify-self: center; width: 50%"
+                    />
+                    <label style="text-align: center"
+                      >(Authorize Officer)</label
+                    >
+
+                    <button
+                      id="admin-approve-btn"
+                      class="admin-approve-btn"
+                      type="button"
+                    >
+                      Approve & Sign
+                    </button>
+
+                    <style>
+                      .admin-approve-btn {
+                        display: none;
+                        background-color: #2291ff;
+                        color: white;
+                        padding: 6px 10px;
+                        border: none;
+                        border-radius: 4px;
+                        cursor: pointer;
+                        box-shadow: 0 2px 3px rgba(0, 0, 0, 0.25);
+                        position: relative;
+                        margin-top: 5px;
+                        transition: all 0.3s ease-in-out;
+                      }
+
+                      .admin-approve-btn::after {
+                        content: "";
+                        position: absolute;
+                        inset: 0;
+                        background: rgba(0, 0, 0, 0.15); /* dark overlay */
+                        opacity: 0;
+                        transition: opacity 0.2s ease;
+                        pointer-events: none;
+                        border-radius: 4px;
+                      }
+
+                      .admin-approve-btn:hover::after {
+                        opacity: 1;
+                      }
+                    </style>
+                  </div>
+                </div>
+              </form>
+
+              <div
+                id="adminConfirmModal"
+                class="modal-overlay"
+                style="display: none"
+              >
+                <div class="modal-box">
+                  <img
+                    src="./Images/information.png"
+                    alt=""
+                    height="70px"
+                    style="
+                      margin-top: 1rem;
+                      padding: 0;
+                      border-radius: 50px;
+                      box-shadow: 0 0px 5px rgba(0, 0, 0, 0.2);
+                    "
+                  />
+                  <p id="adminConfirmText">Are you sure?</p>
+                  <p id="adminConfirmTextDescription">
+                    You are about to
+                    <span style="font-weight: 600; color: #ff4848"
+                      >Sign
+                      <span style="font-weight: 100; color: #222">or</span>
+                      Remove</span
+                    >
+                    the signature from this request form. Click Confirm to
+                    continue.
+                  </p>
+
+                  <div class="modal-actions">
+                    <button id="confirmYesBtn" class="confirm-btn">
+                      Confirm
+                    </button>
+                    <button id="confirmNoBtn" class="cancel-btn">Cancel</button>
+                  </div>
+                </div>
+              </div>
+
+              <style>
+                #adminConfirmText {
+                  font-size: 20px;
+                  font-weight: 600;
+                }
+                #adminConfirmTextDescription {
+                  font-size: 16px;
+                  font-weight: 100;
+                  line-height: 1.5;
+                }
+                .modal-overlay {
+                  position: fixed;
+                  top: 0;
+                  left: 0;
+                  width: 100%;
+                  height: 100%;
+                  background: rgba(0, 0, 0, 0.6);
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  z-index: 9999;
+                }
+                .modal-box {
+                  background: white;
+                  padding: 20px;
+                  width: 300px;
+                  border-radius: 8px;
+                  text-align: center;
+                  animation: fadeIn 0.2s ease-in-out;
+                }
+                .confirm-btn {
+                  background: #2291ff;
+                  color: white;
+                  padding: 6px 14px;
+                  border: none;
+                  border-radius: 4px;
+                  cursor: pointer;
+                }
+                .cancel-btn {
+                  background: #999;
+                  color: white;
+                  padding: 6px 14px;
+                  border: none;
+                  border-radius: 4px;
+                  margin-left: 10px;
+                  cursor: pointer;
+                }
+              </style>
+            </div>
+
+            <div
+              class="form-group d-container-right"
+              style="border: 1px solid; padding: 4px"
+            >
+              <label>7. B. RECOMMENDATION</label>
+              <div class="checkbox-option">
+                <label>
+                  <input
+                    type="checkbox"
+                    value="For Approval"
+                    style="margin-right: 2px"
+                  />
+                  For Approval</label
+                >
+
+                <div class="checkbox-option">
+                  <label>
+                    <input
+                      type="checkbox"
+                      value="For disapproval due to"
+                      style="margin-right: 2px"
+                    />
+
+                    For disapproval due to</label
+                  >
+                  <textarea
+                    type="text"
+                    id="disapproval_due_to"
+                    name="disapproval_due_to"
+                    style="
+                      width: 90%;
+                      min-height: 55px;
+                      margin-left: 1.6rem;
+                      border-bottom: 1px solid #000;
+                      border-top: 0;
+                      border-left: 0;
+                      border-right: 0;
+                      border-radius: 0;
+                      padding: 2px 4px;
+                      font-family: inherit;
+                      font-size: 10pt;
+                      white-space: normal;
+                      overflow-wrap: break-word;
+                    "
+                  ></textarea>
+                </div>
+              </div>
+              <div class="e-sign-container">
+                <div class="e-sign-input" style="width: 100%">
+                  <hr style="width: 50%" />
+                  <label style="text-align: center">(Authorize Officer)</label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <form
+            id="leave_form_asds_sds_update"
+            method="POST"
+            action="php/F6submit_asds_sds_update.php"
+            type="submit"
+          >
+            <input type="hidden" id="form_id" name="parent_id" />
+
+            <div
+              class="form-group-approved-for"
+              style="
+                justify-content: center;
+                border-top: 2px solid;
+                border-left: 1px solid;
+                border-right: 1px solid;
+                margin-bottom: 0;
+                padding: 5px;
+                display: flex;
+              "
+            >
+              <div class="form-group" style="width: 63%; margin-bottom: 0">
+                <label>7.C. APPROVED FOR:</label>
+                <div
+                  class="checkbox-option"
+                  style="
+                    display: flex;
+                    justify-content: left;
+                    margin-bottom: 0;
+                    margin-left: 1.5rem;
+                  "
+                >
+                  <input
+                    type="text"
+                    id="daysWithPay"
+                    name="approve_for_days_with_pay"
+                    style="
+                      width: 70px;
+                      border-bottom: 1px solid;
+                      border-left: 0;
+                      border-top: 0;
+                      border-right: 0;
+                      border-radius: 0%;
+                      padding: 2px 5px;
+                    "
+                  />
+                  <label style="align-self: center">days with pay </label>
+                </div>
+
+                <div
+                  class="checkbox-option"
+                  style="
+                    display: flex;
+                    justify-content: left;
+                    margin-bottom: 0;
+                    margin-left: 1.5rem;
+                  "
+                >
+                  <input
+                    type="text"
+                    id="daysWithoutPay"
+                    name="approve_for_days_without_pay"
+                    style="
+                      width: 70px;
+                      border-bottom: 1px solid;
+                      border-left: 0;
+                      border-top: 0;
+                      border-right: 0;
+                      border-radius: 0%;
+                      padding: 2px 5px;
+                    "
+                  />
+                  <label style="align-self: center">days without pay </label>
+                </div>
+
+                <div
+                  class="checkbox-option"
+                  style="
+                    display: flex;
+                    justify-content: left;
+                    margin-bottom: 0;
+                    margin-left: 1.5rem;
+                  "
+                >
+                  <input
+                    type="text"
+                    id="approveForOthers"
+                    name="approve_for_others"
+                    style="
+                      width: 70px;
+                      border-bottom: 1px solid;
+                      border-left: 0;
+                      border-top: 0;
+                      border-right: 0;
+                      border-radius: 0%;
+                      padding: 2px 5px;
+                    "
+                  />
+                  <label style="align-self: center">others (specify) </label>
+                </div>
+              </div>
+
+              <div
+                class="form-group-disapproved-for"
+                style="width: 50%; margin-bottom: 0"
+              >
+                <label>7.D. DISAPPROVED DUE TO:</label>
+                <div
+                  class="checkbox-option"
+                  style="
+                    display: flex;
+                    justify-content: left;
+                    margin-bottom: 0;
+                    margin-left: 1.5rem;
+                  "
+                >
+                  <textarea
+                    id="disapprovedDueTo"
+                    name="disapproved_due_to"
+                    style="
+                      width: 100%;
+                      min-height: 55px;
+                      border-bottom: 1px solid;
+                      border-left: 0;
+                      border-top: 0;
+                      border-right: 0;
+                      border-radius: 0%;
+                      padding: 2px 5px;
+                    "
+                  ></textarea>
+                </div>
+              </div>
+            </div>
+            <div
+              class="form-group-asds-sds-esign"
+              style="
+                justify-content: center;
+                text-align: center;
+                border-bottom: 1px solid;
+                border-left: 1px solid;
+                border-right: 1px solid;
+                margin-bottom: 0;
+                padding: 4px;
+                overflow: visible;
+              "
+            >
+              <div
+                style="
+                  justify-content: center;
+                  text-align: center;
+                  overflow: visible;
+                "
+              >
+                <div
+                  id="e-sign-input-top-management"
+                  style="margin-bottom: -50px; display: none"
+                >
+                  <div
+                    id="sign-preview-wrapper"
+                    style="
+                      width: 200px;
+                      height: 130px;
+                      display: flex;
+                      justify-content: center;
+                      align-items: center;
+                      align-self: center;
+                      justify-self: center;
+                      margin-top: -5rem;
+                      overflow: visible;
+                    "
+                  >
+                    <img
+                      id="top-management-esign"
+                      src="php/uploads/e_signatures/authorized personnels/sds_sampleSign.png"
+                      alt="Admin Unit Signature"
+                      style="
+                        max-width: 100%;
+                        max-height: 100%;
+                        object-fit: contain;
+                        position: relative;
+                        bottom: -50px;
+                      "
+                    />
+                  </div>
+                </div>
+
+                <div
+                  class="checkbox-option"
+                  style="
+                    margin: 0;
+                    padding: 0;
+                    border: 0.5px solid;
+                    width: 300px;
+                    text-align: center;
+                    justify-self: center;
+                    align-self: center;
+                    background-color: transparent;
+                  "
+                >
+                  <input
+                    type="text"
+                    id="name_of_official"
+                    name="name_of_official"
+                    style="
+                      text-align: center;
+                      border: 0;
+                      border-radius: 0%;
+                      font-weight: bolder;
+                      padding: 4px;
+                      text-transform: uppercase;
+                      background-color: transparent;
+                    "
+                    placeholder="Full Name"
+                  />
+
+                  <div class="checkbox-option">
+                    <input
+                      type="text"
+                      id="signatory_position"
+                      name="signatory_position"
+                      style="
+                        text-align: center;
+                        border-left: 0;
+                        border-top: 0;
+                        border-right: 0;
+                        border-radius: 0%;
+                        border-bottom: 0;
+                        padding: 0;
+                        margin: 0;
+                        background-color: transparent;
+                      "
+                      placeholder="Position"
+                    />
+                  </div>
+                </div>
+
+                <hr style="width: 250px; margin-top: 4px; margin-bottom: 2px" />
+                <label style="text-align: center; font-weight: bold"
+                  >(Authorize Official)</label
+                >
+              </div>
+              <div
+                class="e-sign-input-wrapper-top-management"
+                style="text-align: center"
+              >
+                <button
+                  id="asdsSdsApproveBtn"
+                  class="asds-sds-approve-btn"
+                  type="button"
+                >
+                  Approve & Sign
+                </button>
+
+                <style>
+                  .asds-sds-approve-btn {
+                    display: none;
+                    color: white;
+                    padding: 6px 10px;
+                    border: none;
+                    border-radius: 4px;
+                    cursor: pointer;
+                    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.25);
+                    position: relative;
+                    margin-top: 5px;
+                    transition: all 0.3s ease-in-out;
+                  }
+
+                  .asds-sds-approve-btn::after {
+                    content: "";
+                    position: absolute;
+                    inset: 0;
+                    background: rgba(0, 0, 0, 0.15); /* dark overlay */
+                    opacity: 0;
+                    transition: opacity 0.2s ease;
+                    pointer-events: none;
+                    border-radius: 4px;
+                  }
+
+                  .asds-sds-approve-btn:hover::after {
+                    opacity: 1;
+                  }
+                </style>
+              </div>
+            </div>
+          </form>
+          <div
+            id="ASDS_SDSConfirmModal"
+            class="modal-overlay"
+            style="display: none"
+          >
+            <div class="modal-box">
+              <img
+                src="./Images/information.png"
+                alt=""
+                height="70px"
+                style="
+                  margin-top: 1rem;
+                  padding: 0;
+                  border-radius: 50px;
+                  box-shadow: 0 0px 5px rgba(0, 0, 0, 0.2);
+                "
+              />
+              <p id="ASDS_SDSConfirmText">Are you sure?</p>
+              <p id="ASDS_SDSConfirmTextDescription">
+                You are about to
+                <span style="font-weight: 600; color: #ff4848"
+                  >Sign
+                  <span style="font-weight: 100; color: #222">or</span>
+                  Remove</span
+                >
+                the signature from this request form. Click Confirm to continue.
+              </p>
+
+              <div class="modal-actions">
+                <button id="ASDS_SDSconfirmYesBtn" class="confirm-btn">
+                  Confirm
+                </button>
+                <button id="ASDS_SDSconfirmNoBtn" class="cancel-btn">
+                  Cancel
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <style>
+            #ASDS_SDSConfirmText {
+              font-size: 20px;
+              font-weight: 600;
+            }
+            #ASDS_SDSConfirmTextDescription {
+              font-size: 16px;
+              font-weight: 100;
+              line-height: 1.5;
+            }
+
+            .modal-overlay {
+              position: fixed;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              background: rgba(0, 0, 0, 0.6);
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              z-index: 9999;
+              animation: fadeIn 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+            .modal-box {
+              background: white;
+              padding: 20px;
+              width: 300px;
+              border-radius: 8px;
+              text-align: center;
+              animation: fadeIn 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+            .confirm-btn {
+              width: 50%;
+              margin-top: 1rem;
+              background: #2291ff;
+              color: white;
+              padding: 10px;
+              font-size: 16px;
+              border: none;
+              border-radius: 4px;
+              cursor: pointer;
+              box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            }
+            .confirm-btn:hover {
+              background: #1d7ddd;
+            }
+            .cancel-btn {
+              width: 50%;
+              margin: 10px 0;
+              background: #999;
+              color: white;
+              padding: 10px;
+              font-size: 16px;
+              border: none;
+              border-radius: 4px;
+              cursor: pointer;
+              box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            }
+            .cancel-btn:hover {
+              background: #868686;
+            }
+          </style>
+        </div>
+      </div>
+
+      <a href="#" class="print-btn">Print Form</a>
+    </div>
+
+    <footer class="footer">
+      <p>Copyright © 2025 Ticketing. All Rights Reserved</p>
+    </footer>
+    <script
+      src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.11/dist/dotlottie-wc.js"
+      type="module"
+    ></script>
+
+    <script>
+      const USER_ROLE = "<?php echo $_SESSION['role']; ?>";
+    </script>
+
+    <script src="js/FetchForm6_Records.js"></script>
+  </body>
+</html>

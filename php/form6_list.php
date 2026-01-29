@@ -1,31 +1,69 @@
 <?php
-$conn = new mysqli('localhost', 'root', '', 'ticket');
+session_start(); // Start the session
 
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+header('Content-Type: application/json');
+
+// Check if user is logged in
+if (!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] !== true) {
+    echo json_encode([]);
+    exit;
 }
 
-$status = isset($_GET['status']) ? $_GET['status'] : 'Pending';
+// Get the current user's role
+$role = $_SESSION['role'] ?? '';
 
-$sql = "SELECT id, first_name, middle_name, last_name, email, typeofleave_A, inclusive_days, date_of_filing
-        FROM form6_applicationforleave 
-        WHERE status = ? 
-        ORDER BY id DESC";
+// Connect to DB
+$conn = new mysqli("localhost", "root", "", "ticket");
+if ($conn->connect_error) {
+    echo json_encode([]);
+    exit;
+}
 
+// Get status from query string
+$statusParam = $_GET['status'] ?? '';
+if (!$statusParam) {
+    echo json_encode([]);
+    exit;
+}
+
+// Convert to array
+$requestedStatuses = explode(",", $statusParam);
+
+// Map roles to accessible statuses
+$roleAccess = [
+    'records'    => ['For Records Unit', 'Approved', 'Disapproved'],
+    'personnel'  => ['For Personnel Unit', 'Approved', 'Disapproved'],
+    'admin'      => ['For Admin Unit', 'Approved', 'Disapproved'],
+    'asds-sds'   => ['For SDS/ASDS/Records', 'Approved', 'Disapproved'],
+    'ict'        => ['For Records Unit', 'For Personnel Unit', 'For Admin Unit', 'For SDS/ASDS/Records', 'Approved', 'Disapproved'],
+];
+
+// Get allowed statuses for this role
+$allowedStatuses = $roleAccess[$role] ?? [];
+
+// Only keep statuses requested by JS that are allowed for this role
+$statuses = array_intersect($requestedStatuses, $allowedStatuses);
+
+if (!$statuses) {
+    echo json_encode([]); // Nothing allowed for this role
+    exit;
+}
+
+// Prepare placeholders for prepared statement
+$placeholders = implode(",", array_fill(0, count($statuses), "?"));
+$sql = "SELECT * FROM form6_applicationforleave WHERE status IN ($placeholders) ORDER BY id DESC";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("s", $status);
+
+// Bind params dynamically
+$typeStr = str_repeat("s", count($statuses));
+$stmt->bind_param($typeStr, ...$statuses);
+
 $stmt->execute();
 $result = $stmt->get_result();
+$tickets = $result->fetch_all(MYSQLI_ASSOC);
 
-if ($result->num_rows > 0) {
-    $data = array();
-    while($row = $result->fetch_assoc()) {
-        $data[] = $row;
-    }
-    echo json_encode($data);
-} else {
-    echo json_encode([]);
-}
+// Return JSON
+echo json_encode($tickets);
 
 $stmt->close();
 $conn->close();

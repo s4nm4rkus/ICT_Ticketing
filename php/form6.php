@@ -53,7 +53,7 @@ if ($result->num_rows > 0) {
         "name_of_official" => $ticket["name_of_official"],
         "signatory_position" => $ticket["signatory_position"],
         "e_signature" => $ticket["e_signature"], // ✅ ADD THIS
-        "status" => $ticket["status"] ?? "Pending"
+        "status" => $ticket["status"] ?? "For Records Unit"
     ]
 ];
 

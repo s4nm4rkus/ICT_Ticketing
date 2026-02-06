@@ -160,3 +160,15 @@ Stack trace:
 #0 C:\xampp\htdocs\Ticketing\php\form6_send_link.php(38): mysqli->prepare('\r\n    SELECT fi...')
 #1 {main}
   thrown in C:\xampp\htdocs\Ticketing\php\form6_send_link.php on line 38
+[06-Feb-2026 03:57:27 Europe/Berlin] PHP Warning:  Undefined array key "SMTP_HOST" in C:\xampp\htdocs\Ticketing\php\form6_send_link.php on line 83
+[06-Feb-2026 03:57:27 Europe/Berlin] PHP Warning:  Undefined array key "SMTP_USER" in C:\xampp\htdocs\Ticketing\php\form6_send_link.php on line 85
+[06-Feb-2026 03:57:27 Europe/Berlin] PHP Warning:  Undefined array key "SMTP_PASS" in C:\xampp\htdocs\Ticketing\php\form6_send_link.php on line 86
+[06-Feb-2026 03:57:27 Europe/Berlin] PHP Warning:  Undefined array key "SMTP_PORT" in C:\xampp\htdocs\Ticketing\php\form6_send_link.php on line 88
+[06-Feb-2026 03:57:27 Europe/Berlin] PHP Warning:  Undefined array key "SMTP_USER" in C:\xampp\htdocs\Ticketing\php\form6_send_link.php on line 90
+[06-Feb-2026 03:57:27 Europe/Berlin] MAIL ERROR: Invalid address:  (From): 
+[06-Feb-2026 03:57:50 Europe/Berlin] PHP Warning:  Undefined array key "SMTP_HOST" in C:\xampp\htdocs\Ticketing\php\form6_send_link.php on line 83
+[06-Feb-2026 03:57:50 Europe/Berlin] PHP Warning:  Undefined array key "SMTP_USER" in C:\xampp\htdocs\Ticketing\php\form6_send_link.php on line 85
+[06-Feb-2026 03:57:50 Europe/Berlin] PHP Warning:  Undefined array key "SMTP_PASS" in C:\xampp\htdocs\Ticketing\php\form6_send_link.php on line 86
+[06-Feb-2026 03:57:50 Europe/Berlin] PHP Warning:  Undefined array key "SMTP_PORT" in C:\xampp\htdocs\Ticketing\php\form6_send_link.php on line 88
+[06-Feb-2026 03:57:50 Europe/Berlin] PHP Warning:  Undefined array key "SMTP_USER" in C:\xampp\htdocs\Ticketing\php\form6_send_link.php on line 90
+[06-Feb-2026 03:57:50 Europe/Berlin] MAIL ERROR: Invalid address:  (From): 

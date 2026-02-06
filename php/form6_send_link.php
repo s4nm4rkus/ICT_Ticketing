@@ -80,15 +80,16 @@ $mail = new PHPMailer(true);
 
 try {
     $mail->isSMTP();
-    $mail->Host       = 'smtp.gmail.com';
+    $mail->Host       = $_SERVER['SMTP_HOST'];
     $mail->SMTPAuth   = true;
-    $mail->Username   = 'tayabas.icthosting@gmail.com';
-    $mail->Password   = 'ndcpnbihwtkdcntn'; // App password
+    $mail->Username   = $_SERVER['SMTP_USER'];
+    $mail->Password   = $_SERVER['SMTP_PASS'];
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-    $mail->Port       = 587;
+    $mail->Port       = $_SERVER['SMTP_PORT'];
 
-    $mail->setFrom('tayabas.icthosting@gmail.com', 'SDO Tayabas');
+    $mail->setFrom($_SERVER['SMTP_USER'], 'SDO Tayabas');
     $mail->addAddress($data['email']);
+
 
     $mail->Subject = 'Form 6 Application – Processed';
     $mail->Body = "

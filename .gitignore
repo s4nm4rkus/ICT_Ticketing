@@ -9,3 +9,6 @@ vendor/
 
 php/debug.txt
 php/php_error.log
+
+.env
+.htaccess

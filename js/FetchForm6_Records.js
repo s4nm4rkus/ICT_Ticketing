@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
   fetchChildForm(id);
   fetchAdminUpdate(id);
   fetchASDSSDSUpdate(id);
-  fetchOtherDetails(id); // ✅ THIS IS YOUR APPROVED / DISAPPROVED INPUTS
+  fetchOtherDetails(id);
   setEsignForSDSorASDS(id);
 
   // Personnel update button
@@ -42,23 +42,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   console.log("DOM fully loaded with parent_id:", id);
 });
-
-// // Preview uploaded E-sign
-// document
-//   .getElementById("signature_upload_top_management")
-//   .addEventListener("change", function () {
-//     const file = this.files[0];
-//     if (!file) return;
-
-//     const reader = new FileReader();
-//     reader.onload = function (e) {
-//       document.getElementById("signature_image_top_management").src =
-//         e.target.result;
-
-//       document.getElementById("signature_wrapper").style.display = "flex";
-//     };
-//     reader.readAsDataURL(file);
-//   });
 
 /* ============================================
     MAIN PARENT FORM FETCH
@@ -766,7 +749,7 @@ async function handleCompleteAction(parentId, button) {
   if (!parentId) return console.error("Parent ID missing");
 
   try {
-    // Fetch current signatures
+    // 1. Fetch current signatures
     const res = await fetch(
       `php/fetch_form6_signatories_updates.php?parent_id=${parentId}`,
     );
@@ -777,32 +760,19 @@ async function handleCompleteAction(parentId, button) {
       return;
     }
 
-    // Normalize: trim, remove multiple spaces, lowercase
-    function normalize(str) {
-      return (str || "").replace(/\s+/g, " ").trim().toLowerCase();
-    }
+    // Normalize helper
+    const normalize = (str) =>
+      (str || "").replace(/\s+/g, " ").trim().toLowerCase();
 
     const adminSign = normalize(data.data.admin_esign);
     const asdsSign = normalize(data.data.asds_sds_esign);
 
-    let newStatus = "";
+    let newStatus =
+      adminSign === "approved & signed" && asdsSign === "approved & signed"
+        ? "Approved"
+        : "Disapproved";
 
-    if (adminSign === "approved & signed" && asdsSign === "approved & signed") {
-      newStatus = "Approved";
-    } else {
-      newStatus = "Disapproved";
-    }
-
-    console.log(
-      "Admin Sign:",
-      adminSign,
-      "ASDS/SDS Sign:",
-      asdsSign,
-      "New Status:",
-      newStatus,
-    );
-
-    // Update status in database using form-urlencoded
+    // 2. Update status in database
     const formData = new FormData();
     formData.append("id", parentId);
     formData.append("status", newStatus);
@@ -814,23 +784,45 @@ async function handleCompleteAction(parentId, button) {
 
     const updateData = await updateRes.json();
 
-    if (updateData.success) {
-      // ✅ Show modal instead of alert
-      showInfoModal(
-        "Process Completed",
-        newStatus === "Approved"
-          ? "The request has been fully approved and completed."
-          : "The request process is complete and was disapproved.",
-      );
-
-      button.textContent = "Print";
-      button.onclick = () => printForm(parentId);
-    } else {
+    if (!updateData.success) {
       console.error("Failed to update status:", updateData.error);
+      return;
     }
+    sendFileToEmail(parentId);
+
+    // 4. Show info modal
+    showInfoModal(
+      "Process Completed",
+      newStatus === "Approved"
+        ? "The request has been fully approved and the Print Link was sent to the applicant."
+        : "The request process is complete and was disapproved. Print Link was sent to the applicant.",
+    );
+
+    // 5. Update button
+    button.textContent = "Print";
+    button.onclick = () => printForm(parentId);
   } catch (err) {
     console.error("Error handling Complete action:", err);
   }
+}
+
+function sendFileToEmail(parentId) {
+  const formData = new FormData();
+  formData.append("id", parentId);
+
+  fetch("php/form6_send_link.php", {
+    method: "POST",
+    body: formData,
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      if (!data.success) {
+        console.error(data.message);
+      } else {
+        console.log("Email link sent successfully");
+      }
+    })
+    .catch((err) => console.error(err));
 }
 
 function printForm() {

@@ -6,3 +6,6 @@ config.php
 
 # Ignore vendor (you can reinstall with composer install)
 vendor/
+
+php/debug.txt
+php/php_error.log

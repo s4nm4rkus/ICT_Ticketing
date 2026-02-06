@@ -1,0 +1,162 @@
+[30-Jan-2026 05:09:54 Europe/Berlin] PHP Fatal error:  Trait "Mpdf\Strict" not found in C:\xampp\htdocs\Ticketing\php\libs\mpdf\src\Mpdf.php on line 29
+[30-Jan-2026 05:31:01 Europe/Berlin] PHP Fatal error:  Trait "Mpdf\Strict" not found in C:\xampp\htdocs\Ticketing\php\libs\mpdf\src\Mpdf.php on line 29
+[30-Jan-2026 06:40:29 Europe/Berlin] SMTP [3]: Connection: opening to smtp.gmail.com:587, timeout=300, options=array()
+[30-Jan-2026 06:40:29 Europe/Berlin] SMTP [3]: Connection: opened
+[30-Jan-2026 06:40:29 Europe/Berlin] SMTP [2]: SERVER -> CLIENT: 220 smtp.gmail.com ESMTP d2e1a72fcca58-82379c5293dsm6856564b3a.61 - gsmtp
+
+[30-Jan-2026 06:40:29 Europe/Berlin] SMTP [1]: CLIENT -> SERVER: EHLO localhost
+
+[30-Jan-2026 06:40:29 Europe/Berlin] SMTP [2]: SERVER -> CLIENT: 250-smtp.gmail.com at your service, [223.25.8.239]
+250-SIZE 35882577
+250-8BITMIME
+250-STARTTLS
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+
+[30-Jan-2026 06:40:29 Europe/Berlin] SMTP [1]: CLIENT -> SERVER: STARTTLS
+
+[30-Jan-2026 06:40:30 Europe/Berlin] SMTP [2]: SERVER -> CLIENT: 220 2.0.0 Ready to start TLS
+
+[30-Jan-2026 06:40:30 Europe/Berlin] SMTP [1]: CLIENT -> SERVER: EHLO localhost
+
+[30-Jan-2026 06:40:30 Europe/Berlin] SMTP [2]: SERVER -> CLIENT: 250-smtp.gmail.com at your service, [223.25.8.239]
+250-SIZE 35882577
+250-8BITMIME
+250-AUTH LOGIN PLAIN XOAUTH2 PLAIN-CLIENTTOKEN OAUTHBEARER XOAUTH
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+
+[30-Jan-2026 06:40:30 Europe/Berlin] SMTP [1]: CLIENT -> SERVER: AUTH LOGIN
+
+[30-Jan-2026 06:40:31 Europe/Berlin] SMTP [2]: SERVER -> CLIENT: 334 VXNlcm5hbWU6
+
+[30-Jan-2026 06:40:31 Europe/Berlin] SMTP [1]: CLIENT -> SERVER: [credentials hidden]
+[30-Jan-2026 06:40:31 Europe/Berlin] SMTP [2]: SERVER -> CLIENT: 334 UGFzc3dvcmQ6
+
+[30-Jan-2026 06:40:31 Europe/Berlin] SMTP [1]: CLIENT -> SERVER: [credentials hidden]
+[30-Jan-2026 06:40:31 Europe/Berlin] SMTP [2]: SERVER -> CLIENT: 235 2.7.0 Accepted
+
+[30-Jan-2026 06:40:31 Europe/Berlin] SMTP [1]: CLIENT -> SERVER: MAIL FROM:<tayabas.icthosting@gmail.com>
+
+[30-Jan-2026 06:40:31 Europe/Berlin] SMTP [2]: SERVER -> CLIENT: 250 2.1.0 OK d2e1a72fcca58-82379c5293dsm6856564b3a.61 - gsmtp
+
+[30-Jan-2026 06:40:31 Europe/Berlin] SMTP [1]: CLIENT -> SERVER: RCPT TO:<sanmarkusmorcoso@gmail.com>
+
+[30-Jan-2026 06:40:32 Europe/Berlin] SMTP [2]: SERVER -> CLIENT: 250 2.1.5 OK d2e1a72fcca58-82379c5293dsm6856564b3a.61 - gsmtp
+
+[30-Jan-2026 06:40:32 Europe/Berlin] SMTP [1]: CLIENT -> SERVER: DATA
+
+[30-Jan-2026 06:40:32 Europe/Berlin] SMTP [2]: SERVER -> CLIENT: 354 Go ahead d2e1a72fcca58-82379c5293dsm6856564b3a.61 - gsmtp
+
+[30-Jan-2026 06:40:32 Europe/Berlin] SMTP [1]: CLIENT -> SERVER: Date: Fri, 30 Jan 2026 06:40:29 +0100
+
+[30-Jan-2026 06:40:32 Europe/Berlin] SMTP [1]: CLIENT -> SERVER: To: sanmarkusmorcoso@gmail.com
+
+[30-Jan-2026 06:40:32 Europe/Berlin] SMTP [1]: CLIENT -> SERVER: From: SDO Tayabas <tayabas.icthosting@gmail.com>
+
+[30-Jan-2026 06:40:32 Europe/Berlin] SMTP [1]: CLIENT -> SERVER: Subject: Form 6 Application Result
+
+[30-Jan-2026 06:40:32 Europe/Berlin] SMTP [1]: CLIENT -> SERVER: Message-ID: <kepiJhTQ4js1tD0L5Dxbwn2r6HaZCsAO1LO7bObKQ@localhost>
+
+[30-Jan-2026 06:40:32 Europe/Berlin] SMTP [1]: CLIENT -> SERVER: X-Mailer: PHPMailer 7.0.2 (https://github.com/PHPMailer/PHPMailer)
+
+[30-Jan-2026 06:40:32 Europe/Berlin] SMTP [1]: CLIENT -> SERVER: MIME-Version: 1.0
+
+[30-Jan-2026 06:40:32 Europe/Berlin] SMTP [1]: CLIENT -> SERVER: Content-Type: multipart/mixed;
+
+[30-Jan-2026 06:40:32 Europe/Berlin] SMTP [1]: CLIENT -> SERVER:  boundary="b1=_kepiJhTQ4js1tD0L5Dxbwn2r6HaZCsAO1LO7bObKQ"
+
+[30-Jan-2026 06:40:32 Europe/Berlin] SMTP [1]: CLIENT -> SERVER: Content-Transfer-Encoding: 8bit
+
+[30-Jan-2026 06:40:32 Europe/Berlin] SMTP [1]: CLIENT -> SERVER: 
+
+[30-Jan-2026 06:40:32 Europe/Berlin] SMTP [1]: CLIENT -> SERVER: --b1=_kepiJhTQ4js1tD0L5Dxbwn2r6HaZCsAO1LO7bObKQ
+
+[30-Jan-2026 06:40:32 Europe/Berlin] SMTP [1]: CLIENT -> SERVER: Content-Type: text/plain; charset=us-ascii
+
+[30-Jan-2026 06:40:32 Europe/Berlin] SMTP [1]: CLIENT -> SERVER: 
+
+[30-Jan-2026 06:40:32 Europe/Berlin] SMTP [1]: CLIENT -> SERVER: Good day. Attached is your processed Form 6.
+
+[30-Jan-2026 06:40:32 Europe/Berlin] SMTP [1]: CLIENT -> SERVER: 
+
+[30-Jan-2026 06:40:32 Europe/Berlin] SMTP [1]: CLIENT -> SERVER: --b1=_kepiJhTQ4js1tD0L5Dxbwn2r6HaZCsAO1LO7bObKQ
+
+[30-Jan-2026 06:40:32 Europe/Berlin] SMTP [1]: CLIENT -> SERVER: Content-Type: application/pdf; name=form6_61.pdf
+
+[30-Jan-2026 06:40:32 Europe/Berlin] SMTP [1]: CLIENT -> SERVER: Content-Transfer-Encoding: base64
+
+[30-Jan-2026 06:40:32 Europe/Berlin] SMTP [1]: CLIENT -> SERVER: Content-Disposition: attachment; filename=form6_61.pdf
+
+[30-Jan-2026 06:40:32 Europe/Berlin] SMTP [1]: CLIENT -> SERVER: 
+
+[30-Jan-2026 06:40:32 Europe/Berlin] SMTP [1]: CLIENT -> SERVER: JVBERi0xLjcKMSAwIG9iago8PCAvVHlwZSAvQ2F0YWxvZwovT3V0bGluZXMgMiAwIFIKL1BhZ2Vz
+
+[30-Jan-2026 06:40:32 Europe/Berlin] SMTP [1]: CLIENT -> SERVER: IDMgMCBSID4+CmVuZG9iagoyIDAgb2JqCjw8IC9UeXBlIC9PdXRsaW5lcyAvQ291bnQgMCA+Pgpl
+
+[30-Jan-2026 06:40:32 Europe/Berlin] SMTP [1]: CLIENT -> SERVER: bmRvYmoKMyAwIG9iago8PCAvVHlwZSAvUGFnZXMKL0tpZHMgWzYgMCBSCl0KL0NvdW50IDEKL1Jl
+
+[30-Jan-2026 06:40:32 Europe/Berlin] SMTP [1]: CLIENT -> SERVER: c291cmNlcyA8PAovUHJvY1NldCA0IDAgUgovRm9udCA8PCAKL0YxIDggMCBSCi9GMiA5IDAgUgo+
+
+[30-Jan-2026 06:40:32 Europe/Berlin] SMTP [1]: CLIENT -> SERVER: Pgo+PgovTWVkaWFCb3ggWzAuMDAwIDAuMDAwIDU5NS4yODAgODQxLjg5MF0KID4+CmVuZG9iago0
+
+[30-Jan-2026 06:40:32 Europe/Berlin] SMTP [1]: CLIENT -> SERVER: IDAgb2JqClsvUERGIC9UZXh0IF0KZW5kb2JqCjUgMCBvYmoKPDwKL1Byb2R1Y2VyICj+/wBkAG8A
+
+[30-Jan-2026 06:40:32 Europe/Berlin] SMTP [1]: CLIENT -> SERVER: bQBwAGQAZgAgADMALgAxAC4ANAAgACsAIABDAFAARABGKQovQ3JlYXRpb25EYXRlIChEOjIwMjYw
+
+[30-Jan-2026 06:40:32 Europe/Berlin] SMTP [1]: CLIENT -> SERVER: MTMwMDY0MDI5KzAxJzAwJykKL01vZERhdGUgKEQ6MjAyNjAxMzAwNjQwMjkrMDEnMDAnKQo+Pgpl
+
+[30-Jan-2026 06:40:32 Europe/Berlin] SMTP [1]: CLIENT -> SERVER: bmRvYmoKNiAwIG9iago8PCAvVHlwZSAvUGFnZQovTWVkaWFCb3ggWzAuMDAwIDAuMDAwIDU5NS4y
+
+[30-Jan-2026 06:40:32 Europe/Berlin] SMTP [1]: CLIENT -> SERVER: ODAgODQxLjg5MF0KL1BhcmVudCAzIDAgUgovQ29udGVudHMgNyAwIFIKPj4KZW5kb2JqCjcgMCBv
+
+[30-Jan-2026 06:40:32 Europe/Berlin] SMTP [1]: CLIENT -> SERVER: YmoKPDwgL0ZpbHRlciAvRmxhdGVEZWNvZGUKL0xlbmd0aCAxMDAgPj4Kc3RyZWFtCnic4zLQMzAw
+
+[30-Jan-2026 06:40:32 Europe/Berlin] SMTP [1]: CLIENT -> SERVER: UEAmi9K5nEIUjE30DAzNFMzNLPQsLUwVQlIU9N0MFYyAogohaQoK0Rpu+UW5CmaasQohXgquIcha
+
+[30-Jan-2026 06:40:32 Europe/Berlin] SMTP [1]: CLIENT -> SERVER: jE31zC3NIVqMFAyN4Fr8EnNTrRS88jPyFFzyU2FaASlsHdUKZW5kc3RyZWFtCmVuZG9iago4IDAg
+
+[30-Jan-2026 06:40:32 Europe/Berlin] SMTP [1]: CLIENT -> SERVER: b2JqCjw8IC9UeXBlIC9Gb250Ci9TdWJ0eXBlIC9UeXBlMQovTmFtZSAvRjEKL0Jhc2VGb250IC9U
+
+[30-Jan-2026 06:40:32 Europe/Berlin] SMTP [1]: CLIENT -> SERVER: aW1lcy1Cb2xkCi9FbmNvZGluZyAvV2luQW5zaUVuY29kaW5nCj4+CmVuZG9iago5IDAgb2JqCjw8
+
+[30-Jan-2026 06:40:32 Europe/Berlin] SMTP [1]: CLIENT -> SERVER: IC9UeXBlIC9Gb250Ci9TdWJ0eXBlIC9UeXBlMQovTmFtZSAvRjIKL0Jhc2VGb250IC9UaW1lcy1S
+
+[30-Jan-2026 06:40:32 Europe/Berlin] SMTP [1]: CLIENT -> SERVER: b21hbgovRW5jb2RpbmcgL1dpbkFuc2lFbmNvZGluZwo+PgplbmRvYmoKeHJlZgowIDEwCjAwMDAw
+
+[30-Jan-2026 06:40:32 Europe/Berlin] SMTP [1]: CLIENT -> SERVER: MDAwMDAgNjU1MzUgZiAKMDAwMDAwMDAwOSAwMDAwMCBuIAowMDAwMDAwMDc0IDAwMDAwIG4gCjAw
+
+[30-Jan-2026 06:40:32 Europe/Berlin] SMTP [1]: CLIENT -> SERVER: MDAwMDAxMjAgMDAwMDAgbiAKMDAwMDAwMDI4NCAwMDAwMCBuIAowMDAwMDAwMzEzIDAwMDAwIG4g
+
+[30-Jan-2026 06:40:32 Europe/Berlin] SMTP [1]: CLIENT -> SERVER: CjAwMDAwMDA0NjIgMDAwMDAgbiAKMDAwMDAwMDU2NSAwMDAwMCBuIAowMDAwMDAwNzM3IDAwMDAw
+
+[30-Jan-2026 06:40:32 Europe/Berlin] SMTP [1]: CLIENT -> SERVER: IG4gCjAwMDAwMDA4NDUgMDAwMDAgbiAKdHJhaWxlcgo8PAovU2l6ZSAxMAovUm9vdCAxIDAgUgov
+
+[30-Jan-2026 06:40:32 Europe/Berlin] SMTP [1]: CLIENT -> SERVER: SW5mbyA1IDAgUgovSURbPDFkNTFhZmIzN2MxZjA5N2I5MDI3YWJhOTY4ZDUzZmExPjwxZDUxYWZi
+
+[30-Jan-2026 06:40:32 Europe/Berlin] SMTP [1]: CLIENT -> SERVER: MzdjMWYwOTdiOTAyN2FiYTk2OGQ1M2ZhMT5dCj4+CnN0YXJ0eHJlZgo5NTQKJSVFT0YK
+
+[30-Jan-2026 06:40:32 Europe/Berlin] SMTP [1]: CLIENT -> SERVER: 
+
+[30-Jan-2026 06:40:32 Europe/Berlin] SMTP [1]: CLIENT -> SERVER: --b1=_kepiJhTQ4js1tD0L5Dxbwn2r6HaZCsAO1LO7bObKQ--
+
+[30-Jan-2026 06:40:32 Europe/Berlin] SMTP [1]: CLIENT -> SERVER: 
+
+[30-Jan-2026 06:40:32 Europe/Berlin] SMTP [1]: CLIENT -> SERVER: .
+
+[30-Jan-2026 06:40:33 Europe/Berlin] SMTP [2]: SERVER -> CLIENT: 250 2.0.0 OK  1769751633 d2e1a72fcca58-82379c5293dsm6856564b3a.61 - gsmtp
+
+[30-Jan-2026 06:40:33 Europe/Berlin] SMTP [1]: CLIENT -> SERVER: QUIT
+
+[30-Jan-2026 06:40:33 Europe/Berlin] SMTP [2]: SERVER -> CLIENT: 221 2.0.0 closing connection d2e1a72fcca58-82379c5293dsm6856564b3a.61 - gsmtp
+
+[30-Jan-2026 06:40:33 Europe/Berlin] SMTP [3]: Connection: closed
+[03-Feb-2026 04:26:07 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'print_token' in 'field list' in C:\xampp\htdocs\Ticketing\php\form6_send_link.php:38
+Stack trace:
+#0 C:\xampp\htdocs\Ticketing\php\form6_send_link.php(38): mysqli->prepare('\r\n    SELECT fi...')
+#1 {main}
+  thrown in C:\xampp\htdocs\Ticketing\php\form6_send_link.php on line 38

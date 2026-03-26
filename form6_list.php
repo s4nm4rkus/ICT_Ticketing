@@ -80,6 +80,28 @@ $role = $_SESSION['role'];
                 <img src="./Images/right-chevron.png" alt="Right Arrow">
             </a>
         </div>
+
+        <div class="section recommendation-section">
+            <div class="section-title">For Recommendation</div>
+            <div class="section-content">
+                <div class="box-header">For Action: Recommending Authorities</div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email Address</th>
+                            <th>Type of Leave</th>
+                            <th>Inclusive Days</th>
+                            <th>Date Reported</th>
+                            <th>Office/Unit</th>
+                        </tr>
+                    </thead>
+                    <tbody class="recommendation-tickets"></tbody>
+                </table>
+            </div>
+        </div>
+
         <div class="section records-section">
             <div class="section-title">Records Unit</div>
             <div class="section-content">

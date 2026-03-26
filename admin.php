@@ -1,16 +1,8 @@
 <?php
-// Start session if none exists
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
-
-// Redirect if not logged in
+if (session_status() === PHP_SESSION_NONE) { session_start(); }
 if (!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] !== true) {
-    header("Location: login.html"); 
-    exit();
+    header("Location: login.html"); exit();
 }
-
-// Get user info from session
 $username = $_SESSION['username'];
 $role     = $_SESSION['role'];
 $userID   = $_SESSION['userID'];
@@ -22,27 +14,23 @@ $userID   = $_SESSION['userID'];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/admin.css" />
+    <link rel="stylesheet" type="text/css" href="css/admin-content.css" />
     <link rel="stylesheet" href="fontawesome/css/all.min.css" />
-
     <title>ICT Forms</title>
 </head>
 
-
 <script>
-// Pass PHP role to JS
 const USER_ROLE = "<?php echo $role; ?>";
 </script>
 
 <div class="Top">
     <header>
         <div class="logo">
-            <img src="./Images/logo.jpg" alt="Lorem Ipsum Logo">
+            <img src="./Images/logo.jpg" alt="Logo">
             <h1>SDO Tayabas</h1>
         </div>
         <button class="admin-btn" onclick="showConfirmation()">Logout</button>
-
         <div class="overlay" id="overlay"></div>
-
         <div class="confirmation-dialog" id="confirmationDialog">
             <h3>Confirmation</h3>
             <p>Are you sure you want to logout?</p>
@@ -53,13 +41,12 @@ const USER_ROLE = "<?php echo $role; ?>";
         </div>
     </header>
 
-
     <div class="edu-banner">
         <div class="banner-logos">
             <img src="./Images/depedlogo.png" alt="DepEd Logo" class="deped-logo"
-                style="width: 140px; height: auto; margin-right: 20px;">
+                style="width:140px;height:auto;margin-right:20px;">
             <img src="./Images/newpilipinaslogo.png" alt="Philippines Logo" class="ph-logo"
-                style="width: 100px; height: auto; ">
+                style="width:100px;height:auto;">
             <img src="./Images/logo.png" alt="Tayabas City Logo" class="tayabas-logo">
         </div>
         <div class="banner-text">
@@ -76,7 +63,7 @@ const USER_ROLE = "<?php echo $role; ?>";
 
 <body>
 
-    <h1 class="admin-ict-title">ICT Tickect Analysis</h1>
+    <h1 class="admin-ict-title">ICT Ticket Analysis</h1>
     <button class="record-btn" onclick="location.href='record.php'">Generate Report</button>
 
     <div class="content-container">
@@ -84,24 +71,23 @@ const USER_ROLE = "<?php echo $role; ?>";
             <div class="stat-box" id="ict-stat" onclick="redirectTo('ict_list.php')">
                 <div class="stat-title">ICT TA Request Pending</div>
                 <div class="stat-number" id="ict-count">-</div>
-                <div>Submission</div>
+                <div>Submissions</div>
             </div>
             <div class="stat-box" id="dts-stat" onclick="redirectTo('DTS_list.php')">
                 <div class="stat-title">DTS Request Pending</div>
                 <div class="stat-number" id="dts-count">-</div>
-                <div>Submission</div>
+                <div>Submissions</div>
             </div>
             <div class="stat-box" id="email-stat" onclick="redirectTo('email_list.php')">
                 <div class="stat-title">Email Request Pending</div>
                 <div class="stat-number" id="email-count">-</div>
-                <div>Submission</div>
+                <div>Submissions</div>
             </div>
             <div class="stat-box" id="help-stat" onclick="redirectTo('help_list.php')">
                 <div class="stat-title">Help Desk Request Pending</div>
                 <div class="stat-number" id="help-count">-</div>
-                <div>Submission</div>
+                <div>Submissions</div>
             </div>
-
         </div>
 
         <script>
@@ -120,6 +106,7 @@ const USER_ROLE = "<?php echo $role; ?>";
 
     <div class="container">
         <h1 class="admin-title">ICT Forms</h1>
+
         <div class="card">
             <a href="ict_list.php" class="admin-form-card">
                 <img src="./Images/ict_banner.jpg" alt="ICT Technical Assistance" class="admin-card-image">
@@ -127,71 +114,53 @@ const USER_ROLE = "<?php echo $role; ?>";
                     <div class="admin-card-title">ICT Technical Assistance Form</div>
                 </div>
             </a>
-
             <a href="DTS_list.php" class="admin-form-card">
-                <img src="./Images/dts_banner.jpg" alt="Help Desk" class="admin-card-image">
+                <img src="./Images/dts_banner.jpg" alt="DTS Request" class="admin-card-image">
                 <div class="admin-card-content">
                     <div class="admin-card-title">DTS Request Form</div>
                 </div>
             </a>
-
             <a href="email_list.php" class="admin-form-card">
                 <img src="./Images/email_banner.jpg" alt="Email Request" class="admin-card-image">
                 <div class="admin-card-content">
                     <div class="admin-card-title">Email Request Form</div>
                 </div>
             </a>
-
             <a href="help_list.php" class="admin-form-card">
-                <img src="./Images/help.jpg" alt="DTS Request" class="admin-card-image">
+                <img src="./Images/help.jpg" alt="Help Desk" class="admin-card-image">
                 <div class="admin-card-content">
                     <div class="admin-card-title">Help Desk Form</div>
                 </div>
             </a>
-
         </div>
+
         <hr class="hr-forms" />
-        <a href="form6_list.php" style="text-decoration: none;">
-            <div class="cards-section-2" style="gap: 30px; margin-bottom: 2rem">
-                <div class="card-forms-form6" onclick="location.href='form_6.html'">
+        <h1 class="admin-title">HR Forms</h1>
+        <a href="form6_list.php" style="text-decoration:none;">
+            <div class="cards-section-2">
+                <div class="card-forms-form6">
                     <i class="fas fa-file-signature"></i>
-                    <h2 style="text-align: left; margin-left: 20px">
-                        CS Form No. 6 - Leave Form Revised 2020
-                        <!-- <span><p>(Form 6)</p></span> -->
-                    </h2>
+                    <h2>CS Form No. 6 &mdash; Leave Form Revised 2020</h2>
                 </div>
             </div>
         </a>
     </div>
-
-
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="js/analysis.js"></script>
     <script src="js/calendar.js"></script>
 
     <div class="gov-logos">
-        <div class="logo-container">
-            <img src="./Images/transparency.png" alt="Transparency Seal" style="width: 110px; height: auto;">
-        </div>
-
-        <div class="logo-container">
-            <img src="./Images/depedlogo_noborder.png" alt="DepEd Matatag Logo" style="width: 140px; height: auto;">
-        </div>
-
-        <div class="logo-container">
-            <img src="./Images/newpilipinaslogo_noborder.png" alt="Bagong Pilipinas Logo">
-        </div>
-
-        <div class="logo-container">
-            <img src="./Images/freedom.png" alt="Freedom of Information Logo">
-        </div>
+        <div class="logo-container"><img src="./Images/transparency.png" alt="Transparency Seal"
+                style="width:110px;height:auto;"></div>
+        <div class="logo-container"><img src="./Images/depedlogo_noborder.png" alt="DepEd Matatag Logo"
+                style="width:140px;height:auto;"></div>
+        <div class="logo-container"><img src="./Images/newpilipinaslogo_noborder.png" alt="Bagong Pilipinas Logo"></div>
+        <div class="logo-container"><img src="./Images/freedom.png" alt="Freedom of Information Logo"></div>
     </div>
+
     <footer class="footer">
-        <p>Copyright © <?php echo date("Y"); ?> Ticketing. All Rights Reserved</p>
-        <!-- <div class="developer-credits">
-            <p>Developed by: Angela Faith M. Salazar and Arien R. Peredo</p>
-        </div> -->
+        <p>Copyright &copy; <?php echo date("Y"); ?> Ticketing. All Rights Reserved</p>
     </footer>
 
     <script src="js/confirmation.js"></script>

@@ -45,7 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->send();
         echo "<script>
         alert('✅ Email has been sent successfully!');
-        window.location.href = 'ICTRequestForm.html'; // redirect back
+        window.location.href = 'index.html'; // redirect back
     </script>";
 
 } catch (Exception $e) {

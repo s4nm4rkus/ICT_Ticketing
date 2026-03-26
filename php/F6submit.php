@@ -1,22 +1,27 @@
 <?php
-error_reporting(E_ALL);
+header('Content-Type: application/json');
+
+// DEBUG (set to 0 in production)
 ini_set('display_errors', 1);
-header('Content-Type: application/json'); // ensure JSON output
-ini_set('display_errors', 0);
 error_reporting(E_ALL);
 
-$servername = "localhost";
-$username   = "root";
-$password   = "";
-$dbname     = "ticket";
+// DB CONNECTION
+$conn = new mysqli("localhost", "root", "", "ticket");
 
-$conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
-    echo json_encode(["status" => "error", "message" => "DB connection failed"]);
+    echo json_encode([
+        "status" => "error",
+        "message" => "Database connection failed: " . $conn->connect_error
+    ]);
     exit;
 }
 
-// --- Collect main fields ---
+// SAFE ARRAY HANDLING
+function getArray($key) {
+    return isset($_POST[$key]) && is_array($_POST[$key]) ? $_POST[$key] : [];
+}
+
+// --- MAIN FIELDS ---
 $department     = $_POST['department'] ?? '';
 $last_name      = $_POST['last_name'] ?? '';
 $first_name     = $_POST['first_name'] ?? '';
@@ -26,22 +31,22 @@ $date_of_filing = $_POST['date_of_filing'] ?? '';
 $position       = $_POST['position'] ?? '';
 $salary         = $_POST['salary'] ?? '';
 
-// --- Collect checkboxes (Part A) ---
-$selectedOptions = $_POST['selectedOptions'] ?? [];
-$typeofleave_A   = [];
+// --- TYPE OF LEAVE ---
+$selectedOptions = getArray('selectedOptions');
+$typeofleave_A = [];
 $other_type_of_leave = '';
 
 foreach ($selectedOptions as $option) {
     if ($option === 'Others') {
         $other_type_of_leave = $_POST['others_text'] ?? '';
-         $typeofleave_A[] = 'Others';
+        $typeofleave_A[] = 'Others';
     } else {
         $typeofleave_A[] = $option;
     }
 }
 $typeofleave_A = implode(", ", $typeofleave_A);
 
-// --- Build Specification of Leave ---
+// --- SPECIFICATION ---
 $specifications = [];
 
 if (!empty($_POST['within_ph_text'])) $specifications[] = "Within Philippines: " . $_POST['within_ph_text'];
@@ -54,66 +59,92 @@ if (isset($_POST['BAR_Board_exam'])) $specifications[] = "BAR/Board Examination 
 
 $specification_of_leave = implode("; ", $specifications);
 
-// --- Other Fields ---
-$otherPurposeOptions = $_POST['otherPurpose'] ?? [];
-$other_purpose = implode(", ", $otherPurposeOptions);
+// --- OTHER FIELDS ---
+$other_purpose = implode(", ", getArray('otherPurpose'));
+$communication = implode(", ", getArray('communication'));
 
 $number_of_days_applied = $_POST['number_of_days_applied'] ?? '';
 $inclusive_days = $_POST['inclusive_days'] ?? '';
 
-$communicationOptions = $_POST['communication'] ?? [];
-$communication = implode(", ", $communicationOptions);
-
 $name_of_official = $_POST['name_of_official'] ?? '';
 $signatory_position = $_POST['signatory_position'] ?? '';
 
-// --- Handle E-Signature Upload ---
+$status = "For Recommendation";
+
+// --- CHECK AUTHORIZER ---
+$stmt = $conn->prepare("SELECT officer_name FROM department_authorizers");
+
+if ($stmt) {
+    if ($stmt->execute()) {
+        $result = $stmt->get_result();
+
+        $applicant_fullname = strtolower(trim($first_name . ' ' . $last_name));
+
+        while ($row = $result->fetch_assoc()) {
+            $officer_fullname = strtolower(trim($row['officer_name']));
+
+            if ($applicant_fullname === $officer_fullname) {
+                $status = "For Records Unit";
+                break;
+            }
+        }
+    }
+    $stmt->close();
+}
+
+// --- FILE UPLOAD ---
 $e_signature = null;
 
 if (isset($_FILES['file']) && $_FILES['file']['error'] === 0) {
-    $fileName = $_FILES['file']['name'];
-    $fileTmpName = $_FILES['file']['tmp_name'];
-    $fileSize = $_FILES['file']['size'];
-    $fileExt = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
 
-    $allowed = ['png'];
+    $fileExt = strtolower(pathinfo($_FILES['file']['name'], PATHINFO_EXTENSION));
 
-    if (in_array($fileExt, $allowed)) {
-        if ($fileSize < 25000000) {
-            $uploadDir = __DIR__ . '/uploads/e_signatures/applicants/';
-            if (!is_dir($uploadDir)) {
-                mkdir($uploadDir, 0777, true); // ensure directory exists
-            }
+    if ($fileExt !== 'png') {
+        echo json_encode(["status" => "error", "message" => "Only PNG allowed"]);
+        exit;
+    }
 
-            $fileNameNew = 'sign_' . uniqid('', true) . "." . $fileExt;
-            $fileDestination = $uploadDir . $fileNameNew;
+    if ($_FILES['file']['size'] > 25000000) {
+        echo json_encode(["status" => "error", "message" => "File too large"]);
+        exit;
+    }
 
-            if (move_uploaded_file($fileTmpName, $fileDestination)) {
-                $e_signature = 'uploads/e_signatures/applicants/' . $fileNameNew; // relative path stored in DB
-            } else {
-                echo json_encode(["status" => "error", "message" => "Failed to move uploaded file."]);
-                exit;
-            }
-        } else {
-            echo json_encode(["status" => "error", "message" => "File too large."]);
-            exit;
-        }
+    $uploadDir = __DIR__ . '/uploads/e_signatures/applicants/';
+
+    if (!is_dir($uploadDir)) {
+        mkdir($uploadDir, 0777, true);
+    }
+
+    $fileName = 'sign_' . uniqid() . '.png';
+    $filePath = $uploadDir . $fileName;
+
+    if (move_uploaded_file($_FILES['file']['tmp_name'], $filePath)) {
+        $e_signature = 'uploads/e_signatures/applicants/' . $fileName;
     } else {
-        echo json_encode(["status" => "error", "message" => "Invalid file type. Only PNG allowed."]);
+        echo json_encode(["status" => "error", "message" => "Upload failed"]);
         exit;
     }
 }
 
-// --- Insert into DB ---
+// --- INSERT ---
 $sql = "INSERT INTO form6_applicationforleave 
-    (department, last_name, first_name, middle_name, salary, position, email, date_of_filing, typeofleave_A, other_type_of_leave, 
-     specification_of_leave, other_purpose, number_of_days_applied, inclusive_days, communication, name_of_official, 
-     signatory_position, e_signature, submitted_at)
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())";
+(department, last_name, first_name, middle_name, salary, position, email, date_of_filing, typeofleave_A, other_type_of_leave, 
+specification_of_leave, other_purpose, number_of_days_applied, inclusive_days, communication, name_of_official, 
+signatory_position, e_signature, status, submitted_at)
+VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())";
 
 $stmt = $conn->prepare($sql);
+
+if (!$stmt) {
+    echo json_encode([
+        "status" => "error",
+        "message" => "Prepare failed: " . $conn->error
+    ]);
+    exit;
+}
+
 $stmt->bind_param(
-    "ssssssssssssssssss",
+    "sssssssssssssssssss",
     $department,
     $last_name,
     $first_name,
@@ -131,13 +162,17 @@ $stmt->bind_param(
     $communication,
     $name_of_official,
     $signatory_position,
-    $e_signature
+    $e_signature,
+    $status
 );
 
 if ($stmt->execute()) {
     echo json_encode(["status" => "success"]);
 } else {
-    echo json_encode(["status" => "error", "message" => $stmt->error]);
+    echo json_encode([
+        "status" => "error",
+        "message" => $stmt->error
+    ]);
 }
 
 $stmt->close();

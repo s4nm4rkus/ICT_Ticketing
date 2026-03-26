@@ -41,6 +41,8 @@ $data = $result->fetch_assoc();
 
 $approvalEsign = [
     'admin_esign' => '',
+    'unit_head_esign' => '',
+    'unit_head_recommendation' => '',
     'approve_for_days_without_pay' => '',
     'approve_for_days_with_pay' => '',
     'approve_for_others' => '',
@@ -48,6 +50,82 @@ $approvalEsign = [
     'disapproved_due_to' => '',
     'other_informations' => '',
 ];
+
+
+/* =========================================
+   UNIT HEAD + OFFICER INFO FETCH
+========================================= */
+
+$unitHeadData = [
+    'unit_head_esign' => '',
+    'unit_head_recommendation' => '',
+    'signature_file' => '',
+    'officer_name' => '',
+    'officer_position' => ''
+];
+
+$stmt4 = $conn->prepare("
+SELECT 
+    u.unit_head_esign,
+    u.unit_head_recommendation,
+    a.officer_name,
+    a.officer_position,
+    a.signature_file
+FROM form6_applicationforleave p
+
+LEFT JOIN form6_applicationforleave_other_updates u
+    ON u.parent_id = p.id
+
+LEFT JOIN department_authorizers a
+    ON TRIM(LOWER(a.department)) = TRIM(LOWER(p.department))
+
+WHERE p.id = ?
+ORDER BY u.id DESC
+LIMIT 1
+");
+
+$stmt4->bind_param("i", $data['id']);
+$stmt4->execute();
+$res4 = $stmt4->get_result();
+
+if ($row4 = $res4->fetch_assoc()) {
+    $unitHeadData = $row4;
+}
+
+$stmt4->close();
+
+
+/* =========================================
+   CHECK IF UNIT HEAD SIGNED
+========================================= */
+
+$unitHeadEsignStatus = strtolower(trim($unitHeadData['unit_head_esign'] ?? ''));
+
+$isUnitHeadSigned = in_array($unitHeadEsignStatus, [
+    'approve & signed',
+    'approved & signed',
+    'approved',
+    'signed'
+]);
+
+/* =========================================
+   UNIT HEAD SIGNATURE PATH
+========================================= */
+
+$unitHeadSignaturePath = ($isUnitHeadSigned && !empty($unitHeadData['signature_file']))
+    ? '../php/uploads/e_signatures/authorized personnels/' . $unitHeadData['signature_file']
+    : '';
+
+$recommendation = strtolower($unitHeadData['unit_head_recommendation'] ?? '');
+
+$isApprovedRec = str_contains($recommendation, 'approval') 
+                 && !str_contains($recommendation, 'disapproval');
+
+$isDisapprovedRec = str_contains($recommendation, 'disapproval');
+
+
+// var_dump($unitHeadData);
+
 
 $stmt3 = $conn->prepare("
     SELECT *
@@ -1089,40 +1167,92 @@ $conn->close();
                 </div>
 
                 <div class="form-group d-container-right" style="border: 1px solid; padding: 4px">
-                    <label>7. B. RECOMMENDATION</label>
-                    <div class="checkbox-option">
-                        <label>
-                            <input type="checkbox" value="For Approval" style="margin-right: 2px" />
-                            For Approval</label>
-
+                    <form id="leave_form_unit_head_update" method="POST" action="php/F6submit_unithead_update.php"
+                        type="submit">
+                        <input type="hidden" id="form_id" name="parent_id" />
+                        <label>7. B. RECOMMENDATION</label>
                         <div class="checkbox-option">
                             <label>
-                                <input type="checkbox" value="For disapproval due to" style="margin-right: 2px" />
+                                <input id="approval_checkbox" name="unit_head_recommendation" type="checkbox"
+                                    value="For Approval" style="margin-right: 2px"
+                                    <?= $isApprovedRec ? 'checked' : '' ?> />
+                                For Approval</label>
 
-                                For disapproval due to</label>
-                            <textarea type="text" id="disapproval_due_to" name="disapproval_due_to" style="
-                            width: 90%;
-                            min-height: 55px;
-                            margin-left: 1.6rem;
-                            border-bottom: 1px solid #000;
-                            border-top: 0;
-                            border-left: 0;
-                            border-right: 0;
-                            border-radius: 0;
-                            padding: 2px 4px;
-                            font-family: inherit;
-                            font-size: 10pt;
-                            white-space: normal;
-                            overflow-wrap: break-word;
-                            "></textarea>
+                            <div class="checkbox-option">
+                                <label>
+                                    <input id="disapprove_checkbox" name="unit_head_recommendation" type="checkbox"
+                                        value="For disapproval due to" style="margin-right: 2px"
+                                        <?= $isDisapprovedRec ? 'checked' : '' ?> />
+
+                                    For disapproval due to</label>
+                                <textarea type="text" id="disapproval_due_to" name="disapproval_due_to" style="
+                                    width: 90%;
+                                    min-height: 55px;
+                                    margin-left: 1.6rem;
+                                    border-bottom: 1px solid #000;
+                                    border-top: 0;
+                                    border-left: 0;
+                                    border-right: 0;
+                                    border-radius: 0;
+                                    padding: 2px 4px;
+                                    font-family: inherit;
+                                    font-size: 10pt;
+                                    white-space: normal;
+                                    overflow-wrap: break-word;
+                                    <?= !$isDisapprovedRec ? 'disabled' : '' ?>
+                                "><?= e($unitHeadData['unit_head_recommendation']) ?></textarea>
+
+                            </div>
+
                         </div>
-                    </div>
-                    <div class="e-sign-container">
-                        <div class="e-sign-input" style="width: 100%">
-                            <hr style="width: 50%" />
-                            <label style="text-align: center">(Authorize Officer)</label>
+                        <div class="e-sign-container" style="display: block">
+                            <div id="sign-preview-wrapper" style="
+                                width: 150px;
+                                height: 100px;
+                                justify-content: center;
+                                align-items: center;
+                                align-self: center;
+                                justify-self: center;
+                                margin-top: -5rem;
+                                overflow: visible;
+                               display: <?= $unitHeadSignaturePath ? 'flex' : 'none' ?>;
+                            ">
+
+                                <?php if ($unitHeadSignaturePath): ?>
+                                <img id="unit-head-esign" src="<?= e($unitHeadSignaturePath) ?>"
+                                    alt="Unit head Signature" style="
+                                    max-width: 100%;
+                                    max-height: 100%;
+                                    object-fit: contain;
+                                    position: relative;
+                                    bottom: -30px;
+                                    display: block;
+
+                                " />
+                                <?php endif; ?>
+                            </div>
+                            <div class="e-sign-input" style="width: 100%">
+                                <?php if (!empty($unitHeadData['officer_name'])): ?>
+                                <p id="nameOfRecommendingOfficial" style="
+                                    text-transform: uppercase;
+                                    font-size: 12px;
+                                    font-weight: 600;
+                                    margin: 0;
+                                    padding: 0;
+                                "> <?= strtoupper(e($unitHeadData['officer_name'])) ?></p>
+
+
+                                <p id="positionOfRecommendingOfficial" style="font-size: 11px; margin: 0; padding: 0">
+                                    <?= e($unitHeadData['officer_position']) ?>
+                                </p>
+                                <?php endif; ?>
+
+                                <hr style="margin: 2px 0; justify-self: center; width: 50%" />
+                                <label style="text-align: center">(Authorize Officer)</label>
+
+                            </div>
                         </div>
-                    </div>
+                    </form>
                 </div>
             </div>
 

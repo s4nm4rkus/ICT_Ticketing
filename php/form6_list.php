@@ -9,8 +9,9 @@ if (!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] !== true) {
     exit;
 }
 
-// Get the current user's role
+// Get the current user's role and department for unit-head
 $role = $_SESSION['role'] ?? '';
+$userDepartment = $_SESSION['department'] ?? '';
 
 // Connect to DB
 $conn = new mysqli("localhost", "root", "", "ticket");
@@ -31,11 +32,12 @@ $requestedStatuses = explode(",", $statusParam);
 
 // Map roles to accessible statuses
 $roleAccess = [
+    'unit-head'    => ['For Recommendation', 'Approved', 'Disapproved'],
     'records'    => ['For Records Unit', 'Approved', 'Disapproved'],
     'personnel'  => ['For Personnel Unit', 'Approved', 'Disapproved'],
     'admin'      => ['For Admin Unit', 'Approved', 'Disapproved'],
     'asds-sds'   => ['For SDS/ASDS/Records', 'Approved', 'Disapproved'],
-    'ict'        => ['For Records Unit', 'For Personnel Unit', 'For Admin Unit', 'For SDS/ASDS/Records', 'Approved', 'Disapproved'],
+    'ict'        => ['For Recommendation','For Records Unit', 'For Personnel Unit', 'For Admin Unit', 'For SDS/ASDS/Records', 'Approved', 'Disapproved'],
 ];
 
 // Get allowed statuses for this role
@@ -49,14 +51,42 @@ if (!$statuses) {
     exit;
 }
 
-// Prepare placeholders for prepared statement
+// Prepare placeholders
 $placeholders = implode(",", array_fill(0, count($statuses), "?"));
-$sql = "SELECT * FROM form6_applicationforleave WHERE status IN ($placeholders) ORDER BY id DESC";
-$stmt = $conn->prepare($sql);
 
-// Bind params dynamically
-$typeStr = str_repeat("s", count($statuses));
-$stmt->bind_param($typeStr, ...$statuses);
+if ($role === 'unit-head') {
+
+    $userDepartment = $_SESSION['department'] ?? '';
+
+    $sql = "SELECT * FROM form6_applicationforleave 
+            WHERE (
+                status IN ($placeholders)
+                AND (
+                    status != 'For Recommendation'
+                    OR department = ?
+                )
+            )
+            ORDER BY id DESC";
+
+    $stmt = $conn->prepare($sql);
+
+    $typeStr = str_repeat("s", count($statuses)) . "s";
+    $params = array_merge($statuses, [$userDepartment]);
+
+    $stmt->bind_param($typeStr, ...$params);
+
+} else {
+
+    $sql = "SELECT * FROM form6_applicationforleave 
+            WHERE status IN ($placeholders) 
+            ORDER BY id DESC";
+
+    $stmt = $conn->prepare($sql);
+
+    $typeStr = str_repeat("s", count($statuses));
+    $stmt->bind_param($typeStr, ...$statuses);
+}
+
 
 $stmt->execute();
 $result = $stmt->get_result();

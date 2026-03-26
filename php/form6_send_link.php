@@ -90,20 +90,47 @@ try {
     $mail->setFrom($_SERVER['SMTP_USER'], 'SDO Tayabas');
     $mail->addAddress($data['email']);
 
+    $mail->isHTML(true);
 
-    $mail->Subject = 'Form 6 Application – Processed';
+    $mail->Subject = 'Form 6 Application Processed';
     $mail->Body = "
-Good day {$data['first_name']} {$data['last_name']},
+    <div style='font-family:Arial,sans-serif;font-size:14px;color:#eeeee;'>
+        <div style='width: 500px; height: color:#333'>
+            <p>Good day <strong>{$data['first_name']} {$data['last_name']}</strong>,</p>
 
-Your Application for Leave (Form 6) has been processed.
+            <p>Your <strong>Application for Leave (Form 6)</strong> has been processed.</p>
 
-You may view and print your form using the link below:
-$printLink
+            <p>You can securely view and print your form using the button below:</p>
 
-This link is personal. Please do not share it.
+            <p style='margin:25px 0'>
+            <a href='{$printLink}' 
+            style='
+            background:#2e6cff;
+            color:#fff;
+            padding:12px 22px;
+            border-radius:6px;
+            text-decoration:none;
+            font-weight:bold;
+            display:inline-block;
+            '>
+            View Form
+            </a>
+            </p>
 
-Thank you.
-";
+            <p><b>Important:</b> This link is private and intended only for you. Do not share it with others.</p>
+
+            <p>Thank you,<br>
+            Leave Management System</p>
+
+            <hr>
+            <p style='font-size:12px;color:#777'>
+            This is an automated system email. Replies are not monitored.
+            </p>
+
+        </div>
+    </div>
+    ";
+
 
     $mail->send();
 

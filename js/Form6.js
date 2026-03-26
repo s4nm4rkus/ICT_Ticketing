@@ -16,18 +16,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
   let specialLeaveBWSpec = document.getElementById("special_leave_BW_spec");
   let completionOfMastersDegree = document.getElementById(
-    "completion_of_masters_degree"
+    "completion_of_masters_degree",
   );
   let boardExamination = document.getElementById("BAR_Board_exam");
 
   // Part A (main leave options)
   let vacationLeave = document.getElementById("vacation_leave");
   let specialPrivilegeLeave = document.getElementById(
-    "special_privilege_leave"
+    "special_privilege_leave",
   );
   let sickLeave = document.getElementById("sick-leave");
   let specialLeaveBW = document.getElementById(
-    "special_leave_benefits_for_women"
+    "special_leave_benefits_for_women",
   );
   let studyLeave = document.getElementById("study_leave");
 
@@ -82,6 +82,7 @@ document.addEventListener("DOMContentLoaded", function () {
       el.value = "";
     });
   }
+
   // --- Toggle Special Leave BW (→ Part B: Specify Illness) ---
   function toggleSpecialLeaveBWSpec() {
     let enable = specialLeaveBW.checked;
@@ -158,8 +159,10 @@ document.addEventListener("DOMContentLoaded", function () {
           selectedOptions.push(cb.value);
         });
 
+      // FIX: Send literal "Others", not the custom text
       if (othersCheckbox.checked) {
-        selectedOptions.push(othersText.value.trim());
+        selectedOptions.push("Others");
+        formData.set("others_text", othersText.value.trim());
       }
 
       formData.delete("selectedOptions[]");
@@ -171,8 +174,18 @@ document.addEventListener("DOMContentLoaded", function () {
         method: "POST",
         body: formData,
       })
-        .then((response) => response.json())
+        .then(async (response) => {
+          const text = await response.text();
+          try {
+            return JSON.parse(text);
+          } catch {
+            console.error("Raw server response:", text);
+            throw new Error("Invalid JSON from server");
+          }
+        })
         .then((data) => {
+          console.log("Server response:", data);
+
           if (data.status === "success") {
             document.getElementById("myForm").reset();
             othersText.disabled = true;
@@ -188,13 +201,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 "https://forms.office.com/pages/responsepage.aspx?id=fgur1uNloUiDiyou2QxUpg56LmRXJX1Dtawq0RFTnpRUQjlCTEFOOFdRRFFHMjJHRTI0U0lVWE4zOC4u&route=shorturl";
             }, 2000);
           } else {
-            alert("Something went wrong. Please try again.");
-            console.error("Server response:", data);
+            alert(data.message || "Submission failed.");
           }
         })
         .catch((error) => {
           console.error("Error:", error);
-          alert("A network error occurred.");
+          alert("Server/network error occurred.");
         });
     });
 });

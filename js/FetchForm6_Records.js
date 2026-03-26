@@ -13,11 +13,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Fetch ALL related data
   fetchForm6Details(id);
+  fetchRecommendingOfficials(id);
   fetchChildForm(id);
   fetchAdminUpdate(id);
   fetchASDSSDSUpdate(id);
   fetchOtherDetails(id);
   setEsignForSDSorASDS(id);
+  fetchUnitHeadDetails(id);
 
   // Personnel update button
   const personnelUpdateBtn = document.querySelector(".personnel-update");
@@ -26,6 +28,13 @@ document.addEventListener("DOMContentLoaded", () => {
       e.preventDefault();
       submitChildForm();
     });
+  }
+
+  const unitHeadApproveBtn = document.getElementById(
+    "recommending-official-approve-btn",
+  );
+  if (unitHeadApproveBtn) {
+    unitHeadApproveBtn.addEventListener("click", handleUnitHeadApproveButton);
   }
 
   // Admin approve button
@@ -195,6 +204,68 @@ function fetchForm6Details(id) {
     .catch((error) => console.error("Error fetching form details:", error));
 }
 
+function fetchRecommendingOfficials(leave_id) {
+  fetch("php/form6_get_recommending_officials.php?id=" + leave_id)
+    .then((res) => res.json())
+    .then((data) => {
+      const nameEl = document.getElementById("nameOfRecommendingOfficial");
+      const posEl = document.getElementById("positionOfRecommendingOfficial");
+
+      if (!data || !data.officer_name) {
+        nameEl.innerText = "";
+        posEl.innerText = "";
+        document.getElementById("sign-preview-wrapper").style.display = "none";
+        return;
+      }
+
+      const officerName = data.officer_name;
+      console.log("Officer:", name);
+      nameEl.innerText = officerName.toUpperCase();
+      posEl.innerText = data.officer_position;
+
+      // ✅ LOAD SIGNATURE HERE
+      loadOfficerSignature(officerName);
+    })
+    .catch((err) => console.error("Authorizer fetch error:", err));
+}
+
+/* =========================================
+   Load Unit Head Signature
+========================================= */
+function loadOfficerSignature(name) {
+  const wrapper = document.getElementById("sign-preview-wrapper");
+  const img = document.getElementById("unit-head-esign");
+
+  if (!wrapper || !img) return;
+
+  wrapper.style.display = "none";
+
+  if (!name) return;
+
+  fetch(`php/get_esign_by_name.php?name=${encodeURIComponent(name)}`)
+    .then((res) => res.json())
+    .then((data) => {
+      if (!data.success || !data.file) {
+        wrapper.style.display = "none";
+        return;
+      }
+
+      img.src = "php/uploads/e_signatures/authorized personnels/" + data.file;
+
+      img.onload = () => {
+        wrapper.style.display = "block";
+      };
+
+      img.onerror = () => {
+        wrapper.style.display = "none";
+      };
+    })
+    .catch((err) => {
+      console.error("Signature fetch error:", err);
+      wrapper.style.display = "none";
+    });
+}
+
 /* ============================================
     WORKFLOW BUTTON SETTER
 ============================================ */
@@ -202,6 +273,9 @@ function setActionButton(button, id, status) {
   const updateBtn = document.querySelector(".personnel-update");
   const adminSignBtn = document.querySelector(".admin-approve-btn");
   const eSignInput = document.querySelector(".asds-sds-approve-btn");
+  const recommendationBtn = document.querySelector(
+    ".recommending-official-approve-btn",
+  );
 
   if (updateBtn)
     updateBtn.style.display =
@@ -211,6 +285,10 @@ function setActionButton(button, id, status) {
     adminSignBtn.style.display =
       status === "For Admin Unit" ? "inline-block" : "none";
 
+  if (recommendationBtn)
+    recommendationBtn.style.display =
+      status === "For Recommendation" ? "inline-block" : "none";
+
   eSignInput.style.display =
     status === "For SDS/ASDS/Records" ? "inline-block" : "none";
 
@@ -219,6 +297,11 @@ function setActionButton(button, id, status) {
   }
 
   switch (status) {
+    case "For Recommendation":
+      button.textContent = "Forward to Records Unit";
+      button.onclick = () => updateStatus(id, "For Records Unit", button);
+      break;
+
     case "For Records Unit":
       button.textContent = "Receive";
       button.onclick = () => updateStatus(id, "For Personnel Unit", button);
@@ -349,6 +432,273 @@ function fetchChildForm(parentId) {
 }
 
 /* ============================================
+  UNIT HEAD APPROVAL + UNSIGN WITH MODAL
+============================================ */
+
+let unitHeadPendingAction = null;
+
+/* ============================================
+  Handle Button Click
+============================================ */
+function handleUnitHeadApproveButton() {
+  const btn = document.getElementById("recommending-official-approve-btn");
+  const state = btn.getAttribute("data-state");
+
+  if (state === "processing") {
+    showUnitHeadModal("Are you sure you want to approve and sign?", "approve");
+  } else {
+    showUnitHeadModal(
+      "Are you sure you want to remove your signature?",
+      "unsign",
+    );
+  }
+}
+
+/* ============================================
+  Modal Controls
+============================================ */
+function showUnitHeadModal(message, actionType) {
+  document.getElementById("unitHeadConfirmText").innerText = message;
+  document.getElementById("unitHeadConfirmModal").style.display = "flex";
+  unitHeadPendingAction = actionType;
+}
+
+document
+  .getElementById("unitHeadconfirmNoBtn")
+  .addEventListener("click", () => {
+    document.getElementById("unitHeadConfirmModal").style.display = "none";
+    unitHeadPendingAction = null;
+  });
+
+document
+  .getElementById("unitHeadconfirmYesBtn")
+  .addEventListener("click", () => {
+    document.getElementById("unitHeadConfirmModal").style.display = "none";
+
+    if (unitHeadPendingAction === "approve") submitUnitHeadApproval();
+    if (unitHeadPendingAction === "unsign") submitUnitHeadUnsign();
+
+    unitHeadPendingAction = null;
+  });
+
+/* ============================================
+  Submit Approval
+============================================ */
+function submitUnitHeadApproval() {
+  const parentId = document.getElementById("form_id").value;
+  const formData = new FormData();
+
+  formData.append("parent_id", parentId);
+  formData.append("unit_head_esign", "signed");
+
+  const disapproveCheckbox = document.getElementById("disapprove_checkbox");
+  const disapprovalTextarea = document.getElementById("disapproval_due_to");
+
+  if (disapproveCheckbox && disapproveCheckbox.checked) {
+    const reason = disapprovalTextarea ? disapprovalTextarea.value.trim() : "";
+    if (!reason) {
+      alert("Please provide a reason for disapproval.");
+      if (disapprovalTextarea) disapprovalTextarea.focus();
+      return;
+    }
+    formData.append(
+      "unit_head_recommendation",
+      "For disapproval due to: " + reason,
+    );
+  } else {
+    formData.append("unit_head_recommendation", "For Approval");
+  }
+
+  fetch("php/F6submit_unithead_update.php", {
+    method: "POST",
+    body: formData,
+  })
+    .then((res) => res.text())
+    .then((text) => {
+      let data;
+      try {
+        data = JSON.parse(text);
+      } catch (e) {
+        alert("Invalid JSON:\n\n" + text);
+        return;
+      }
+      if (!data.success) {
+        alert("Error: " + (data.error || data.message));
+        return;
+      }
+      alert("Unit Head approval recorded successfully!");
+      setUnitHeadButtonState("signed");
+      fetchUnitHeadDetails(parentId);
+    })
+    .catch((err) => console.error("Error submitting Unit Head approval:", err));
+}
+
+/* ============================================
+  Submit Unsign
+============================================ */
+function submitUnitHeadUnsign() {
+  const parentId = document.getElementById("form_id").value;
+  const formData = new FormData();
+
+  formData.append("parent_id", parentId);
+  formData.append("unit_head_esign", "processing");
+  formData.append("unit_head_recommendation", "");
+
+  fetch("php/F6submit_unithead_update.php", {
+    method: "POST",
+    body: formData,
+  })
+    .then((res) => res.text())
+    .then((text) => {
+      let data;
+      try {
+        data = JSON.parse(text);
+      } catch (e) {
+        alert("Invalid JSON:\n\n" + text);
+        return;
+      }
+      if (!data.success) {
+        alert("Error: " + (data.error || data.message));
+        return;
+      }
+      alert("Signature removed.");
+      setUnitHeadButtonState("processing");
+      fetchUnitHeadDetails(parentId);
+    })
+    .catch((err) => console.error("Fetch error:", err));
+}
+
+/* ============================================
+  Button State (Like ASDS/SDS)
+============================================ */
+function setUnitHeadButtonState(state) {
+  const btn = document.getElementById("recommending-official-approve-btn");
+  const eSignWrapper = document.getElementById("unit_head_esign_wrapper");
+
+  if (state === "signed") {
+    btn.innerText = "Unsigned";
+    btn.style.background = "#ff5252";
+    btn.setAttribute("data-state", "signed");
+    if (eSignWrapper) eSignWrapper.style.display = "inline-block";
+  } else {
+    btn.innerText = "Sign";
+    btn.style.background = "#2291ff";
+    btn.setAttribute("data-state", "processing");
+    if (eSignWrapper) eSignWrapper.style.display = "none";
+  }
+}
+
+/* ============================================
+  Fetch Current Unit Head Status
+============================================ */
+function fetchUnitHeadDetails(parentId) {
+  fetch(`php/fetch_form6_signatories_updates.php?parent_id=${parentId}`)
+    .then((res) => res.json())
+    .then((data) => {
+      if (!data.success) {
+        console.error(data.error);
+        return;
+      }
+
+      const child = data.data;
+
+      if (!child) return;
+      let status = (child.unit_head_esign || "").toLowerCase().trim();
+
+      const isSigned =
+        status.includes("approved") ||
+        status.includes("signed") ||
+        status.includes("approve");
+
+      setUnitHeadButtonState(isSigned ? "signed" : "processing");
+
+      const signWrapper = document.getElementById("unit-head-esign");
+
+      if (signWrapper) {
+        signWrapper.style.display = isSigned ? "block" : "none";
+      }
+
+      const recommendation = child.unit_head_recommendation || "";
+      const approvalCheckbox = document.getElementById("approval_checkbox");
+      const disapproveCheckbox = document.getElementById("disapprove_checkbox");
+      const textarea = document.getElementById("disapproval_due_to");
+
+      if (recommendation.startsWith("For disapproval")) {
+        disapproveCheckbox.checked = true;
+        approvalCheckbox.checked = false;
+
+        textarea.disabled = false;
+
+        const parts = recommendation.split(":");
+        if (parts.length > 1) {
+          textarea.value = parts.slice(1).join(":").trim();
+        }
+      } else if (recommendation === "For Approval") {
+        approvalCheckbox.checked = true;
+        disapproveCheckbox.checked = false;
+
+        textarea.disabled = true;
+        textarea.value = "";
+      }
+
+      const actionButton = document.querySelector(".print-btn");
+
+      const currentProcessStatus = (child.parent_status || "")
+        .toLowerCase()
+        .trim();
+
+      const currentProcessRecommendation = (
+        child.unit_head_recommendation || ""
+      )
+        .toLowerCase()
+        .trim();
+
+      const isRecommendationStage =
+        currentProcessStatus === "for recommendation";
+
+      const isUnitHeadRecommendation =
+        currentProcessRecommendation.startsWith("for disapproval");
+
+      if (actionButton && (isUnitHeadRecommendation || isRecommendationStage)) {
+        actionButton.onclick = null;
+
+        if (isUnitHeadRecommendation) {
+          actionButton.disabled = false;
+          actionButton.style.pointerEvents = "auto";
+          actionButton.style.opacity = "1";
+          actionButton.style.background = "";
+          actionButton.style.cursor = "pointer";
+          actionButton.textContent = "Return";
+          actionButton.onclick = () => handleReturnAction(parentId);
+        } else if (isRecommendationStage) {
+          actionButton.disabled = !isSigned;
+          actionButton.style.pointerEvents = isSigned ? "auto" : "none";
+          actionButton.style.opacity = isSigned ? "1" : "0.5";
+          actionButton.style.background = isSigned ? "" : "grey";
+          actionButton.style.cursor = isSigned ? "pointer" : "not-allowed";
+          actionButton.textContent = "Forward to Records Unit";
+
+          // ✅ THIS is the missing part — assign the onclick when signed
+          if (isSigned) {
+            actionButton.onclick = () =>
+              updateStatus(parentId, "For Records Unit", actionButton);
+          }
+        }
+      }
+    })
+    .catch((err) => console.error("Fetch error:", err));
+}
+
+function handleReturnAction(parentId) {
+  if (!confirm("Return this application to employee?")) return;
+
+  sendFileToEmail(parentId); // 🔥 your function call
+
+  console.log("Returned ID:", parentId);
+  alert("Application returned and email sent.");
+}
+
+/* ============================================
     ADMIN APPROVAL + UNSIGN WITH MODAL
 ============================================ */
 let pendingAction = null;
@@ -394,7 +744,7 @@ function submitAdminApproval() {
   const parentId = document.getElementById("form_id").value;
 
   formData.append("parent_id", parentId);
-  formData.append("admin_esign", "Approved & Signed");
+  formData.append("admin_esign", "signed");
 
   fetch("php/F6submit_admin_update_leave.php", {
     method: "POST",
@@ -451,7 +801,7 @@ function setApproveButtonState(state) {
     btn.setAttribute("data-state", "signed");
     if (adminEsignWrapper) adminEsignWrapper.style.display = "inline-block";
   } else {
-    btn.innerText = "Approve & Sign";
+    btn.innerText = "Sign";
     btn.style.background = "#2291ff";
     btn.setAttribute("data-state", "processing");
     if (adminEsignWrapper) adminEsignWrapper.style.display = "none";
@@ -552,7 +902,7 @@ function submitASDSApproval() {
   // Prepare FormData
   const formData = new FormData();
   formData.append("parent_id", parentId);
-  formData.append("asds_sds_esign", "Approved & Signed");
+  formData.append("asds_sds_esign", "signed");
   formData.append("approve_for_days_with_pay", daysWithPay);
   formData.append("approve_for_days_without_pay", daysWithoutPay);
   formData.append("approve_for_others", others);
@@ -616,7 +966,7 @@ function setASDSSDSButtonState(state) {
     btn.setAttribute("data-state", "signed");
     eSign.style.display = "inline-block";
   } else {
-    btn.innerText = "Approve & Sign";
+    btn.innerText = "Sign";
     btn.style.background = "#2291ff";
     btn.setAttribute("data-state", "processing");
     eSign.style.display = "none";
@@ -766,11 +1116,11 @@ async function handleCompleteAction(parentId, button) {
 
     const adminSign = normalize(data.data.admin_esign);
     const asdsSign = normalize(data.data.asds_sds_esign);
+    const disapprovalReason = normalize(data.data.disapproved_due_to);
 
-    let newStatus =
-      adminSign === "approved & signed" && asdsSign === "approved & signed"
-        ? "Approved"
-        : "Disapproved";
+    const allSigned = adminSign === "signed" && asdsSign === "signed";
+    const hasDisapproval = disapprovalReason !== "";
+    const newStatus = allSigned && !hasDisapproval ? "Approved" : "Disapproved";
 
     // 2. Update status in database
     const formData = new FormData();
@@ -788,7 +1138,9 @@ async function handleCompleteAction(parentId, button) {
       console.error("Failed to update status:", updateData.error);
       return;
     }
-    sendFileToEmail(parentId);
+    if (newStatus === "Approved" || newStatus === "Disapproved") {
+      sendFileToEmail(parentId);
+    }
 
     // 4. Show info modal
     showInfoModal(

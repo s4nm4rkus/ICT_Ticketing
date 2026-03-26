@@ -1,0 +1,423 @@
+/* ============================================================
+   admin-content.css
+   Scoped styles for the Admin ICT page — cards & content only.
+   Covers: stat boxes, chart box, image form cards, form6 card.
+   All header, banner, footer, gov-logos remain in admin.css.
+   ============================================================ */
+
+@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap");
+
+/* ── CSS Variables ─────────────────────────────────────────── */
+:root {
+  --a-font-display: "Libre Baskerville", Georgia, serif;
+  --a-font-body: "DM Sans", sans-serif;
+
+  --a-bg: #f0f4f8;
+  --a-surface: #ffffff;
+  --a-border: #e2e8f0;
+
+  --a-accent: #1a56db;
+  --a-accent-soft: #dbeafe;
+
+  --a-stat-ict: #1a56db;
+  --a-stat-dts: #0e9f6e;
+  --a-stat-email: #d97706;
+  --a-stat-help: #7c3aed;
+
+  --a-text-head: #0f172a;
+  --a-text-body: #475569;
+  --a-text-muted: #94a3b8;
+
+  --a-form6-bg: #0f2d6b;
+  --a-form6-hover: #1a3d8c;
+
+  --a-radius: 12px;
+  --a-shadow:
+    0 2px 8px rgba(15, 23, 42, 0.07), 0 0 0 1px rgba(15, 23, 42, 0.05);
+  --a-shadow-hover:
+    0 8px 24px rgba(15, 23, 42, 0.13), 0 0 0 1px rgba(26, 86, 219, 0.15);
+  --a-transition: 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── Section titles ─────────────────────────────────────────── */
+.admin-ict-title,
+.admin-title {
+  font-family: var(--a-font-display) !important;
+  font-size: 1.6rem !important;
+  font-weight: 700 !important;
+  color: var(--a-text-head) !important;
+  text-align: center !important;
+  letter-spacing: -0.01em !important;
+  padding-bottom: 14px !important;
+  position: relative;
+}
+
+.admin-ict-title::after,
+.admin-title::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 3px;
+  background: #f85461;
+  border-radius: 999px;
+  margin: 10px auto 0;
+}
+
+/* ── Generate Report button ─────────────────────────────────── */
+.record-btn {
+  font-family: var(--a-font-body) !important;
+  font-size: 0.85rem !important;
+  font-weight: 600 !important;
+  color: var(--a-accent) !important;
+  background-color: var(--a-accent-soft) !important;
+  border: 1px solid rgba(26, 86, 219, 0.25) !important;
+  padding: 9px 20px !important;
+  border-radius: 999px !important;
+  cursor: pointer;
+  display: block !important;
+  margin-left: auto !important;
+  margin-right: 60px !important;
+  margin-bottom: 28px !important;
+  transition:
+    background-color var(--a-transition),
+    color var(--a-transition),
+    transform var(--a-transition) !important;
+}
+
+.record-btn:hover {
+  background-color: var(--a-accent) !important;
+  color: #fff !important;
+  transform: scale(1.03) !important;
+}
+
+.record-btn:active {
+  transform: scale(0.97) !important;
+}
+
+/* ════════════════════════════════════════════════════════════
+   STAT BOXES
+   ════════════════════════════════════════════════════════════ */
+.stats-container {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 16px;
+  width: 220px;
+  flex-shrink: 0;
+  margin-left: 60px;
+}
+
+.stat-box {
+  font-family: var(--a-font-body) !important;
+  background-color: var(--a-surface) !important;
+  border-radius: var(--a-radius) !important;
+  border: 1px solid var(--a-border) !important;
+  box-shadow: var(--a-shadow) !important;
+  padding: 22px 20px 22px 26px !important;
+  width: 100% !important;
+  text-align: left !important;
+  cursor: pointer;
+  transition:
+    transform var(--a-transition),
+    box-shadow var(--a-transition) !important;
+  position: relative;
+  overflow: hidden;
+}
+
+/* coloured left accent stripe per stat */
+.stat-box::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  border-radius: var(--a-radius) 0 0 var(--a-radius);
+}
+
+#ict-stat::before {
+  background: var(--a-stat-ict);
+}
+#dts-stat::before {
+  background: var(--a-stat-dts);
+}
+#email-stat::before {
+  background: var(--a-stat-email);
+}
+#help-stat::before {
+  background: var(--a-stat-help);
+}
+
+.stat-box:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: var(--a-shadow-hover) !important;
+}
+
+.stat-title {
+  font-size: 0.75rem !important;
+  font-weight: 500 !important;
+  color: var(--a-text-muted) !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.07em !important;
+  line-height: 1.4 !important;
+  margin-bottom: 8px !important;
+}
+
+.stat-number {
+  font-size: 2.4rem !important;
+  font-weight: 700 !important;
+  color: var(--a-text-head) !important;
+  line-height: 1 !important;
+  margin: 4px 0 6px !important;
+}
+
+/* "Submission" label beneath the number */
+.stat-box > div:last-child {
+  font-size: 0.75rem !important;
+  color: var(--a-text-muted) !important;
+  font-weight: 400 !important;
+}
+
+/* ════════════════════════════════════════════════════════════
+   CHART BOX
+   ════════════════════════════════════════════════════════════ */
+.chart-container {
+  flex: 1;
+  min-height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  margin-right: 60px;
+  margin-left: 24px;
+  margin-top: 0;
+}
+
+.chart-box {
+  width: 100% !important;
+  min-height: 460px !important;
+  background-color: var(--a-surface) !important;
+  border-radius: var(--a-radius) !important;
+  border: 1px solid var(--a-border) !important;
+  box-shadow: var(--a-shadow) !important;
+  padding: 28px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ════════════════════════════════════════════════════════════
+   IMAGE FORM CARDS
+   ════════════════════════════════════════════════════════════ */
+.card {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 22px !important;
+  justify-items: stretch !important;
+  padding: 0 60px !important;
+  margin-bottom: 8px !important;
+}
+
+.admin-form-card {
+  display: flex !important;
+  flex-direction: column !important;
+  background-color: var(--a-surface) !important;
+  border-radius: var(--a-radius) !important;
+  overflow: hidden !important;
+  border: 1px solid var(--a-border) !important;
+  box-shadow: var(--a-shadow) !important;
+  text-decoration: none !important;
+  color: var(--a-text-head) !important;
+  width: 100% !important;
+  margin: 0 !important;
+  transition:
+    transform var(--a-transition),
+    box-shadow var(--a-transition) !important;
+  position: relative;
+}
+
+/* top highlight strip revealed on hover */
+.admin-form-card::after {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--a-accent), #60a5fa);
+  opacity: 0;
+  transition: opacity var(--a-transition);
+}
+
+.admin-form-card:hover {
+  transform: translateY(-6px) !important;
+  box-shadow: var(--a-shadow-hover) !important;
+}
+
+.admin-form-card:hover::after {
+  opacity: 1;
+}
+
+.admin-card-image {
+  width: 100% !important;
+  height: 170px !important;
+  min-width: unset !important;
+  object-fit: cover !important;
+  display: block;
+  transition: transform 0.35s ease;
+}
+
+.admin-form-card:hover .admin-card-image {
+  transform: scale(1.04);
+}
+
+.admin-card-content {
+  padding: 18px 20px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-grow: 1 !important;
+  background-color: var(--a-surface);
+  border-top: 1px solid var(--a-border);
+}
+
+.admin-card-title {
+  font-family: var(--a-font-body) !important;
+  font-size: 0.9rem !important;
+  font-weight: 600 !important;
+  color: var(--a-text-head) !important;
+  text-align: center !important;
+  width: 100% !important;
+  line-height: 1.45 !important;
+}
+
+/* ── HR divider ─────────────────────────────────────────────── */
+hr,
+hr.hr-forms,
+.container hr {
+  width: 48px !important;
+  border: none !important;
+  border-top: 2px solid var(--a-border) !important;
+  margin: 2.5rem auto !important;
+}
+
+/* ════════════════════════════════════════════════════════════
+   CS FORM 6 CARD
+   ════════════════════════════════════════════════════════════ */
+.cards-section-2 {
+  display: flex !important;
+  padding: 0 60px !important;
+  margin-bottom: 2.5rem !important;
+}
+
+.card-forms-form6 {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 24px !important;
+  width: 560px !important;
+  height: auto !important;
+  min-height: 110px !important;
+  padding: 26px 36px !important;
+  background-color: var(--a-form6-bg) !important;
+  border-radius: var(--a-radius) !important;
+  border: none !important;
+  box-shadow: 0 4px 16px rgba(15, 45, 107, 0.28) !important;
+  cursor: pointer;
+  transition:
+    transform var(--a-transition),
+    box-shadow var(--a-transition),
+    background-color var(--a-transition) !important;
+  overflow: hidden;
+  position: relative;
+}
+
+.card-forms-form6::before {
+  content: "";
+  position: absolute;
+  right: -24px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 90px;
+  height: 90px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.card-forms-form6:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 12px 28px rgba(15, 45, 107, 0.36) !important;
+  background-color: var(--a-form6-hover) !important;
+}
+
+.card-forms-form6 i {
+  font-size: 2.4rem !important;
+  color: rgba(255, 255, 255, 0.45) !important;
+  flex-shrink: 0;
+  margin-bottom: 0 !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+  transition: color var(--a-transition);
+}
+
+.card-forms-form6:hover i {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.card-forms-form6 h2 {
+  font-family: var(--a-font-body) !important;
+  font-size: 0.95rem !important;
+  font-weight: 500 !important;
+  color: #ffffff !important;
+  text-align: left !important;
+  margin: 0 !important;
+  line-height: 1.55 !important;
+  letter-spacing: 0.01em !important;
+}
+
+/* ── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 1200px) {
+  .card {
+    grid-template-columns: repeat(2, 1fr) !important;
+    padding: 0 40px !important;
+  }
+  .cards-section-2 {
+    padding: 0 40px !important;
+  }
+  .stats-container {
+    margin-left: 40px;
+  }
+  .chart-container {
+    margin-right: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .card {
+    grid-template-columns: 1fr !important;
+    padding: 0 20px !important;
+  }
+  .cards-section-2 {
+    padding: 0 20px !important;
+  }
+  .card-forms-form6 {
+    width: 100% !important;
+  }
+  .stats-container {
+    width: 100%;
+    margin-left: 0;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .stat-box {
+    width: calc(50% - 6px) !important;
+  }
+  .record-btn {
+    margin-right: 20px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .stat-box {
+    width: 100% !important;
+  }
+}

@@ -1,6 +1,7 @@
 <?php
 session_start();
 
+
 $conn = new mysqli('localhost', 'root', '', 'ticket');
 
 if ($conn->connect_error) {
@@ -11,7 +12,7 @@ $username = $_POST['username'];
 $password = $_POST['password'];
 
 // Fetch user including the role
-$stmt = $conn->prepare("SELECT userid, username, role FROM adminLogin WHERE BINARY username = ? AND BINARY password = ?");
+$stmt = $conn->prepare("SELECT userid, username, role, department FROM adminLogin WHERE BINARY username = ? AND BINARY password = ?");
 $stmt->bind_param("ss", $username, $password);
 $stmt->execute();
 $result = $stmt->get_result();
@@ -22,8 +23,12 @@ if ($result->num_rows > 0) {
     // Store role in session
     $_SESSION['username'] = $user['username']; 
     $_SESSION['userID']   = $user['userid'];   
-    $_SESSION['role']     = $user['role'];     // <-- important!
+    $_SESSION['role']     = $user['role'];
+    $_SESSION['department'] = $user['department'];     // <-- important!
     $_SESSION['loggedIn'] = true; 
+
+    // var_dump($_SESSION);
+    // exit;
 
     header("Location: admin.php"); 
     exit();

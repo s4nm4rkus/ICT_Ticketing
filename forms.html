@@ -1,9 +1,11 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="css/styles.css" />
+    <!-- New modernized content styles (cards only) -->
+    <link rel="stylesheet" type="text/css" href="css/forms-content.css" />
     <link rel="stylesheet" href="fontawesome/css/all.min.css" />
 
     <title>Forms - ICT Department</title>
@@ -16,12 +18,12 @@
           <h1>SDO Tayabas</h1>
         </div>
         <nav>
-          <a href="ICTRequestForm.html">Home</a>
+          <a href="index.html">Home</a>
           <a href="forms.html" class="active">Forms</a>
           <a href="about.html">About</a>
           <a href="message_us.html" class="message-btn">Message Us</a>
         </nav>
-        <button class="admin-btn" onclick="location.href='login.html'">
+        <button class="admin-btn" onclick="location.href = 'login.html'">
           Admin
         </button>
       </header>
@@ -57,60 +59,52 @@
         </div>
       </div>
     </div>
+
     <div class="container">
       <div class="main-content">
-        <h2
-          class="page-title"
-          style="
-            padding-bottom: 10px;
-            margin-bottom: 80px;
-            width: 180px;
-            justify-self: center;
-            border-bottom: solid 3px #f85461;
-            font-size: 1.8rem;
-            font-weight: 400;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-          "
-        >
-          ICT Forms
-        </h2>
-        <div class="cards-section" style="gap: 30px">
+        <!-- Page title -->
+        <h2 class="page-title">ICT Forms</h2>
+
+        <!-- Primary form cards -->
+        <div class="cards-section">
           <div
             class="card-forms"
-            onclick="location.href='technical_assistance.html'"
+            onclick="location.href = 'technical_assistance.html'"
           >
             <i class="fas fa-tools"></i>
-            <h2 style="margin-top: 25px">ICT Technical Assistance Form</h2>
+            <h2>ICT Technical Assistance Form</h2>
           </div>
-          <div class="card-forms" onclick="location.href='DTS.html'">
-            <i
-              class="fas fa-file-alt"
-              style="font-size: 2.9rem; padding-left: 30px; padding-right: 30px"
-            ></i>
-            <h2 style="margin-top: 25px">DTS Request Form</h2>
+
+          <div class="card-forms" onclick="location.href = 'DTS.html'">
+            <i class="fas fa-file-alt"></i>
+            <h2>DTS Request Form</h2>
           </div>
-          <div class="card-forms" onclick="location.href='email.html'">
+
+          <div class="card-forms" onclick="location.href = 'email.html'">
             <i class="fas fa-envelope-open-text"></i>
-            <h2 style="margin-top: 25px">Email Request Form</h2>
+            <h2>Email Request Form</h2>
           </div>
-          <div class="card-forms" onclick="location.href='Helpdesk.html'">
+
+          <div class="card-forms" onclick="location.href = 'Helpdesk.html'">
             <i class="fas fa-headset"></i>
-            <h2 style="margin-top: 25px">Help Desk Form</h2>
+            <h2>Help Desk Form</h2>
           </div>
         </div>
+
         <hr class="hr-forms" />
-        <div class="cards-section-2" style="gap: 30px">
-          <div class="card-forms-form6" onclick="location.href='form_6.html'">
+
+        <h2 class="page-title">HR Forms</h2>
+
+        <!-- Secondary / document forms -->
+        <div class="cards-section-2">
+          <div class="card-forms-form6" onclick="location.href = 'form_6.html'">
             <i class="fas fa-file-signature"></i>
-            <h2 style="text-align: left; margin-left: 20px">
-              CS Form No. 6 - Leave Form Revised 2020
-              <!-- <span><p>(Form 6)</p></span> -->
-            </h2>
+            <h2>CS Form No. 6 &mdash; Leave Form Revised 2020</h2>
           </div>
         </div>
       </div>
     </div>
+
     <div class="gov-logos">
       <div class="logo-container">
         <img
@@ -119,7 +113,6 @@
           style="width: 110px; height: auto"
         />
       </div>
-
       <div class="logo-container">
         <img
           src="./Images/depedlogo_noborder.png"
@@ -127,24 +120,22 @@
           style="width: 140px; height: auto"
         />
       </div>
-
       <div class="logo-container">
         <img
           src="./Images/newpilipinaslogo_noborder.png"
           alt="Bagong Pilipinas Logo"
         />
       </div>
-
       <div class="logo-container">
         <img src="./Images/freedom.png" alt="Freedom of Information Logo" />
       </div>
     </div>
+
     <footer class="footer">
-      <p>Copyright © 2025 Ticketing. All Rights Reserved</p>
-      <div class="developer-credits">
-        <!--  <p>Developed by: Angela Faith M. Salazar and Arien R. Peredo</p> -->
-      </div>
+      <p>Copyright &copy; 2025 Ticketing. All Rights Reserved</p>
+      <div class="developer-credits"></div>
     </footer>
+
     <script src="js/calendar.js"></script>
     <script src="js/transition.js"></script>
   </body>

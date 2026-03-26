@@ -1,11 +1,19 @@
 document.addEventListener("DOMContentLoaded", function () {
   // Define which tables each role can access
   const roleAccess = {
+    "unit-head": ["recommendation", "processed"],
     records: ["records", "processed"],
     personnel: ["personnel", "processed"],
     admin: ["admin", "processed"],
     "asds-sds": ["sds", "processed"],
-    ict: ["records", "personnel", "admin", "sds", "processed"],
+    ict: [
+      "recommendation",
+      "records",
+      "personnel",
+      "admin",
+      "sds",
+      "processed",
+    ],
   };
 
   // USER_ROLE comes from admin.php <script> tag
@@ -13,6 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Hide all sections by default
   const sections = {
+    recommendation: document.querySelector(".recommendation-section"),
     records: document.querySelector(".records-section"),
     personnel: document.querySelector(".personnel-section"),
     admin: document.querySelector(".admin-section"),
@@ -30,6 +39,9 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // Fetch tickets only for allowed sections
+  if (allowed.includes("recommendation")) {
+    fetchTickets("For Recommendation", ".recommendation-tickets");
+  }
   if (allowed.includes("records")) {
     fetchTickets("For Records Unit", ".records-tickets");
   }

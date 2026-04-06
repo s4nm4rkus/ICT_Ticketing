@@ -1,7 +1,6 @@
 <?php
 header('Content-Type: application/json');
-$conn = new mysqli("localhost", "root", "", "ticket");
-
+$conn = new mysqli("localhost", "u155592346_usr_icthub", "+kuydZ4M", "u155592346_db_icthub");
 // Collect POST data
 $parent_id = $_POST['parent_id'] ?? null;
 $asds_sds_esign = $_POST['asds_sds_esign'] ?? null;

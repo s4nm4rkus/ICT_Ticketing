@@ -5,8 +5,7 @@ error_reporting(E_ALL);
 // =======================
 // DATABASE CONNECTION
 // =======================
-$conn = new mysqli("localhost", "root", "", "ticket");
-if ($conn->connect_error) {
+$conn = new mysqli("localhost", "u155592346_usr_icthub", "+kuydZ4M", "u155592346_db_icthub");if ($conn->connect_error) {
     die("DB connection failed: " . $conn->connect_error);
 }
 

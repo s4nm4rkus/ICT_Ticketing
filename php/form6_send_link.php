@@ -26,8 +26,7 @@ $formId = (int) $_POST['id'];
 /* =======================
    DATABASE
 ======================= */
-$conn = new mysqli("localhost", "root", "", "ticket");
-if ($conn->connect_error) {
+$conn = new mysqli("localhost", "u155592346_usr_icthub", "+kuydZ4M", "u155592346_db_icthub");if ($conn->connect_error) {
     echo json_encode(['success' => false, 'message' => 'DB connection failed']);
     exit;
 }

@@ -3,7 +3,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 // header('Content-Type: application/json');
-$conn = new mysqli('localhost', 'root', '', 'ticket');
+$conn = new mysqli('localhost', 'u155592346_usr_icthub', '+kuydZ4M', 'u155592346_db_icthub');
 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);

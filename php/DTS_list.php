@@ -1,5 +1,5 @@
 <?php
-$conn = new mysqli('localhost', 'root', '', 'ticket');
+$conn = new mysqli('localhost', 'u155592346_usr_icthub', '+kuydZ4M', 'u155592346_db_icthub');
 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);

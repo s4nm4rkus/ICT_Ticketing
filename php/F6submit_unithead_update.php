@@ -3,8 +3,7 @@ error_reporting(0);
 ini_set('display_errors', 0);
 header('Content-Type: application/json');
 
-$conn = new mysqli("localhost", "root", "", "ticket");
-
+$conn = new mysqli("localhost", "u155592346_usr_icthub", "+kuydZ4M", "u155592346_db_icthub");
 $parent_id = $_POST['parent_id'] ?? null;
 $unit_head_esign = $_POST['unit_head_esign'] ?? '';
 $unit_head_recommendation = $_POST['unit_head_recommendation'] ?? '';

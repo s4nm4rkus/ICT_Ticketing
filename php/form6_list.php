@@ -14,8 +14,7 @@ $role = $_SESSION['role'] ?? '';
 $userDepartment = $_SESSION['department'] ?? '';
 
 // Connect to DB
-$conn = new mysqli("localhost", "root", "", "ticket");
-if ($conn->connect_error) {
+$conn = new mysqli("localhost", "u155592346_usr_icthub", "+kuydZ4M", "u155592346_db_icthub");if ($conn->connect_error) {
     echo json_encode([]);
     exit;
 }

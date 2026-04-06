@@ -1,7 +1,6 @@
 <?php
 header('Content-Type: application/json');
-$conn = new mysqli("localhost", "root", "", "ticket");
-
+$conn = new mysqli("localhost", "u155592346_usr_icthub", "+kuydZ4M", "u155592346_db_icthub");
 if ($conn->connect_error) {
     echo json_encode(['success' => false, 'error' => 'Database connection failed: ' . $conn->connect_error]);
     exit;

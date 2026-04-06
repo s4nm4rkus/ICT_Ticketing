@@ -1,8 +1,7 @@
 <?php
 header('Content-Type: application/json');
 
-$conn = new mysqli("localhost", "root", "", "ticket");
-
+$conn = new mysqli("localhost", "u155592346_usr_icthub", "+kuydZ4M", "u155592346_db_icthub");
 $token = $_GET['token'] ?? '';
 
 $stmt = $conn->prepare("
